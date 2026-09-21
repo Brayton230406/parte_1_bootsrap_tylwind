@@ -1,193 +1,172 @@
-# Auditoría de accesibilidad, UX y diseño responsive
+# Auditoría de la página web Mar de Fondo
 
-**Alcance:** revisión no destructiva de `index.html`, `styles.css` y `script.js`.
+**Fecha:** 21 de septiembre de 2026
+**Repositorio:** [parte_1_bootsrap_tylwind](https://github.com/Brayton230406/parte_1_bootsrap_tylwind)
+**Commit auditado:** `7c9b0a8`
+**Alcance:** página original, variante online, variante offline, accesibilidad, responsive, pruebas automatizadas y pipeline CI/CD.
 
-**Criterios:** WCAG 2.2 AA, estructura semántica, navegación por teclado, nombres accesibles, imágenes, contraste, objetivos táctiles, comportamiento responsive y errores JavaScript.
+## 1. Resumen ejecutivo
 
-**Viewports probados:** 320 px, 390 px, 768 px y 1440 px de ancho.
+La implementación contiene tres entradas HTML:
 
-## Resumen ejecutivo
+- `index.html`: versión original de la página.
+- `online.html`: versión con Bootstrap 5.3.3 y Tailwind cargados desde CDN.
+- `offline.html`: versión con copias locales de Bootstrap y Tailwind, sin depender de CDN ni de imágenes remotas para sus fondos visuales.
 
-La página tiene una base semántica y responsive sólida. La jerarquía de encabezados es coherente, la navegación móvil utiliza un botón real con `aria-expanded` y `aria-controls`, no se detectó overflow horizontal y no aparecieron errores JavaScript durante la ejecución.
+Las variantes nuevas comparten contenido, estilos propios, navegación, formulario y comportamiento JavaScript. La validación HTML, las pruebas responsive, la auditoría automatizada WCAG 2.2 AA y las pruebas funcionales de ambas variantes finalizaron correctamente.
 
-Se identificaron dos incumplimientos verificables de contraste, una implementación de imágenes poco robusta para accesibilidad y producción, un formulario que simula el envío sin registrar una reserva real y varias mejoras de foco y objetivos táctiles. Los problemas de mayor impacto para usuarios finales son el contraste de botones/textos coral y la falsa confirmación del formulario.
+**Resultado general:** aprobado para revisión funcional y despliegue estático, con pendientes de producción relacionados principalmente con la conexión real del formulario, datos de negocio e imágenes definitivas.
 
-## Hallazgos críticos
+## 2. Arquitectura auditada
 
-No se identificaron hallazgos críticos con la evidencia disponible.
+| Componente | Responsabilidad |
+| --- | --- |
+| `online.html` | Entrada online con Bootstrap y Tailwind desde CDN |
+| `offline.html` | Entrada offline con dependencias locales |
+| `index.html` | Entrada original conservada |
+| `styles.css` | Diseño visual, layout, responsive y animaciones |
+| `a11y.css` | Contraste corregido, foco visible y objetivos táctiles |
+| `offline-assets.css` | Fondos locales de respaldo para la variante offline |
+| `script.js` | Menú móvil, foco, Escape y confirmación visual del formulario |
+| `vendor/` | Copias locales de Bootstrap y Tailwind |
+| `tests/` | Validación HTML, accesibilidad, responsive y variantes |
+| `.github/workflows/ci-cd.yml` | Integración continua y despliegue a GitHub Pages |
 
-## Hallazgos altos
+## 3. Criterios y entorno de prueba
 
-### A-01: Contraste insuficiente en botones y textos coral
+- HTML5 mediante `html-validate`.
+- Accesibilidad automatizada con `@axe-core/playwright`.
+- Playwright con Chromium.
+- Viewports responsive: 320, 390, 768 y 1440 px.
+- Pruebas funcionales del menú móvil con teclado y `Escape`.
+- Verificación de nombres accesibles para imágenes y controles.
+- Verificación de enlaces externos mediante HTTPS.
+- Verificación de carga de dependencias CDN en online y locales en offline.
+- Verificación del formulario de reserva en ambas variantes.
 
-**Criterio relacionado:** WCAG 2.2, 1.4.3 Contraste mínimo.
+## 4. Resultado de pruebas
 
-**Evidencia concreta:**
+Comando ejecutado:
 
-- Archivo: [styles.css](styles.css).
-- Variables afectadas: `--coral: #ed684d`, `--cream: #fbfaf7`.
-- Contraste medido de coral sobre crema: **3.01:1**.
-- Contraste medido de texto blanco sobre coral: **3.14:1**.
-- Elementos afectados: `.button`, `.eyebrow`, `.brand em`, `h1 span`, `h2 em`, `.dish-info strong`.
-- Los textos y botones afectados se presentan como texto normal o menor que texto grande, por lo que necesitan al menos 4.5:1.
+```bash
+npm test
+```
 
-**Recomendación:** oscurecer el coral para los usos textuales y de botón, o utilizar una variante de fondo más oscura con texto blanco. Volver a medir cada combinación con una herramienta de contraste.
+Resultado:
 
-### A-02: Confirmación de reserva no conectada a ningún canal real
+```text
+11 passed
+```
 
-**Criterio relacionado:** UX, honestidad del estado de operación y prevención de errores.
+La ejecución incluye:
 
-**Evidencia concreta:**
+- Validación HTML de `index.html`, `online.html` y `offline.html`.
+- Una prueba de estructura semántica y jerarquía de encabezados.
+- Una auditoría WCAG 2.2 AA con axe-core.
+- Cuatro pruebas de ausencia de overflow horizontal.
+- Una prueba de navegación móvil con teclado y `Escape`.
+- Una prueba de nombres accesibles.
+- Una prueba de seguridad de enlaces externos.
+- Dos pruebas específicas de las variantes online y offline.
 
-- Archivo: [script.js](script.js).
-- Elemento: `#reservation-form`.
-- El listener de `submit` ejecuta `event.preventDefault()`, muestra `Gracias. Te escribiremos por WhatsApp...` y luego ejecuta `reservationForm.reset()`.
-- No se observa `fetch`, enlace a WhatsApp, envío de correo, almacenamiento ni respuesta de backend.
-- En la prueba manual, el mensaje aparece correctamente, pero no se genera ninguna solicitud real.
+## 5. Accesibilidad y UX
 
-**Recomendación:** conectar el formulario a un backend o generar un enlace de WhatsApp con los datos validados. Mostrar éxito únicamente después de confirmar que el canal recibió la solicitud y mostrar un mensaje de error si falla.
+### Cumplimientos verificados
 
-## Hallazgos medios
+- Documento con `lang="es"`, `charset` y `viewport`.
+- Un único `h1` y jerarquía coherente de encabezados.
+- Uso de `header`, `nav`, `main`, `section`, `article` y `footer`.
+- Enlace para saltar directamente al contenido principal.
+- Navegación principal con nombre accesible.
+- Botón de menú con `aria-expanded` y `aria-controls`.
+- Cierre del menú móvil mediante `Escape` y restauración del foco.
+- Imágenes visuales con `role="img"` y `aria-label` descriptivo.
+- Campos del formulario asociados a etiquetas visibles.
+- Mensaje de estado del formulario mediante `role="status"`.
+- Foco visible mediante `:focus-visible`.
+- Objetivos táctiles principales con altura mínima de 44 px.
+- Animaciones respetuosas de `prefers-reduced-motion`.
+- Auditoría automatizada axe sin violaciones WCAG 2.2 AA en la entrada probada.
 
-### M-01: Imágenes de productos sin alternativa accesible explícita
+### Riesgos y pendientes
 
-**Criterio relacionado:** WCAG 2.2, 1.1.1 Contenido no textual.
+#### A-01: El formulario todavía no registra una reserva real
 
-**Evidencia concreta:**
+**Severidad:** alta para producción.
+**Archivo:** `script.js`.
 
-- Archivos: [index.html](index.html) y [styles.css](styles.css).
-- Elementos afectados: `.dish-image.dish-one`, `.dish-image.dish-two` y `.dish-image.dish-three`.
-- Son `div` con imágenes aplicadas mediante `background-image` y no tienen `alt`, `role="img"` ni nombre accesible propio.
-- El nombre y la descripción del plato sí están disponibles como texto, pero la imagen no tiene una alternativa explícita.
+El formulario intercepta el envío, muestra un mensaje de confirmación y limpia los campos, pero no envía información a WhatsApp, correo, API ni base de datos. La confirmación actual es únicamente visual.
 
-**Recomendación:** reemplazar los `div` por `<img>` con `alt` descriptivo cuando la imagen aporte información, o marcarla como decorativa con `alt=""` si el texto del plato ya cubre completamente su función.
+**Acción recomendada:** conectar el formulario a un backend o generar un enlace de WhatsApp con datos validados. Mostrar el mensaje de éxito solo después de confirmar la recepción.
 
-### M-02: Dependencia frágil de imágenes remotas como fondos CSS
+#### M-01: La variante offline usa fondos visuales de respaldo
 
-**Criterio relacionado:** robustez, rendimiento y experiencia visual.
+**Severidad:** media.
+**Archivo:** `offline-assets.css`.
 
-**Evidencia concreta:**
+La variante offline funciona sin red, pero utiliza gradientes locales como sustitutos visuales de las fotografías. Esto evita fallos de carga, aunque no ofrece el mismo contenido fotográfico que la versión online.
 
-- Archivo: [styles.css](styles.css).
-- Elementos afectados: `.hero-image`, `.dish-image`, `.story-image` y `.map-panel`.
-- Las imágenes se cargan desde URLs externas de Unsplash.
-- Durante la prueba del navegador, fallaron solicitudes para las imágenes asociadas a `.dish-two` y `.map-panel` con `net::ERR_BLOCKED_BY_ORB`.
-- Al ser fondos CSS, no existe fallback `alt` ni una estrategia de imágenes responsive.
+**Acción recomendada:** incorporar fotografías optimizadas dentro del repositorio si la versión offline debe conservar imágenes reales.
 
-**Recomendación:** alojar las imágenes en el propio proyecto o en un CDN controlado, usar `<picture>`/`srcset` cuando sean contenido, y definir un fondo de respaldo visual para fallos de red.
+#### M-02: Los datos de negocio son demostrativos
 
-### M-03: Foco visible no definido explícitamente
+**Severidad:** media.
+**Archivos:** `online.html`, `offline.html`, `index.html`.
 
-**Criterio relacionado:** WCAG 2.2, 2.4.7 Foco visible y 2.4.11 Apariencia del foco.
+Precios, teléfonos, direcciones, horarios y enlace de Instagram deben reemplazarse por datos oficiales antes de producción.
 
-**Evidencia concreta:**
+#### M-03: Falta prueba manual con lector de pantalla
 
-- Archivo: [styles.css](styles.css).
-- No se encontró una regla `:focus-visible` para enlaces, botones, campos o el menú.
-- En el navegador el foco fue visible mediante el indicador por defecto (`outline: auto`), por lo que la navegación no queda sin foco en el entorno probado.
+**Severidad:** media.
 
-**Recomendación:** definir `:focus-visible` con un contorno de al menos 2 px, contraste suficiente y separación visible respecto al componente. Repetir la prueba en fondo crema, coral y teal.
+La auditoría automatizada pasó, pero todavía conviene verificar el flujo completo con NVDA, JAWS o VoiceOver, especialmente el menú móvil, el estado del formulario y las imágenes con nombre accesible.
 
-### M-04: Objetivos táctiles pequeños para enlaces secundarios
+#### M-04: No se ha comprobado el despliegue real en GitHub Pages
 
-**Criterio relacionado:** WCAG 2.2, 2.5.8 Tamaño mínimo del objetivo.
+**Severidad:** media.
 
-**Evidencia concreta:**
+El workflow contiene los permisos necesarios y publica ambas variantes, pero el resultado final depende de que GitHub Pages esté configurado para usar GitHub Actions en el repositorio.
 
-- Archivos: [index.html](index.html) y [styles.css](styles.css).
-- En la prueba de navegador, los enlaces telefónicos midieron aproximadamente `104 × 18 px` y los enlaces del pie aproximadamente `31 × 19 px`.
-- El botón del menú móvil midió aproximadamente `67 × 42 px`.
-- El requisito WCAG permite excepciones para ciertos enlaces de texto inline, pero estas dimensiones son menos cómodas para uso táctil.
+## 6. Seguridad y permisos CI/CD
 
-**Recomendación:** añadir `padding` y una altura mínima de 44 px para controles y enlaces interactivos importantes. Mantener separación suficiente entre objetivos vecinos.
+El workflow usa permisos mínimos por job:
 
-### M-05: Fecha de reserva permite fechas pasadas
+```yaml
+permissions:
+  contents: read
+```
 
-**Criterio relacionado:** prevención de errores y calidad de datos.
+El job de despliegue añade únicamente:
 
-**Evidencia concreta:**
+```yaml
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+```
 
-- Archivo: [index.html](index.html).
-- Elemento: `input[name="fecha"]`.
-- El campo es `type="date"` y `required`, pero no tiene atributo `min` ni validación equivalente en [script.js](script.js).
+El despliegue solo se ejecuta después de que finalice correctamente el job de calidad y únicamente en `push` a `main`. El artefacto publicado incluye:
 
-**Recomendación:** establecer como mínimo la fecha actual y validar también en el servidor cuando exista backend.
+- `index.html`.
+- `online.html`.
+- `offline.html`.
+- Hojas de estilo y JavaScript.
+- `offline-assets.css`.
+- `vendor/bootstrap.min.css`.
+- `vendor/tailwind.css`.
 
-## Hallazgos bajos
+No se detectaron secretos, tokens ni credenciales almacenados en los archivos auditados.
 
-### B-01: Gestión de foco incompleta en el menú móvil
+## 7. Recomendaciones antes de producción
 
-**Criterio relacionado:** UX de teclado y navegación móvil.
+1. Conectar el formulario a un canal real y probar respuestas exitosas y fallidas.
+2. Sustituir teléfonos, direcciones, horarios, precios y redes sociales por datos oficiales.
+3. Añadir fotografías locales optimizadas para que offline sea visualmente equivalente.
+4. Ejecutar una prueba manual con lector de pantalla y teclado completo.
+5. Comprobar la publicación real de GitHub Pages después del primer `push` a `main`.
+6. Añadir política de privacidad, términos y consentimiento si se recopilan datos personales.
+7. Considerar `npm ci` en CI para instalaciones reproducibles usando `package-lock.json`.
 
-**Evidencia concreta:**
+## 8. Conclusión
 
-- Archivos: [index.html](index.html) y [script.js](script.js).
-- El botón alterna correctamente `aria-expanded` y la clase `.is-open`.
-- No se implementa cierre con `Escape`, cierre al pulsar fuera ni restauración explícita del foco después de cerrar.
-- La navegación por Tab funciona en el estado probado y los enlaces ocultos no reciben foco cuando `display: none`.
-
-**Recomendación:** añadir cierre con `Escape`, devolver el foco al botón y considerar cierre al hacer clic fuera del panel.
-
-### B-02: Iconos decorativos potencialmente anunciables
-
-**Criterio relacionado:** WCAG 2.2, 1.1.1 Contenido no textual.
-
-**Evidencia concreta:**
-
-- Archivo: [index.html](index.html).
-- Caracteres como `✦` y `✳` se usan como decoración en el mapa, marca y ticker.
-- Algunos tienen `aria-hidden="true"`, pero no todos los elementos decorativos lo especifican.
-
-**Recomendación:** añadir `aria-hidden="true"` a los iconos puramente decorativos o reemplazarlos por iconos con una semántica consistente.
-
-### B-03: Enlace de Instagram genérico
-
-**Criterio relacionado:** claridad de navegación y contenido real.
-
-**Evidencia concreta:**
-
-- Archivo: [index.html](index.html).
-- El enlace del pie apunta a `https://instagram.com`, no a un perfil concreto.
-
-**Recomendación:** sustituirlo por la cuenta oficial antes de publicar.
-
-## Criterios que cumplen
-
-- `<!doctype html>`, `<html lang="es">`, `charset` y `viewport` están presentes.
-- Existe un único `h1` y la secuencia `h1 > h2 > h3` es coherente.
-- Se utilizan elementos semánticos `header`, `nav`, `main`, `section`, `article` y `footer`.
-- El enlace “Saltar al contenido” apunta a `#contenido`.
-- La navegación principal tiene `aria-label="Navegación principal"`.
-- El control del menú es un `<button type="button">` y expone `aria-expanded` y `aria-controls`.
-- Los enlaces se usan para navegación y el envío del formulario utiliza un `<button type="submit">`.
-- Los campos del formulario tienen etiquetas visibles y `required` donde corresponde.
-- El título y la meta descripción están presentes.
-- No hubo overflow horizontal en 320, 390, 768 ni 1440 px.
-- No se detectaron errores JavaScript durante la carga y navegación probadas.
-- La navegación por teclado alcanzó el enlace de salto, marca, menú, enlaces de contenido, teléfonos y controles del formulario.
-- Los estilos incluyen `prefers-reduced-motion`.
-
-## Pruebas que deberían repetirse después de corregir
-
-1. Volver a medir todas las combinaciones de color con una herramienta WCAG 2.2 AA.
-2. Probar `Tab`, `Shift + Tab` y `Escape` en escritorio y móvil.
-3. Confirmar que el foco permanece visible sobre fondos crema, coral y teal.
-4. Probar el menú con lector de pantalla y verificar `aria-expanded`, nombre y foco.
-5. Validar el envío real del formulario con datos válidos, campos vacíos, teléfono inválido, fecha pasada y fallo del backend.
-6. Verificar que una reserva confirmada llegue al canal operativo real.
-7. Ejecutar pruebas de imágenes con red lenta, imágenes bloqueadas y ausencia de CDN.
-8. Repetir overflow y tamaños de objetivos en 320, 390, 768 y 1440 px.
-9. Probar zoom del navegador al 200% y reflow equivalente a 320 px.
-10. Ejecutar una auditoría automatizada con axe, Lighthouse o Accessibility Insights y complementar con lector de pantalla.
-
-## Verificación final
-
-- Archivos revisados existentes: `index.html`, `styles.css`, `script.js`.
-- Archivo generado: `AUDITORIA.md`.
-- `node --check script.js` no pudo ejecutarse porque Node.js no está instalado en el entorno.
-- El contenido de `script.js` sí fue compilado con `new Function(...)` en el motor JavaScript del navegador y la página se cargó sin errores de ejecución.
-- Diagnóstico del editor: sin errores reportados en los tres archivos fuente.
-- Pruebas de navegador realizadas en 320, 390, 768 y 1440 px.
-- Resultado responsive: sin overflow horizontal.
-- Resultado de consola: sin errores JavaScript durante la prueba.
-- Repositorio sin cambios en los archivos fuente; esta auditoría solo añade este informe.
+La página cumple la validación automatizada disponible y cuenta con dos variantes funcionales: online y offline. La configuración CI/CD está preparada para validar antes de desplegar y utiliza permisos limitados para GitHub Pages. El principal bloqueo para una operación real es que el formulario aún no está conectado a un sistema de reservas.
