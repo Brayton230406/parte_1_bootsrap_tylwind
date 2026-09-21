@@ -17,9 +17,20 @@ Landing page responsive para una cevichería ecuatoriana. La implementación es 
 
 ```text
 index.html   Estructura y contenido de la página
+online.html  Variante con Bootstrap y Tailwind cargados desde CDN
+offline.html Variante autocontenida con Bootstrap y Tailwind locales
 styles.css   Diseño visual, responsive y accesibilidad
 script.js    Menú móvil y confirmación de reserva
+vendor/      Copias locales de Bootstrap y Tailwind para uso sin red
+offline-assets.css Fondos locales de respaldo para la variante offline
 ```
+
+## Variantes online y offline
+
+- `online.html` usa Bootstrap 5.3.3 y Tailwind desde CDN. Requiere conexión para cargar esos frameworks y las fuentes.
+- `offline.html` usa los archivos de `vendor/` y fondos locales de respaldo, por lo que no depende de CDN ni de imágenes remotas.
+
+Ambas variantes comparten contenido, estilos propios, navegación accesible y el formulario de reserva.
 
 ## Uso local
 
@@ -41,6 +52,8 @@ El workflow `.github/workflows/ci-cd.yml` ejecuta en cada pull request y push a 
 - Pruebas de teclado, foco, nombres accesibles, overflow y enlaces externos HTTPS.
 
 El despliegue a GitHub Pages depende del job de calidad. Si una prueba falla, la publicación no se ejecuta.
+
+El workflow declara `contents: read` para CI y, únicamente en el job de publicación, `pages: write` e `id-token: write`, que son los permisos mínimos necesarios para GitHub Pages. El artefacto publicado contiene las dos variantes en `/online.html` y `/offline.html`.
 
 ## Próximos pasos de producción
 

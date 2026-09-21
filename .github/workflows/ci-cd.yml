@@ -60,7 +60,9 @@ jobs:
       - name: Preparar sitio estático
         run: |
           mkdir dist
-          cp index.html styles.css a11y.css script.js README.md AUDITORIA.md dist/
+          cp index.html online.html offline.html styles.css a11y.css offline-assets.css script.js README.md AUDITORIA.md dist/
+          mkdir -p dist/vendor
+          cp vendor/bootstrap.min.css vendor/tailwind.css dist/vendor/
 
       - name: Subir artefacto de Pages
         uses: actions/upload-pages-artifact@v3
