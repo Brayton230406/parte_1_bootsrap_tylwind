@@ -19,11 +19,18 @@ Landing page responsive para una cevichería ecuatoriana. La implementación es 
 index.html   Estructura y contenido de la página
 online.html  Variante con Bootstrap y Tailwind cargados desde CDN
 offline.html Variante autocontenida con Bootstrap y Tailwind locales
+michoks.html Catálogo visual de licorería con carrito de compra
 styles.css   Diseño visual, responsive y accesibilidad
 script.js    Menú móvil y confirmación de reserva
+michoks.css  Identidad visual y responsive del catálogo Michoks
+michoks.js   Catálogo, galería, filtros y carrito de compra
 vendor/      Copias locales de Bootstrap y Tailwind para uso sin red
 offline-assets.css Fondos locales de respaldo para la variante offline
 ```
+
+## Catálogo Michoks
+
+`michoks.html` es una página independiente para la licorería Michoks. Incluye catálogo de 12 productos, filtros por categoría, búsqueda, galería de hasta cinco imágenes por producto, carrito persistente en el navegador, cálculo de cantidades y total estimado. Las fotografías actuales se cargan desde Unsplash; para producción conviene reemplazarlas por imágenes propias o por un CDN controlado.
 
 ## Variantes online y offline
 

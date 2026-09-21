@@ -5,7 +5,7 @@
   "description": "Landing page accesible para una cevichería ecuatoriana",
   "scripts": {
     "test": "npm run test:html && playwright test",
-    "test:html": "html-validate index.html online.html offline.html",
+    "test:html": "html-validate index.html online.html offline.html michoks.html",
     "test:e2e": "playwright test"
   },
   "devDependencies": {

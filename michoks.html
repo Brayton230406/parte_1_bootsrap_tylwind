@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Michoks, catálogo online de licores, vinos, cervezas y cócteles listos para compartir.">
+  <meta name="theme-color" content="#17120f">
+  <title>Michoks | Licorería que se disfruta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="michoks.css">
+  <link rel="stylesheet" href="michoks-a11y.css">
+  <script src="michoks.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
+  <div class="notice-bar">Venta responsable · Solo para mayores de 18 años <span aria-hidden="true">✦</span> Entregas en Quito y valles</div>
+  <header class="michoks-header">
+    <div class="michoks-container header-inner">
+      <a class="michoks-brand" href="#inicio" aria-label="Michoks, inicio"><span class="brand-orb" aria-hidden="true">M</span><span>MICHOKS<small>LICORERÍA</small></span></a>
+      <nav class="michoks-nav" aria-label="Navegación principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#destacados">Destacados</a>
+        <a href="#nosotros">Nosotros</a>
+      </nav>
+      <button class="cart-button" type="button" aria-label="Abrir carrito" aria-controls="cart-drawer"><span aria-hidden="true">▱</span><span>Carrito</span><b id="cart-count">0</b></button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="michoks-hero">
+      <div class="michoks-container hero-layout">
+        <div class="hero-content">
+          <p class="kicker">Tu próxima buena noche empieza aquí</p>
+          <h1>Elige algo<br><em>para brindar.</em></h1>
+          <p class="hero-description">Licores con carácter, vinos para la mesa y cervezas para abrir sin pensarlo demasiado.</p>
+          <div class="hero-actions"><a class="gold-button" href="#catalogo">Ver catálogo <span aria-hidden="true">↗</span></a><a class="hero-link" href="#destacados">Ver recomendados <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-points"><span><strong>+120</strong> etiquetas</span><span><strong>24/7</strong> pedidos online</span><span><strong>Quito</strong> y valles</span></div>
+        </div>
+        <div class="hero-product" role="img" aria-label="Botella de whisky premium sobre una mesa con hielo y cítricos"><div class="hero-product-label"><span>Selección Michoks</span><strong>Whisky &amp; Cítricos</strong></div><div class="hero-product-stamp">N°<br>01</div></div>
+      </div>
+      <div class="hero-ribbon" aria-hidden="true"><span>WHISKY</span><i>✦</i><span>VINO</span><i>✦</i><span>GIN</span><i>✦</i><span>CERVEZA</span><i>✦</i><span>TEQUILA</span><i>✦</i><span>WHISKY</span></div>
+    </section>
+
+    <section id="destacados" class="section featured-section">
+      <div class="michoks-container">
+        <div class="section-intro"><div><p class="kicker">Lo que está sonando</p><h2>Favoritos de<br><em>la casa.</em></h2></div><p>Botellas que llegan con historia y se van convertidas en buenos recuerdos.</p></div>
+        <div class="featured-grid">
+          <article class="feature-tile feature-large"><div class="feature-image feature-whisky" role="img" aria-label="Whisky premium servido con hielo"></div><div class="feature-copy"><span>01 · Para una noche larga</span><h3>Whisky de autor</h3><button class="inline-action" type="button" data-category="Whisky">Explorar whisky <span aria-hidden="true">→</span></button></div></article>
+          <article class="feature-tile"><div class="feature-image feature-wine" role="img" aria-label="Copa de vino tinto junto a una botella"></div><div class="feature-copy"><span>02 · Para compartir</span><h3>Vinos con carácter</h3><button class="inline-action" type="button" data-category="Vinos">Ver vinos <span aria-hidden="true">→</span></button></div></article>
+          <article class="feature-tile"><div class="feature-image feature-cocktail" role="img" aria-label="Cóctel color ámbar con naranja"></div><div class="feature-copy"><span>03 · Para celebrar</span><h3>Mixología en casa</h3><button class="inline-action" type="button" data-category="Gin">Arma tu barra <span aria-hidden="true">→</span></button></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section catalog-section">
+      <div class="michoks-container">
+        <div class="catalog-heading"><div><p class="kicker">Compra por categoría</p><h2>Tu barra,<br><em>a tu manera.</em></h2></div><p>Explora, descubre y agrega tus favoritos al carrito.</p></div>
+        <div class="catalog-tools"><div class="category-tabs" role="group" aria-label="Filtrar productos"><button class="category-tab is-active" type="button" data-category="Todos">Todos <span>12</span></button><button class="category-tab" type="button" data-category="Whisky">Whisky <span>3</span></button><button class="category-tab" type="button" data-category="Vinos">Vinos <span>3</span></button><button class="category-tab" type="button" data-category="Gin">Gin <span>2</span></button><button class="category-tab" type="button" data-category="Cervezas">Cervezas <span>2</span></button><button class="category-tab" type="button" data-category="Tequila">Tequila <span>2</span></button></div><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar productos</span><input id="product-search" type="search" placeholder="Buscar en Michoks" autocomplete="off"></label></div>
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+        <p id="empty-products" class="empty-products" hidden>No encontramos ese producto. Prueba otra palabra o categoría.</p>
+      </div>
+    </section>
+
+    <section id="nosotros" class="michoks-story"><div class="michoks-container story-layout"><div class="story-image" role="img" aria-label="Barra de licorería con botellas iluminadas"></div><div class="story-copy"><p class="kicker">Más que una licorería</p><h2>La noche<br><em>se arma aquí.</em></h2><p>Michoks selecciona botellas para cada plan: una cena tranquila, una reunión improvisada o ese brindis que merece quedarse en la memoria.</p><div class="story-signature"><span class="brand-orb" aria-hidden="true">M</span><span>Selección sin complicaciones<br><small>Desde Quito, para compartir.</small></span></div></div></div></section>
+  </main>
+
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Carrito de compras"><div class="cart-overlay" data-close-cart></div><div class="cart-panel"><div class="cart-header"><div><p class="kicker">Tu selección</p><h2>El carrito.</h2></div><button class="close-button" type="button" aria-label="Cerrar carrito" data-close-cart>×</button></div><div id="cart-items" class="cart-items"><p class="cart-empty">Tu carrito está esperando una buena botella.</p></div><div class="cart-footer"><div class="cart-total"><span>Total estimado</span><strong id="cart-total">$0.00</strong></div><button id="checkout-button" class="gold-button full-button" type="button" disabled>Continuar pedido <span aria-hidden="true">→</span></button><p class="cart-note">El pedido se confirma por WhatsApp. Verificaremos mayoría de edad al entregar.</p></div></div></aside>
+
+  <dialog id="product-dialog" class="product-dialog"><button class="close-button dialog-close" type="button" aria-label="Cerrar detalle">×</button><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <footer class="michoks-footer"><div class="michoks-container footer-inner"><a class="michoks-brand" href="#inicio"><span class="brand-orb" aria-hidden="true">M</span><span>MICHOKS<small>LICORERÍA</small></span></a><p>Brindis bien elegidos, noches memorables.</p><div><a href="#catalogo">Catálogo</a><a href="mailto:hola@michoks.ec">hola@michoks.ec</a></div></div></footer>
+</body>
+</html>

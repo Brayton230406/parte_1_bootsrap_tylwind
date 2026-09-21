@@ -167,6 +167,22 @@ No se detectaron secretos, tokens ni credenciales almacenados en los archivos au
 6. Añadir política de privacidad, términos y consentimiento si se recopilan datos personales.
 7. Considerar `npm ci` en CI para instalaciones reproducibles usando `package-lock.json`.
 
-## 8. Conclusión
+## 8. Auditoría adicional de Michoks
+
+Se añadió la página independiente `michoks.html` para la licorería Michoks, con una experiencia centrada en catálogo y venta:
+
+- Hero visual que comunica desde el primer pantallazo que se trata de una licorería.
+- 12 productos organizados en Whisky, Vinos, Gin, Cervezas y Tequila.
+- Fotografías de producto, bebidas y ambientes de bar.
+- Galería de hasta cinco imágenes por producto en la vista rápida.
+- Filtros por categoría y búsqueda por texto.
+- Carrito persistente con `localStorage`, cantidades y total estimado.
+- Flujo de pedido preparado para conectar con WhatsApp.
+- Responsive probado a 390 px sin overflow horizontal.
+- Auditoría axe WCAG 2.2 AA sin violaciones.
+
+**Pendiente específico:** las imágenes actuales se cargan desde Unsplash y deben sustituirse por fotografías propias o un CDN controlado antes de la publicación comercial. El checkout muestra una confirmación local, pero todavía no registra pedidos en un backend real.
+
+## 9. Conclusión
 
 La página cumple la validación automatizada disponible y cuenta con dos variantes funcionales: online y offline. La configuración CI/CD está preparada para validar antes de desplegar y utiliza permisos limitados para GitHub Pages. El principal bloqueo para una operación real es que el formulario aún no está conectado a un sistema de reservas.
