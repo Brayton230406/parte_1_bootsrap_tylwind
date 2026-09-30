@@ -27,7 +27,10 @@ jobs:
           node-version: 22
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm ci
+
+      - name: Compilar Tailwind de MICHOKS
+        run: npm run build:css
 
       - name: Instalar navegador de pruebas
         run: npx playwright install chromium
@@ -60,7 +63,9 @@ jobs:
       - name: Preparar sitio estático
         run: |
           mkdir dist
-          cp index.html online.html offline.html michoks.html styles.css a11y.css offline-assets.css michoks.css michoks-a11y.css script.js michoks.js README.md AUDITORIA.md dist/
+          cp index.html online.html offline.html michoks.html styles.css a11y.css offline-assets.css michoks.css michoks-a11y.css michoks-brand.css michoks-product-images.css michoks-tailwind.css script.js michoks.js README.md AUDITORIA.md dist/
+          mkdir -p dist/assets
+          cp -R assets/. dist/assets/
           mkdir -p dist/vendor
           cp vendor/bootstrap.min.css vendor/tailwind.css dist/vendor/
 

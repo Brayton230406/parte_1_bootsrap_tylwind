@@ -9,9 +9,10 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:4173',
     trace: 'retain-on-failure',
     ...devices['Desktop Chrome'],
+    channel: process.env.PLAYWRIGHT_CHANNEL || undefined,
   },
   webServer: {
-    command: 'python -m http.server 4173',
+    command: 'node dev-server.mjs',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
   },

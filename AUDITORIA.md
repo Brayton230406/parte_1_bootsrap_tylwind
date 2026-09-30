@@ -1,6 +1,7 @@
 # Auditoría de la página web Mar de Fondo
 
 **Fecha:** 21 de septiembre de 2026
+**Última revisión de MICHOKS:** 25 de septiembre de 2026 (sección 8).
 **Repositorio:** [parte_1_bootsrap_tylwind](https://github.com/Brayton230406/parte_1_bootsrap_tylwind)
 **Commit auditado:** `7c9b0a8`
 **Alcance:** página original, variante online, variante offline, accesibilidad, responsive, pruebas automatizadas y pipeline CI/CD.
@@ -169,20 +170,26 @@ No se detectaron secretos, tokens ni credenciales almacenados en los archivos au
 
 ## 8. Auditoría adicional de Michoks
 
-Se añadió la página independiente `michoks.html` para la licorería Michoks, con una experiencia centrada en catálogo y venta:
+La página independiente `michoks.html` utiliza Tailwind CSS compilado localmente. La versión actual incorpora:
 
-- Hero visual que comunica desde el primer pantallazo que se trata de una licorería.
-- 12 productos organizados en Whisky, Vinos, Gin, Cervezas y Tequila.
-- Fotografías de producto, bebidas y ambientes de bar.
-- Galería de hasta cinco imágenes por producto en la vista rápida.
-- Filtros por categoría y búsqueda por texto.
-- Carrito persistente con `localStorage`, cantidades y total estimado.
-- Flujo de pedido preparado para conectar con WhatsApp.
-- Responsive probado a 390 px sin overflow horizontal.
-- Auditoría axe WCAG 2.2 AA sin violaciones.
+- Fotografía local de portada y **11 fotografías reales de referencia** para Red Label, Old Parr 12, Casillero del Diablo, Club Verde, Pilsener, Zhumir Seco Suave, José Cuervo Especial, Smirnoff, Gato Negro y Chivas Regal 12.
+- Archivos fotográficos en `assets/products/`; `sources.json` documenta la página de procedencia y la URL de cada imagen.
+- Las mismas fotos en tarjetas, carrito y detalle; el detalle permite ver la botella completa o ampliar su etiqueta, sin presentar el zoom como una fotografía diferente.
+- Tipografías locales Barlow Condensed y Manrope, con sus licencias SIL OFL en `assets/fonts/`.
+- Espacios ajustados entre secciones, fotografías, nombres, precios y botones; tarjetas alineadas y distribución adaptada a móvil.
+- Filtros, búsqueda que ignora tildes, ordenación y carrito persistente con cantidades y total estimado.
+- Consulta al WhatsApp oficial **+593 95 986 2988**, con los productos seleccionados. El usuario debe enviar el mensaje: abrir WhatsApp no confirma ni registra el pedido. Se conserva el carrito y se ofrece un enlace alternativo.
+- Pruebas de recursos locales sin red externa, teclado, accesibilidad axe, carrito y tamaños de 320, 390, 768 y 1440 px.
 
-**Pendiente específico:** las imágenes actuales se cargan desde Unsplash y deben sustituirse por fotografías propias o un CDN controlado antes de la publicación comercial. El checkout muestra una confirmación local, pero todavía no registra pedidos en un backend real.
+**Inventario actualizado:** Switch Bongo Bongo de 1500 ml tiene fotografía real y se clasifica como cóctel. Cutas Tradicional se retiró por indicación del usuario al no poder identificarlo. Los precios siguen siendo referenciales; el precio anterior de Switch requiere confirmación para esta presentación.
+
+Los resultados históricos de las secciones 1–7 corresponden a Mar de Fondo. Los archivos, comandos y resultados de MICHOKS se documentan en [MICHOKS.md](MICHOKS.md). No se ha publicado esta revisión en un servidor remoto.
+
+**Resultado de la revisión del 25 de septiembre:** validación HTML correcta y **24 pruebas aprobadas** con Chrome (`PLAYWRIGHT_CHANNEL=chrome`, `npm test`). Se verificó la carga de las 11 fotografías y las fuentes sin red externa, y se revisaron capturas de escritorio, móvil y carrito sin imágenes rotas ni errores de JavaScript.
 
 ## 9. Conclusión
 
 La página cumple la validación automatizada disponible y cuenta con dos variantes funcionales: online y offline. La configuración CI/CD está preparada para validar antes de desplegar y utiliza permisos limitados para GitHub Pages. El principal bloqueo para una operación real es que el formulario aún no está conectado a un sistema de reservas.
+
+Actualización final del catálogo: 11 productos con fotografía real, incluido Switch Bongo Bongo 1500 ml; Cutas retirado. Tras este cambio: HTML válido y 13 pruebas específicas de MICHOKS aprobadas con Chrome. Vista previa sin imágenes rotas ni errores JavaScript.
+

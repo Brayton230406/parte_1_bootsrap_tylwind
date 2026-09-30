@@ -1,16 +1,21 @@
 {
-  "name": "mar-de-fondo",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Landing page accesible para una cevichería ecuatoriana",
-  "scripts": {
-    "test": "npm run test:html && playwright test",
-    "test:html": "html-validate index.html online.html offline.html michoks.html",
-    "test:e2e": "playwright test"
-  },
-  "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
-    "@playwright/test": "^1.63.0",
-    "html-validate": "^11.16.0"
-  }
+    "name":  "mar-de-fondo",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Mar de Fondo y catálogo MICHOKS con Tailwind CSS",
+    "scripts":  {
+                    "start": "node dev-server.mjs",
+                    "preview:screenshots": "node scripts/preview-michoks.mjs",
+                    "test":  "npm run test:html \u0026\u0026 playwright test",
+                    "test:html":  "html-validate index.html online.html offline.html michoks.html",
+                    "test:e2e":  "playwright test",
+                    "build:css":  "tailwindcss -c tailwind.config.cjs -i michoks-source.css -o michoks-tailwind.css --minify",
+                    "watch:css":  "npm run build:css -- --watch"
+                },
+    "devDependencies":  {
+                            "@axe-core/playwright":  "^4.13.0",
+                            "@playwright/test":  "^1.63.0",
+                            "html-validate":  "^11.16.0",
+                            "tailwindcss":  "3.4.17"
+                        }
 }

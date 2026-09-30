@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "name": "Johnnie Walker Red Label 750 ml",
+    "file": "assets/products/red-label.png",
+    "source": "https://licoreriasunidas.pe/products/whisky-johnnie-walker-red-label-botella-750ml",
+    "imageUrl": "https://licoreriasunidas.pe/cdn/shop/files/DIADELAMADRE-2026-06-23T183404.185.png?v=1782257866&width=800"
+  },
+  {
+    "id": 2,
+    "name": "Old Parr 12 años",
+    "file": "assets/products/old-parr-12.jpg",
+    "source": "https://www.laguarda.com.ec/whisky-old-parr-12-a-750ml-02012131760103010750/p",
+    "imageUrl": "https://laguardaec.vtexassets.com/arquivos/ids/157765-800-800?v=638833112262800000&width=800&height=800&aspect=true"
+  },
+  {
+    "id": 3,
+    "name": "Casillero del Diablo Cabernet Sauvignon",
+    "file": "assets/products/casillero-cabernet.jpg",
+    "source": "https://nuevatienda.superxtra.com/vino-casillero-cabernet-750ml-7804320303178/p",
+    "imageUrl": "https://superxtrapanama.vtexassets.com/arquivos/ids/166856-800-auto?v=638025018691970000&width=800&height=auto&aspect=true"
+  },
+  {
+    "id": 4,
+    "name": "Club Verde 330 ml",
+    "file": "assets/products/club-verde.png",
+    "source": "https://www.aki.com.ec/producto/cerveza-retornable-club-330-ml/",
+    "imageUrl": "https://pub-ed96616ad25d44d98cc375304ed6f73a.r2.dev/2026/07/9497001064-1-1-1.png"
+  },
+  {
+    "id": 5,
+    "name": "Pilsener 330 ml",
+    "file": "assets/products/pilsener.png",
+    "source": "https://www.supermaxi.com/retornables/?product_tag=pilsener",
+    "imageUrl": "https://www.supermaxi.com/retornables/wp-content/uploads/2023/04/items_igm_78603691-1.png"
+  },
+  {
+    "id": 8,
+    "name": "Zhumir Seco",
+    "file": "assets/products/zhumir-seco.png",
+    "source": "https://www.zhumir.com/blank-5",
+    "imageUrl": "https://static.wixstatic.com/media/62a8a6_0760d9443f3f4baf8d4ac3a640b85e9d~mv2.png"
+  },
+  {
+    "id": 9,
+    "name": "José Cuervo Especial Reposado 750 ml",
+    "file": "assets/products/jose-cuervo.png",
+    "source": "https://licoreriasunidas.pe/products/tequila-jose-cuervo-especial-reposado-botella-750ml",
+    "imageUrl": "https://licoreriasunidas.pe/cdn/shop/files/LICORES_6_28b3df5b-b93c-4ce9-b0c7-74a0ba4ab656.png?v=1735241266&width=800"
+  },
+  {
+    "id": 10,
+    "name": "Smirnoff No. 21 750 ml",
+    "file": "assets/products/smirnoff.jpg",
+    "source": "https://www.supermaxonline.com/guaynabo/licores/vodka/149500/smirnoff-vodka-750-ml",
+    "imageUrl": "https://images.supermaxonline.com/images_products/149500.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Gato Negro Cabernet Sauvignon 750 ml",
+    "file": "assets/products/gato-negro.png",
+    "source": "https://www.aki.com.ec/producto/vino-tinto-cabernet-sauvignon-gato-negro-750-ml/",
+    "imageUrl": "https://pub-ed96616ad25d44d98cc375304ed6f73a.r2.dev/2024/12/7804300010638-1.png"
+  },
+  {
+    "id": 12,
+    "name": "Chivas Regal 12 años 750 ml",
+    "file": "assets/products/chivas-12.jpg",
+    "source": "https://www.supermaxonline.com/guaynabo/licores/whisky/149044/chivas-regal-12-anos-750-ml",
+    "imageUrl": "https://images.supermaxonline.com/images_products/149044.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Switch Bongo Bongo 1500 ml",
+    "file": "assets/products/switch-bongo.png",
+    "source": "https://www.aki.com.ec/producto/coctel-bongo-bongo-switch-1500-ml/",
+    "imageUrl": "https://pub-ed96616ad25d44d98cc375304ed6f73a.r2.dev/2025/02/794166006449-1-1-3.png"
+  }
+]

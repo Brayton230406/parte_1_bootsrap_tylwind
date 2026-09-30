@@ -30,7 +30,11 @@ offline-assets.css Fondos locales de respaldo para la variante offline
 
 ## Catálogo Michoks
 
-`michoks.html` es una página independiente para la licorería Michoks. Incluye catálogo de 12 productos, filtros por categoría, búsqueda, galería de hasta cinco imágenes por producto, carrito persistente en el navegador, cálculo de cantidades y total estimado. Las fotografías actuales se cargan desde Unsplash; para producción conviene reemplazarlas por imágenes propias o por un CDN controlado.
+**Actualización del 24 de septiembre:** el rediseño con Tailwind y el flujo de consulta al WhatsApp oficial están documentados en [MICHOKS.md](MICHOKS.md). Esta guía sustituye la descripción anterior del catálogo que sigue a continuación.
+
+`michoks.html` es una página independiente para la licorería Michoks. Incluye catálogo de 11 productos, filtros por categoría, búsqueda, fotografía real con ampliación de etiqueta, carrito persistente en el navegador, cálculo de cantidades y total estimado. Las tarjetas usan imágenes locales de botellas para que cada categoría sea reconocible incluso sin conexión.
+
+El inventario de muestra está adaptado a una licorería ecuatoriana: whiskys, Club Verde, Pilsener, Switch Bongo Bongo, Zhumir, tequilas, vodkas y vinos. Las tarjetas usan fotografías reales guardadas localmente en `assets/products/`.
 
 ## Variantes online y offline
 

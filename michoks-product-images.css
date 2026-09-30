@@ -1,0 +1,46 @@
+.hero-product,
+.feature-whisky,
+.product-card-image.img-1,
+.product-card-image.img-2,
+.product-card-image.img-12 {
+  background-image: url('assets/bottle-whisky.svg') !important;
+}
+
+.feature-wine,
+.product-card-image.img-3,
+.product-card-image.img-11 {
+  background-image: url('assets/bottle-wine.svg') !important;
+}
+
+.feature-cocktail,
+.product-card-image.img-4,
+.product-card-image.img-5,
+.product-card-image.img-6 {
+  background-image: url('assets/bottle-gin.svg') !important;
+}
+
+.product-card-image.img-7 {
+  background-image: url('assets/bottle-cutas.svg') !important;
+}
+
+.product-card-image.img-8 {
+  background-image: url('assets/bottle-zhumir.svg') !important;
+}
+
+.product-card-image.img-4,
+.product-card-image.img-5,
+.product-card-image.img-6 {
+  background-image: url('assets/bottle-beer.svg') !important;
+}
+
+.product-card-image.img-9 {
+  background-image: url('assets/bottle-tequila.svg') !important;
+}
+
+.product-card-image.img-10 {
+  background-image: url('assets/bottle-vodka.svg') !important;
+}
+
+.story-image {
+  background-image: url('assets/bottle-whisky.svg') !important;
+}
