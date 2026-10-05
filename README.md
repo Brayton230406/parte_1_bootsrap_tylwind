@@ -20,10 +20,13 @@ index.html   Estructura y contenido de la página
 online.html  Variante con Bootstrap y Tailwind cargados desde CDN
 offline.html Variante autocontenida con Bootstrap y Tailwind locales
 michoks.html Catálogo visual de licorería con carrito de compra
+tareas.html  Gestor responsive de tareas
 styles.css   Diseño visual, responsive y accesibilidad
 script.js    Menú móvil y confirmación de reserva
 michoks.css  Identidad visual y responsive del catálogo Michoks
 michoks.js   Catálogo, galería, filtros y carrito de compra
+tareas.css   Estilos adaptables del gestor de tareas
+tareas.js    Gestión y almacenamiento local de tareas
 vendor/      Copias locales de Bootstrap y Tailwind para uso sin red
 offline-assets.css Fondos locales de respaldo para la variante offline
 ```
@@ -35,6 +38,12 @@ offline-assets.css Fondos locales de respaldo para la variante offline
 `michoks.html` es una página independiente para la licorería Michoks. Incluye catálogo de 11 productos, filtros por categoría, búsqueda, fotografía real con ampliación de etiqueta, carrito persistente en el navegador, cálculo de cantidades y total estimado. Las tarjetas usan imágenes locales de botellas para que cada categoría sea reconocible incluso sin conexión.
 
 El inventario de muestra está adaptado a una licorería ecuatoriana: whiskys, Club Verde, Pilsener, Switch Bongo Bongo, Zhumir, tequilas, vodkas y vinos. Las tarjetas usan fotografías reales guardadas localmente en `assets/products/`.
+
+## Gestor de tareas
+
+Abre [tareas.html](tareas.html) para organizar tareas por fecha, prioridad y categoría. La vista permite crear, completar, filtrar, buscar y eliminar tareas, y conserva los cambios en el almacenamiento local del navegador. En móvil, la navegación y las listas se adaptan a pantallas estrechas.
+
+La página se valida con `html-validate` y las pruebas de Playwright del workflow. El job de GitHub Pages incluye también `tareas.html`, `tareas.css` y `tareas.js`.
 
 ## Variantes online y offline
 
@@ -64,7 +73,7 @@ El workflow `.github/workflows/ci-cd.yml` ejecuta en cada pull request y push a 
 
 El despliegue a GitHub Pages depende del job de calidad. Si una prueba falla, la publicación no se ejecuta.
 
-El workflow declara `contents: read` para CI y, únicamente en el job de publicación, `pages: write` e `id-token: write`, que son los permisos mínimos necesarios para GitHub Pages. El artefacto publicado contiene las dos variantes en `/online.html` y `/offline.html`.
+El workflow declara `contents: read` para CI y, únicamente en el job de publicación, `pages: write` e `id-token: write`, que son los permisos mínimos necesarios para GitHub Pages. El artefacto publicado contiene las dos variantes en `/online.html` y `/offline.html`, además del gestor en `/tareas.html`.
 
 ## Próximos pasos de producción
 

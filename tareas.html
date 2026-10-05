@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organiza tus pendientes, prioridades y fechas en un solo lugar.">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>Mis tareas | Taskflow</title>
+  <link rel="stylesheet" href="tareas.css">
+  <script src="tareas.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Barra lateral">
+      <a class="brand" href="tareas.html" aria-label="Taskflow, inicio">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>taskflow<span class="brand-period">.</span></span>
+      </a>
+
+      <p class="sidebar-label">ESPACIO DE TRABAJO</p>
+      <nav class="primary-nav" aria-label="Vistas de tareas">
+        <button class="nav-item is-active" type="button" data-view="all" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">▦</span><span>Todas las tareas</span><span class="nav-count" id="all-count">0</span>
+        </button>
+        <button class="nav-item" type="button" data-view="today">
+          <span class="nav-icon" aria-hidden="true">◷</span><span>Para hoy</span><span class="nav-count" id="today-count">0</span>
+        </button>
+        <button class="nav-item" type="button" data-view="upcoming">
+          <span class="nav-icon" aria-hidden="true">▤</span><span>Próximas</span>
+        </button>
+        <button class="nav-item" type="button" data-view="completed">
+          <span class="nav-icon" aria-hidden="true">✓</span><span>Completadas</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-note">
+        <span class="note-spark" aria-hidden="true">✦</span>
+        <p>Un paso a la vez.<br><strong>Lo estás haciendo bien.</strong></p>
+      </div>
+      <a class="sidebar-footer" href="index.html">Volver a Mar de Fondo <span aria-hidden="true">↗</span></a>
+    </aside>
+
+    <main class="main-content" id="contenido">
+      <header class="topbar">
+        <p class="breadcrumb">Mi espacio <span aria-hidden="true">/</span> <strong>Mis tareas</strong></p>
+        <div class="profile"><span class="profile-avatar" aria-hidden="true">A</span><span>Alex</span></div>
+      </header>
+
+      <section class="dashboard" aria-labelledby="page-title">
+        <div class="welcome-row">
+          <div>
+            <p class="eyebrow" id="current-date">TU ESPACIO PERSONAL</p>
+            <h1 id="page-title">Hola, Alex <span aria-hidden="true">✦</span></h1>
+            <p class="welcome-copy">Un poco de enfoque hace que todo avance.</p>
+          </div>
+          <button class="button button-primary" id="open-task-form" type="button"><span aria-hidden="true">＋</span> Nueva tarea</button>
+        </div>
+
+        <section class="summary-grid" aria-label="Resumen de tareas">
+          <article class="summary-card">
+            <div class="summary-heading"><span>Por completar</span><span class="summary-icon icon-violet" aria-hidden="true">▦</span></div>
+            <p class="summary-value" id="pending-total">0</p>
+            <p class="summary-caption">pendientes en total</p>
+          </article>
+          <article class="summary-card">
+            <div class="summary-heading"><span>Para hoy</span><span class="summary-icon icon-peach" aria-hidden="true">◷</span></div>
+            <p class="summary-value" id="today-total">0</p>
+            <p class="summary-caption">tareas con fecha de hoy</p>
+          </article>
+          <article class="summary-card summary-progress">
+            <div>
+              <div class="summary-heading"><span>Progreso semanal</span></div>
+              <p class="summary-value"><span id="progress-percent">0</span><span class="percent-sign">%</span></p>
+              <p class="summary-caption" id="progress-caption">¡Cada paso cuenta!</p>
+            </div>
+            <div class="progress-ring" id="progress-ring" role="img" aria-label="0% de tareas completadas">
+              <span id="ring-percent">0%</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="task-section" aria-labelledby="task-list-title">
+          <div class="task-section-heading">
+            <div>
+              <p class="eyebrow">MANTÉN EL RITMO</p>
+              <h2 id="task-list-title">Tus tareas</h2>
+            </div>
+            <label class="search-box">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <span class="visually-hidden">Buscar tareas</span>
+              <input id="task-search" type="search" placeholder="Buscar tarea..." autocomplete="off">
+            </label>
+          </div>
+
+          <div class="filter-row" role="group" aria-label="Filtrar tareas">
+            <button class="filter-chip is-selected" type="button" data-filter="all" aria-pressed="true">Todas <span id="filter-all-count">0</span></button>
+            <button class="filter-chip" type="button" data-filter="pending" aria-pressed="false">Pendientes</button>
+            <button class="filter-chip" type="button" data-filter="completed" aria-pressed="false">Completadas</button>
+          </div>
+
+          <ul class="task-list" id="task-list"></ul>
+          <p class="empty-state" id="empty-state" hidden>No hay tareas en esta vista. ¡Disfruta el espacio libre!</p>
+          <p class="save-status" id="save-status" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="task-dialog" id="task-dialog" aria-labelledby="dialog-title">
+    <form id="task-form">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">TU PRÓXIMO PASO</p><h2 id="dialog-title">Crear una tarea</h2></div>
+        <button class="close-button" id="close-task-form" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <label class="form-field">¿Qué necesitas hacer?
+        <input id="task-title" name="title" type="text" maxlength="100" placeholder="Ej. Preparar la presentación" required>
+      </label>
+      <div class="form-row">
+        <label class="form-field">Categoría
+          <select id="task-category" name="category">
+            <option value="Trabajo">Trabajo</option>
+            <option value="Personal">Personal</option>
+            <option value="Estudio">Estudio</option>
+          </select>
+        </label>
+        <label class="form-field">Fecha límite
+          <input id="task-due-date" name="dueDate" type="date" required>
+        </label>
+      </div>
+      <label class="form-field">Prioridad
+        <select id="task-priority" name="priority">
+          <option value="medium">Media</option>
+          <option value="high">Alta</option>
+          <option value="low">Baja</option>
+        </select>
+      </label>
+      <p class="form-error" id="form-error" role="alert"></p>
+      <button class="button button-primary submit-button" type="submit">Añadir tarea <span aria-hidden="true">→</span></button>
+    </form>
+  </dialog>
+</body>
+</html>
