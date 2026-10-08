@@ -2548,3 +2548,23 @@ html { scroll-padding-top:110px; }
 .age-decline { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px; border:1px solid #8c9b70; border-radius:12px; font-weight:600; min-height:52px; }
 .age-decline:hover { background:#35442c; }
 .age-card .age-note { font-size:13px; color:#d1dac5; }
+
+/* Microinteracciones de catálogo: botella protagonista, lectura estable. */
+.product-card { position:relative; transition:box-shadow .3s ease,border-color .3s ease; }
+.product-card-image { position:relative; overflow:hidden; }
+.product-card .product-card-image img { transition:transform .45s cubic-bezier(.2,.7,.2,1); transform-origin:50% 85%; }
+.pack-badge { position:absolute; left:12px; top:12px; z-index:1; background:#182219; color:#e1f68c; padding:7px 10px; border-radius:20px; font-size:10px; font-weight:800; letter-spacing:.06em; }
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .product-card:hover { box-shadow:0 18px 36px #18221916; }
+  .product-card:hover .product-card-image img { transform:translateY(-7px) rotate(var(--bottle-angle,0deg)) scale(1.055); }
+  .occasion-card { transition:box-shadow .3s ease,transform .3s ease; }
+  .occasion-card:hover { transform:translateY(-5px); box-shadow:0 18px 36px #18221912; }
+  .occasion-photo img { transition:transform .5s ease; }
+  .occasion-card:hover .occasion-photo img { transform:scale(1.06) rotate(-2deg); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .product-card, .product-card .product-card-image img, .occasion-card, .occasion-photo img { transition:none; transform:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .product-card:hover img, .product-card:hover .product-card-image img, .occasion-card:hover, .occasion-card:hover .occasion-photo img { transform:none !important; transition:none !important; animation:none !important; }
+}

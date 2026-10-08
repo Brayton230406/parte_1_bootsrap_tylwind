@@ -300,5 +300,3289 @@
       "cocteles",
       "compartir"
     ]
+  },
+  {
+    "id": 26,
+    "name": "Whisky Johnnie Walker Box 4 x 200ml",
+    "category": "Whisky",
+    "price": 54.9,
+    "size": "200 ml",
+    "image": "assets/products/catalog-26.jpg",
+    "description": "Whisky Johnnie Walker Box 4 x 200ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Whisky MACALLAN Terra Botella 700ml",
+    "category": "Whisky",
+    "price": 56.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-27.webp",
+    "description": "Whisky MACALLAN Terra Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Whisky The Glenlivet 21 Years 750ml",
+    "category": "Whisky",
+    "price": 94.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-28.webp",
+    "description": "Whisky The Glenlivet 21 Years 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Whisky CHIVAS REGAL XV Botella 750ml",
+    "category": "Whisky",
+    "price": 46.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-29.png",
+    "description": "Whisky CHIVAS REGAL XV Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Whisky MACALLAN Lumina Botella 700ml",
+    "category": "Whisky",
+    "price": 48.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-30.webp",
+    "description": "Whisky MACALLAN Lumina Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Whisky MACALLAN 25 Años Botella 700ml",
+    "category": "Whisky",
+    "price": 100.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-31.webp",
+    "description": "Whisky MACALLAN 25 Años Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Whisky JACK DANIEL'S Bonded Botella 1L",
+    "category": "Whisky",
+    "price": 52.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-32.png",
+    "description": "Whisky JACK DANIEL'S Bonded Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Whisky BUCHANANS Red Seal Botella 750ml",
+    "category": "Whisky",
+    "price": 54.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-33.jpg",
+    "description": "Whisky BUCHANANS Red Seal Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Whisky CHIVAS REGAL Ultis Botella 750ml",
+    "category": "Whisky",
+    "price": 56.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-34.png",
+    "description": "Whisky CHIVAS REGAL Ultis Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Whisky JACK DANIELS Apple Botella 700ml",
+    "category": "Whisky",
+    "price": 44.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-35.webp",
+    "description": "Whisky JACK DANIELS Apple Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Whisky MACALLAN Rare Cask Botella 700ml",
+    "category": "Whisky",
+    "price": 46.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-36.webp",
+    "description": "Whisky MACALLAN Rare Cask Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Whisky GLENFIDDICH 12 Años Botella 750ml",
+    "category": "Whisky",
+    "price": 48.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-37.png",
+    "description": "Whisky GLENFIDDICH 12 Años Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Whisky GLENFIDDICH 15 Años Botella 750ml",
+    "category": "Whisky",
+    "price": 50.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-38.webp",
+    "description": "Whisky GLENFIDDICH 15 Años Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Whisky GLENFIDDICH 18 Años Botella 750ml",
+    "category": "Whisky",
+    "price": 102.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-39.webp",
+    "description": "Whisky GLENFIDDICH 18 Años Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Whisky THE GLENLIVET 16 Años Botella 1lt",
+    "category": "Whisky",
+    "price": 54.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-40.png",
+    "description": "Whisky THE GLENLIVET 16 Años Botella 1lt. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Whisky THE MACALLAN 18 Years Color 750ml",
+    "category": "Whisky",
+    "price": 106.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-41.png",
+    "description": "Whisky THE MACALLAN 18 Years Color 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Whisky CHIVAS REGAL 12 Años Botella 700ml",
+    "category": "Whisky",
+    "price": 44.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-42.png",
+    "description": "Whisky CHIVAS REGAL 12 Años Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Whisky CHIVAS REGAL 13 Años Botella 700ml",
+    "category": "Whisky",
+    "price": 46.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-43.png",
+    "description": "Whisky CHIVAS REGAL 13 Años Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Whisky CHIVAS REGAL 25 Años Botella 750ml",
+    "category": "Whisky",
+    "price": 98.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-44.png",
+    "description": "Whisky CHIVAS REGAL 25 Años Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Whisky GLENFIDDICH Select Cask Botella 1L",
+    "category": "Whisky",
+    "price": 50.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-45.webp",
+    "description": "Whisky GLENFIDDICH Select Cask Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Whisky GLENFIDDICH VAT 01 botella 1 Litro",
+    "category": "Whisky",
+    "price": 52.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-46.png",
+    "description": "Whisky GLENFIDDICH VAT 01 botella 1 Litro. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Whisky GLENFIDDICH VAT 02 Botella 1 Litro",
+    "category": "Whisky",
+    "price": 54.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-47.png",
+    "description": "Whisky GLENFIDDICH VAT 02 Botella 1 Litro. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Whisky JOHNNIE WALKER Label Botella 1.75L",
+    "category": "Whisky",
+    "price": 56.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-48.png",
+    "description": "Whisky JOHNNIE WALKER Label Botella 1.75L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Whisky JOHNNIE WALKER Swing Botella 750ml",
+    "category": "Whisky",
+    "price": 44.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-49.webp",
+    "description": "Whisky JOHNNIE WALKER Swing Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "⁠Whisky JOHNNIE WALKER Blue Label x 200ml",
+    "category": "Whisky",
+    "price": 46.9,
+    "size": "200 ml",
+    "image": "assets/products/catalog-50.png",
+    "description": "⁠Whisky JOHNNIE WALKER Blue Label x 200ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "VINO TRAPICHE MALBEC 750 ML",
+    "category": "Vinos",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-51.png",
+    "description": "VINO TRAPICHE MALBEC 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "VINO TINTO MONTES ALPHA M 750 ML",
+    "category": "Vinos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-52.png",
+    "description": "VINO TINTO MONTES ALPHA M 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Vino MONTES Taita Botella 750 ml",
+    "category": "Vinos",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-53.png",
+    "description": "Vino MONTES Taita Botella 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Vino Purple Angel By Montes 750ml",
+    "category": "Vinos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-54.jpg",
+    "description": "Vino Purple Angel By Montes 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "VINO TINTO MONTES FOLLY SYRAH 750 ML",
+    "category": "Vinos",
+    "price": 30.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-55.png",
+    "description": "VINO TINTO MONTES FOLLY SYRAH 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Vino TRAPICHE Chardonnay Botella 750ml",
+    "category": "Vinos",
+    "price": 18.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-56.webp",
+    "description": "Vino TRAPICHE Chardonnay Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "VINO TRAPICHE CABERNET SAUVIGNON 750 ML",
+    "category": "Vinos",
+    "price": 20.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-57.png",
+    "description": "VINO TRAPICHE CABERNET SAUVIGNON 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "VINO TINTO MONTES WINGS CARMENERE 750 ML",
+    "category": "Vinos",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-58.png",
+    "description": "VINO TINTO MONTES WINGS CARMENERE 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "VINO CASILLERO DEL DIABLO CARMENERE 750 ML",
+    "category": "Vinos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-59.png",
+    "description": "VINO CASILLERO DEL DIABLO CARMENERE 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "VINO MARQUES DE CASA CONCHA MERLOT 750 ML",
+    "category": "Vinos",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-60.webp",
+    "description": "VINO MARQUES DE CASA CONCHA MERLOT 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Vino CASILLERO DEL DIABLO Devils Botella 750ml",
+    "category": "Vinos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-61.webp",
+    "description": "Vino CASILLERO DEL DIABLO Devils Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Vino CASILLERO DEL DIABLO Malbec Botella 750ml",
+    "category": "Vinos",
+    "price": 30.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-62.webp",
+    "description": "Vino CASILLERO DEL DIABLO Malbec Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Vino CASILLERO DEL DIABLO Merlot Botella 750ml",
+    "category": "Vinos",
+    "price": 18.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-63.webp",
+    "description": "Vino CASILLERO DEL DIABLO Merlot Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Vino MARQUES DE CASA CONCHA Rose Botella 750ml",
+    "category": "Vinos",
+    "price": 20.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-64.webp",
+    "description": "Vino MARQUES DE CASA CONCHA Rose Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Vino TRAPICHE Cabernet Sauvignon Botella 750ml",
+    "category": "Vinos",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-65.webp",
+    "description": "Vino TRAPICHE Cabernet Sauvignon Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Vino TRAPICHE Gran Medalla Malbec Botella 750ml",
+    "category": "Vinos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-66.webp",
+    "description": "Vino TRAPICHE Gran Medalla Malbec Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Vino MARQUES DE CASA CONCHA Malbec Botella 750ml",
+    "category": "Vinos",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-67.webp",
+    "description": "Vino MARQUES DE CASA CONCHA Malbec Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Vino CASILLERO DEL DIABLO Chardonay Botella 750ml",
+    "category": "Vinos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-68.webp",
+    "description": "Vino CASILLERO DEL DIABLO Chardonay Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "VINO CASILLERO DEL DIABLO RESERVA RED BLEND 750 ML",
+    "category": "Vinos",
+    "price": 30.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-69.png",
+    "description": "VINO CASILLERO DEL DIABLO RESERVA RED BLEND 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "VINO CASILLERO DEL DIABLO CABERNET SAUVIGNON 750 ML",
+    "category": "Vinos",
+    "price": 18.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-70.png",
+    "description": "VINO CASILLERO DEL DIABLO CABERNET SAUVIGNON 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Vino MARQUES DE CASA CONCHA Carmenere Botella 750ml",
+    "category": "Vinos",
+    "price": 20.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-71.webp",
+    "description": "Vino MARQUES DE CASA CONCHA Carmenere Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Vino MARQUES DE CASA CONCHA Chardonay Botella 750ml",
+    "category": "Vinos",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-72.webp",
+    "description": "Vino MARQUES DE CASA CONCHA Chardonay Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Vino CASILLERO DEL DIABLO Sauvignon Blanc Botella 750ml",
+    "category": "Vinos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-73.webp",
+    "description": "Vino CASILLERO DEL DIABLO Sauvignon Blanc Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Vino CASILLERO DEL DIABLO Cabernet Suvignon Botella 375ml",
+    "category": "Vinos",
+    "price": 26.9,
+    "size": "375 ml",
+    "image": "assets/products/catalog-74.webp",
+    "description": "Vino CASILLERO DEL DIABLO Cabernet Suvignon Botella 375ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Vino CONCHA Y TORO Frontera Sauvignon Blanc Botella 750ml",
+    "category": "Vinos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-75.webp",
+    "description": "Vino CONCHA Y TORO Frontera Sauvignon Blanc Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Vino MARQUES DE CASA CONCHA Cabernet Suvignon Botella 750ml",
+    "category": "Vinos",
+    "price": 30.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-76.webp",
+    "description": "Vino MARQUES DE CASA CONCHA Cabernet Suvignon Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Vino CASILLERO DEL DIABLO Reserva Privada Cabernet Sauvignon x 750ml",
+    "category": "Vinos",
+    "price": 18.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-77.png",
+    "description": "Vino CASILLERO DEL DIABLO Reserva Privada Cabernet Sauvignon x 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Ron BRUGAL 1888 750ml",
+    "category": "Rones",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-78.png",
+    "description": "Ron BRUGAL 1888 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Ron BACARDI RUBIO 1.75L",
+    "category": "Rones",
+    "price": 30.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-79.webp",
+    "description": "Ron BACARDI RUBIO 1.75L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Ron BACARDI BLANCO 1.75lt",
+    "category": "Rones",
+    "price": 32.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-80.png",
+    "description": "Ron BACARDI BLANCO 1.75lt. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Ron CARTAVIO Signature 700ml",
+    "category": "Rones",
+    "price": 34.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-81.png",
+    "description": "Ron CARTAVIO Signature 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Ron CARTAVIO XO Botella 750ml",
+    "category": "Rones",
+    "price": 86.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-82.png",
+    "description": "Ron CARTAVIO XO Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Ron ZACAPA 23 Botella x 750ml",
+    "category": "Rones",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-83.png",
+    "description": "Ron ZACAPA 23 Botella x 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Ron ZACAPA XO Botella x 750ml",
+    "category": "Rones",
+    "price": 76.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-84.png",
+    "description": "Ron ZACAPA XO Botella x 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Ron BARCELO Añejo Botella 1.75L",
+    "category": "Rones",
+    "price": 28.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-85.png",
+    "description": "Ron BARCELO Añejo Botella 1.75L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Ron Flor de Caña Blanco 1 Litro",
+    "category": "Rones",
+    "price": 30.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-86.webp",
+    "description": "Ron Flor de Caña Blanco 1 Litro. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Ron ZACAPA Edicion Negra x 1 Lt",
+    "category": "Rones",
+    "price": 32.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-87.png",
+    "description": "Ron ZACAPA Edicion Negra x 1 Lt. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Ron BACARDI Blanco Botella 700ml",
+    "category": "Rones",
+    "price": 34.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-88.webp",
+    "description": "Ron BACARDI Blanco Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Ron BACARDI Dorado Botella 700ml",
+    "category": "Rones",
+    "price": 36.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-89.webp",
+    "description": "Ron BACARDI Dorado Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Ron BARCELO Dorado Botella 750ml",
+    "category": "Rones",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-90.png",
+    "description": "Ron BARCELO Dorado Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Ron CARTAVIO Black Botella 750ml",
+    "category": "Rones",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-91.webp",
+    "description": "Ron CARTAVIO Black Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Ron CARTAVIO Superior Botella 1L",
+    "category": "Rones",
+    "price": 28.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-92.webp",
+    "description": "Ron CARTAVIO Superior Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Ron ZACAPA Royal Botella x 700ml",
+    "category": "Rones",
+    "price": 30.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-93.webp",
+    "description": "Ron ZACAPA Royal Botella x 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Ron CARTAVIO Blanco Botella 750ml",
+    "category": "Rones",
+    "price": 32.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-94.webp",
+    "description": "Ron CARTAVIO Blanco Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Ron ZACAPA Edicion Negra x 750ml.",
+    "category": "Rones",
+    "price": 34.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-95.png",
+    "description": "Ron ZACAPA Edicion Negra x 750ml.. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Ron BARCELO Imperial Botella 750ml",
+    "category": "Rones",
+    "price": 36.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-96.webp",
+    "description": "Ron BARCELO Imperial Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Ron CARTAVIO Selecto Botella 750ml",
+    "category": "Rones",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-97.webp",
+    "description": "Ron CARTAVIO Selecto Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Ron FLOR DE CAÑA 4 Años Botella 1L",
+    "category": "Rones",
+    "price": 26.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-98.webp",
+    "description": "Ron FLOR DE CAÑA 4 Años Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Ron FLOR DE CAÑA 5 Años Botella 1L",
+    "category": "Rones",
+    "price": 28.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-99.webp",
+    "description": "Ron FLOR DE CAÑA 5 Años Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Ron APPLETON ESTATE 21 Años x 750ml",
+    "category": "Rones",
+    "price": 80.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-100.png",
+    "description": "Ron APPLETON ESTATE 21 Años x 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Ron BACARDI Raspberry Botella 750ml",
+    "category": "Rones",
+    "price": 32.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-101.webp",
+    "description": "Ron BACARDI Raspberry Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Ron CARTAVIO Superior Botella 750ml",
+    "category": "Rones",
+    "price": 34.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-102.webp",
+    "description": "Ron CARTAVIO Superior Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Ron BARCELO Gran Añejo Botella 1.75L",
+    "category": "Rones",
+    "price": 36.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-103.png",
+    "description": "Ron BARCELO Gran Añejo Botella 1.75L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Ron BARCELO Gran Añejo Botella 750ml",
+    "category": "Rones",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-104.png",
+    "description": "Ron BARCELO Gran Añejo Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Gin ROKU Botella 750ml",
+    "category": "Gins",
+    "price": 36.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-105.png",
+    "description": "Gin ROKU Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Gin ROKU Minori x 750ml",
+    "category": "Gins",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-106.png",
+    "description": "Gin ROKU Minori x 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Gin HENDRICKS Botella 1L",
+    "category": "Gins",
+    "price": 40.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-107.webp",
+    "description": "Gin HENDRICKS Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Gin HENDRICKS Botella 700ml",
+    "category": "Gins",
+    "price": 42.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-108.webp",
+    "description": "Gin HENDRICKS Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Gin BEEFEATER 24 Botella 700ml",
+    "category": "Gins",
+    "price": 44.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-109.webp",
+    "description": "Gin BEEFEATER 24 Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Gin BEEFEATER Pink Botella 700ml",
+    "category": "Gins",
+    "price": 46.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-110.png",
+    "description": "Gin BEEFEATER Pink Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Gin Hendricks Lunar Botella 700ml",
+    "category": "Gins",
+    "price": 48.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-111.png",
+    "description": "Gin Hendricks Lunar Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Gin ROKU Select Edition Botella 1L",
+    "category": "Gins",
+    "price": 36.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-112.jpg",
+    "description": "Gin ROKU Select Edition Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 113,
+    "name": "Gin TANQUERAY N° Ten Botella 750ml",
+    "category": "Gins",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-113.png",
+    "description": "Gin TANQUERAY N° Ten Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Gin Hendricks Neptunia Botella 700ml",
+    "category": "Gins",
+    "price": 40.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-114.png",
+    "description": "Gin Hendricks Neptunia Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 115,
+    "name": "Gin BEEFEATER Blackberry Botella 700ml",
+    "category": "Gins",
+    "price": 42.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-115.png",
+    "description": "Gin BEEFEATER Blackberry Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 116,
+    "name": "Gin BEEFEATER London Dry Botella 750ml",
+    "category": "Gins",
+    "price": 44.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-116.png",
+    "description": "Gin BEEFEATER London Dry Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 117,
+    "name": "Gin BOMBAY SAPPHIRE Star Botella 750ml",
+    "category": "Gins",
+    "price": 46.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-117.webp",
+    "description": "Gin BOMBAY SAPPHIRE Star Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "Gin Hendricks Flora Adora Botella 700ml",
+    "category": "Gins",
+    "price": 48.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-118.png",
+    "description": "Gin Hendricks Flora Adora Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 119,
+    "name": "Gin BOMBAY SAPPHIRE London Dry Botella 1l",
+    "category": "Gins",
+    "price": 36.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-119.webp",
+    "description": "Gin BOMBAY SAPPHIRE London Dry Botella 1l. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Gin TANQUERAY Flor de Sevilla Botella 750ml",
+    "category": "Gins",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-120.webp",
+    "description": "Gin TANQUERAY Flor de Sevilla Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 121,
+    "name": "Gin TANQUERAY Dark Berry Royale Botella 700ml",
+    "category": "Gins",
+    "price": 40.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-121.webp",
+    "description": "Gin TANQUERAY Dark Berry Royale Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 122,
+    "name": "Gin Bombay Brambie Blackberry and Raspberry 700ml",
+    "category": "Gins",
+    "price": 42.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-122.png",
+    "description": "Gin Bombay Brambie Blackberry and Raspberry 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Gin Bowtie 700ml",
+    "category": "Gins",
+    "price": 44.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-123.png",
+    "description": "Gin Bowtie 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 124,
+    "name": "Gin BOLS Botella 1L",
+    "category": "Gins",
+    "price": 46.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-124.webp",
+    "description": "Gin BOLS Botella 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 125,
+    "name": "Gin Mom Botella 700 ml",
+    "category": "Gins",
+    "price": 48.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-125.png",
+    "description": "Gin Mom Botella 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 126,
+    "name": "Gin ANTAGONIC Botella 750ml",
+    "category": "Gins",
+    "price": 36.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-126.webp",
+    "description": "Gin ANTAGONIC Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "Gin BROCKMANS Botella 750ml",
+    "category": "Gins",
+    "price": 38.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-127.webp",
+    "description": "Gin BROCKMANS Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Gin CITADELLE Botella 750ml",
+    "category": "Gins",
+    "price": 40.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-128.webp",
+    "description": "Gin CITADELLE Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 129,
+    "name": "Gin Elephant Strength 750ml",
+    "category": "Gins",
+    "price": 42.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-129.webp",
+    "description": "Gin Elephant Strength 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 130,
+    "name": "GIN LE TRIBUTE FRESH 700 ML",
+    "category": "Gins",
+    "price": 44.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-130.png",
+    "description": "GIN LE TRIBUTE FRESH 700 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 131,
+    "name": "Gin Amazonian botella 700 ml",
+    "category": "Gins",
+    "price": 46.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-131.png",
+    "description": "Gin Amazonian botella 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 132,
+    "name": "Gin MONKEY 47 Botella 500 ml",
+    "category": "Gins",
+    "price": 48.9,
+    "size": "500 ml",
+    "image": "assets/products/catalog-132.webp",
+    "description": "Gin MONKEY 47 Botella 500 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 133,
+    "name": "Vodka CIROC Botella 750ml",
+    "category": "Vodkas",
+    "price": 27.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-133.webp",
+    "description": "Vodka CIROC Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 134,
+    "name": "Vodka ABSOLUT Elyx x 700 ml",
+    "category": "Vodkas",
+    "price": 29.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-134.jpg",
+    "description": "Vodka ABSOLUT Elyx x 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 135,
+    "name": "Vodka ABSOLUT Lime x 750 ml",
+    "category": "Vodkas",
+    "price": 31.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-135.webp",
+    "description": "Vodka ABSOLUT Lime x 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Vodka GREY GOOSE Botella 1l",
+    "category": "Vodkas",
+    "price": 33.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-136.webp",
+    "description": "Vodka GREY GOOSE Botella 1l. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Vodka ABSOLUT Pears x 750 ml",
+    "category": "Vodkas",
+    "price": 35.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-137.webp",
+    "description": "Vodka ABSOLUT Pears x 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Vodka ABSOLUT Citron x 750 ml",
+    "category": "Vodkas",
+    "price": 37.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-138.webp",
+    "description": "Vodka ABSOLUT Citron x 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 139,
+    "name": "Vodka BELVEDERE Botella 750ml",
+    "category": "Vodkas",
+    "price": 39.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-139.webp",
+    "description": "Vodka BELVEDERE Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 140,
+    "name": "Vodka ABSOLUT Mandrin x 750 ml",
+    "category": "Vodkas",
+    "price": 27.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-140.webp",
+    "description": "Vodka ABSOLUT Mandrin x 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 141,
+    "name": "Vodka GREY GOOSE Botella 750ml",
+    "category": "Vodkas",
+    "price": 29.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-141.webp",
+    "description": "Vodka GREY GOOSE Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 142,
+    "name": "Vodka GREY GOOSE VX Botella 1l",
+    "category": "Vodkas",
+    "price": 31.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-142.webp",
+    "description": "Vodka GREY GOOSE VX Botella 1l. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Vodka GREY GOOSE Botellas 1.75L",
+    "category": "Vodkas",
+    "price": 33.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-143.png",
+    "description": "Vodka GREY GOOSE Botellas 1.75L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Vodka SMIRNOFF Botella x 700 ml",
+    "category": "Vodkas",
+    "price": 35.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-144.png",
+    "description": "Vodka SMIRNOFF Botella x 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Vodka STOLICHNAYA Botella 750ml",
+    "category": "Vodkas",
+    "price": 37.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-145.webp",
+    "description": "Vodka STOLICHNAYA Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 146,
+    "name": "Vodka GREY GOOSE VX Botella 750ml",
+    "category": "Vodkas",
+    "price": 39.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-146.webp",
+    "description": "Vodka GREY GOOSE VX Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 147,
+    "name": "Vodka SMIRNOFF Raspberry x 750 ml",
+    "category": "Vodkas",
+    "price": 27.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-147.png",
+    "description": "Vodka SMIRNOFF Raspberry x 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 148,
+    "name": "Vodka ABSOLUT Apeach Botella 750ml",
+    "category": "Vodkas",
+    "price": 29.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-148.webp",
+    "description": "Vodka ABSOLUT Apeach Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 149,
+    "name": "Vodka SMIRNOFF Watermelon x 750 ml",
+    "category": "Vodkas",
+    "price": 31.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-149.png",
+    "description": "Vodka SMIRNOFF Watermelon x 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 150,
+    "name": "Vodka BELVEDERE Cytrus Botella 750ml",
+    "category": "Vodkas",
+    "price": 33.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-150.webp",
+    "description": "Vodka BELVEDERE Cytrus Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 151,
+    "name": "Vodka GREY GOOSE ALTIUS Botella 750ml",
+    "category": "Vodkas",
+    "price": 35.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-151.png",
+    "description": "Vodka GREY GOOSE ALTIUS Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 152,
+    "name": "Vodka SMIRNOFF Apple Botella x 700 ml",
+    "category": "Vodkas",
+    "price": 37.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-152.png",
+    "description": "Vodka SMIRNOFF Apple Botella x 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 153,
+    "name": "Vodka GREY GOOSE Miniatura Botella 50ml",
+    "category": "Vodkas",
+    "price": 39.9,
+    "size": "50 ml",
+    "image": "assets/products/catalog-153.webp",
+    "description": "Vodka GREY GOOSE Miniatura Botella 50ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 154,
+    "name": "Vodka BELVEDERE Unfiltered Botella 750ml",
+    "category": "Vodkas",
+    "price": 27.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-154.webp",
+    "description": "Vodka BELVEDERE Unfiltered Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 155,
+    "name": "Vodka ABSOLUT EXPOSURE HONEY MELON AND LEMON 1 LT",
+    "category": "Vodkas",
+    "price": 29.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-155.jpg",
+    "description": "Vodka ABSOLUT EXPOSURE HONEY MELON AND LEMON 1 LT. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 156,
+    "name": "Vodka BELVEDERE MAGNU COLLECTORS EDITION Botella 1750 ML",
+    "category": "Vodkas",
+    "price": 31.9,
+    "size": "1750 ml",
+    "image": "assets/products/catalog-156.png",
+    "description": "Vodka BELVEDERE MAGNU COLLECTORS EDITION Botella 1750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 157,
+    "name": "VODKA BOKER 750 ML",
+    "category": "Vodkas",
+    "price": 33.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-157.png",
+    "description": "VODKA BOKER 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 158,
+    "name": "Vodka Akvinta 750ml",
+    "category": "Vodkas",
+    "price": 35.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-158.png",
+    "description": "Vodka Akvinta 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 159,
+    "name": "Vodka SKYY Botella 750ml",
+    "category": "Vodkas",
+    "price": 37.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-159.webp",
+    "description": "Vodka SKYY Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 160,
+    "name": "VODKA SKYY RASBERRY 750 ML",
+    "category": "Vodkas",
+    "price": 39.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-160.png",
+    "description": "VODKA SKYY RASBERRY 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 161,
+    "name": "Tequila Olmeca Silver 750ml",
+    "category": "Tequilas",
+    "price": 42.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-161.webp",
+    "description": "Tequila Olmeca Silver 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 162,
+    "name": "Tequila PATRON EL ALTO 750ml",
+    "category": "Tequilas",
+    "price": 44.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-162.webp",
+    "description": "Tequila PATRON EL ALTO 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 163,
+    "name": "Tequila Herradura Añejo 750ml",
+    "category": "Tequilas",
+    "price": 46.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-163.jpg",
+    "description": "Tequila Herradura Añejo 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 164,
+    "name": "Tequila PATRON EL CIELO 750ml",
+    "category": "Tequilas",
+    "price": 48.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-164.jpg",
+    "description": "Tequila PATRON EL CIELO 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 165,
+    "name": "Tequila OLMECA REPOSADO 700 ML",
+    "category": "Tequilas",
+    "price": 50.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-165.png",
+    "description": "Tequila OLMECA REPOSADO 700 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 166,
+    "name": "Tequila Herradura Reposado 750ml",
+    "category": "Tequilas",
+    "price": 52.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-166.webp",
+    "description": "Tequila Herradura Reposado 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 167,
+    "name": "Tequila PATRON Añejo Botella 750ml",
+    "category": "Tequilas",
+    "price": 54.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-167.webp",
+    "description": "Tequila PATRON Añejo Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 168,
+    "name": "Tequila Don Julio 1942 Botella 50ml",
+    "category": "Tequilas",
+    "price": 42.9,
+    "size": "50 ml",
+    "image": "assets/products/catalog-168.png",
+    "description": "Tequila Don Julio 1942 Botella 50ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 169,
+    "name": "Tequila PATRON Silver Botella 750ml",
+    "category": "Tequilas",
+    "price": 44.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-169.webp",
+    "description": "Tequila PATRON Silver Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 170,
+    "name": "Tequila DON JULIO 1942 Botella 750ml",
+    "category": "Tequilas",
+    "price": 46.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-170.webp",
+    "description": "Tequila DON JULIO 1942 Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 171,
+    "name": "Tequila Don Julio 1942 Botella 375ml",
+    "category": "Tequilas",
+    "price": 48.9,
+    "size": "375 ml",
+    "image": "assets/products/catalog-171.png",
+    "description": "Tequila Don Julio 1942 Botella 375ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 172,
+    "name": "Tequila Don Julio 1942 Botella 1750ml",
+    "category": "Tequilas",
+    "price": 50.9,
+    "size": "1750 ml",
+    "image": "assets/products/catalog-172.webp",
+    "description": "Tequila Don Julio 1942 Botella 1750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 173,
+    "name": "Tequila PATRON Reposado Botella 750ml",
+    "category": "Tequilas",
+    "price": 52.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-173.webp",
+    "description": "Tequila PATRON Reposado Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 174,
+    "name": "Tequila DON JULIO Añejo Botella 750ml.",
+    "category": "Tequilas",
+    "price": 54.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-174.webp",
+    "description": "Tequila DON JULIO Añejo Botella 750ml.. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 175,
+    "name": "Tequila Don Julio 1942 Primavera 750ml",
+    "category": "Tequilas",
+    "price": 42.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-175.png",
+    "description": "Tequila Don Julio 1942 Primavera 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 176,
+    "name": "Tequila DON JULIO Reposado Botella 700 ml.",
+    "category": "Tequilas",
+    "price": 44.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-176.webp",
+    "description": "Tequila DON JULIO Reposado Botella 700 ml.. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 177,
+    "name": "Tequila GRAN PATRON Platinum Botella 750ml",
+    "category": "Tequilas",
+    "price": 46.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-177.webp",
+    "description": "Tequila GRAN PATRON Platinum Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 178,
+    "name": "Tequila DON JULIO 70 Añejo Claro Botella 700ml",
+    "category": "Tequilas",
+    "price": 48.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-178.png",
+    "description": "Tequila DON JULIO 70 Añejo Claro Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 179,
+    "name": "Tequila JOSE CUERVO Especial Silver Botella 750ml",
+    "category": "Tequilas",
+    "price": 50.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-179.png",
+    "description": "Tequila JOSE CUERVO Especial Silver Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 180,
+    "name": "Tequila DON JULIO 1942 ROSADO Reposado Botella 750ml",
+    "category": "Tequilas",
+    "price": 52.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-180.jpg",
+    "description": "Tequila DON JULIO 1942 ROSADO Reposado Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 181,
+    "name": "Tequila DON JULIO 1942 ALMA MIEL Reposado Botella 750ml",
+    "category": "Tequilas",
+    "price": 54.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-181.png",
+    "description": "Tequila DON JULIO 1942 ALMA MIEL Reposado Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 182,
+    "name": "Tequila DON JULIO 1942 Edición Limitada FIFA Botella 750ml",
+    "category": "Tequilas",
+    "price": 42.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-182.png",
+    "description": "Tequila DON JULIO 1942 Edición Limitada FIFA Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 183,
+    "name": "Tequila 1800 Añejo x 750ml.",
+    "category": "Tequilas",
+    "price": 44.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-183.png",
+    "description": "Tequila 1800 Añejo x 750ml.. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 184,
+    "name": "Tequila CLASE AZUL GOLD 750ml",
+    "category": "Tequilas",
+    "price": 96.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-184.png",
+    "description": "Tequila CLASE AZUL GOLD 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 185,
+    "name": "Tequila CLASE AZUL PLATA 750ml",
+    "category": "Tequilas",
+    "price": 98.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-185.webp",
+    "description": "Tequila CLASE AZUL PLATA 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 186,
+    "name": "Tequila La Neta Reposado 750ml",
+    "category": "Tequilas",
+    "price": 50.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-186.webp",
+    "description": "Tequila La Neta Reposado 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 187,
+    "name": "Tequila 1800 GUACHIMONTON 750ml",
+    "category": "Tequilas",
+    "price": 52.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-187.png",
+    "description": "Tequila 1800 GUACHIMONTON 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 188,
+    "name": "Tequila El Jimador Blanco 750ml",
+    "category": "Tequilas",
+    "price": 54.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-188.jpg",
+    "description": "Tequila El Jimador Blanco 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 189,
+    "name": "Licor de Crema Baileys 375 ML",
+    "category": "Licores",
+    "price": 25.9,
+    "size": "375 ml",
+    "image": "assets/products/catalog-189.webp",
+    "description": "Licor de Crema Baileys 375 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 190,
+    "name": "Licor JAGERMEISTER Manifest 1L",
+    "category": "Licores",
+    "price": 27.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-190.jpg",
+    "description": "Licor JAGERMEISTER Manifest 1L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 191,
+    "name": "Licor de Crema AMARULA Botella 750ml",
+    "category": "Licores",
+    "price": 29.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-191.webp",
+    "description": "Licor de Crema AMARULA Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 192,
+    "name": "Licor COINTREAU Original Botella 700ml",
+    "category": "Licores",
+    "price": 31.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-192.webp",
+    "description": "Licor COINTREAU Original Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 193,
+    "name": "Licor DISARONNO Amaretto Botella 700ml",
+    "category": "Licores",
+    "price": 33.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-193.webp",
+    "description": "Licor DISARONNO Amaretto Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 194,
+    "name": "Licor JAGERMEISTER Original Botella 1.75L",
+    "category": "Licores",
+    "price": 35.9,
+    "size": "1.75 L",
+    "image": "assets/products/catalog-194.webp",
+    "description": "Licor JAGERMEISTER Original Botella 1.75L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 195,
+    "name": "Licor JAGERMEISTER Original Botella 200ml",
+    "category": "Licores",
+    "price": 37.9,
+    "size": "200 ml",
+    "image": "assets/products/catalog-195.png",
+    "description": "Licor JAGERMEISTER Original Botella 200ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 196,
+    "name": "Licor JAGERMEISTER Original Botella 700ml",
+    "category": "Licores",
+    "price": 25.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-196.webp",
+    "description": "Licor JAGERMEISTER Original Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 197,
+    "name": "Licor de Crema AMARULA Vainilla Spice 750ml",
+    "category": "Licores",
+    "price": 27.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-197.png",
+    "description": "Licor de Crema AMARULA Vainilla Spice 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 198,
+    "name": "Licor de Crema BAILEYS Espresso Creme 750ml",
+    "category": "Licores",
+    "price": 29.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-198.png",
+    "description": "Licor de Crema BAILEYS Espresso Creme 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 199,
+    "name": "Licor de Crema BAILEYS Salted Caramel 750ml",
+    "category": "Licores",
+    "price": 31.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-199.png",
+    "description": "Licor de Crema BAILEYS Salted Caramel 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 200,
+    "name": "Licor de Crema AMARULA Ethiopian Coffee 750ml",
+    "category": "Licores",
+    "price": 33.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-200.png",
+    "description": "Licor de Crema AMARULA Ethiopian Coffee 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 201,
+    "name": "Licor de Crema DISARONNO Velvet Botella 750ml",
+    "category": "Licores",
+    "price": 35.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-201.webp",
+    "description": "Licor de Crema DISARONNO Velvet Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 202,
+    "name": "Licor JAGERMEISTER Cold Brew Coffee Botella 750ml",
+    "category": "Licores",
+    "price": 37.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-202.webp",
+    "description": "Licor JAGERMEISTER Cold Brew Coffee Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 203,
+    "name": "Licor de Crema AMARULA Raspberry & Chocolate 750ml",
+    "category": "Licores",
+    "price": 25.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-203.jpg",
+    "description": "Licor de Crema AMARULA Raspberry & Chocolate 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 204,
+    "name": "Licor DISARONNO Limited Edition \"500 Years\" Botella 700ml",
+    "category": "Licores",
+    "price": 27.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-204.png",
+    "description": "Licor DISARONNO Limited Edition \"500 Years\" Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 205,
+    "name": "Licor JAGERMEISTER Charakter Scharf Hot Ginger Botella 700ml",
+    "category": "Licores",
+    "price": 29.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-205.webp",
+    "description": "Licor JAGERMEISTER Charakter Scharf Hot Ginger Botella 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 206,
+    "name": "Licor SAINT GERMAIN x 700ml",
+    "category": "Licores",
+    "price": 31.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-206.png",
+    "description": "Licor SAINT GERMAIN x 700ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 207,
+    "name": "LICOR AMARO BITTER BERTO 1 L",
+    "category": "Licores",
+    "price": 33.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-207.png",
+    "description": "LICOR AMARO BITTER BERTO 1 L. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 208,
+    "name": "Licor ANTIOQUEÑO Azul 750 ml",
+    "category": "Licores",
+    "price": 85.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-208.png",
+    "description": "Licor ANTIOQUEÑO Azul 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 209,
+    "name": "Licor ANTIOQUEÑO rojo 750 ml",
+    "category": "Licores",
+    "price": 37.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-209.png",
+    "description": "Licor ANTIOQUEÑO rojo 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 210,
+    "name": "Licor DRAMBUIE Botella 750ml",
+    "category": "Licores",
+    "price": 25.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-210.webp",
+    "description": "Licor DRAMBUIE Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 211,
+    "name": "Licor ANTIOQUEÑO VERDE 750 ML",
+    "category": "Licores",
+    "price": 27.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-211.png",
+    "description": "Licor ANTIOQUEÑO VERDE 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 212,
+    "name": "Licor WULIANGYE Botella 500ml",
+    "category": "Licores",
+    "price": 29.9,
+    "size": "500 ml",
+    "image": "assets/products/catalog-212.png",
+    "description": "Licor WULIANGYE Botella 500ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 213,
+    "name": "LICOR DE MELON DE KUYPER 700 ML",
+    "category": "Licores",
+    "price": 31.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-213.png",
+    "description": "LICOR DE MELON DE KUYPER 700 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 214,
+    "name": "LICOR MARASQUIN DE KUYPER 700 ML",
+    "category": "Licores",
+    "price": 33.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-214.png",
+    "description": "LICOR MARASQUIN DE KUYPER 700 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 215,
+    "name": "Licor Galliano L'autentico 750 ML",
+    "category": "Licores",
+    "price": 35.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-215.jpg",
+    "description": "Licor Galliano L'autentico 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 216,
+    "name": "LICOR ELDERFLOWER DE KUYPER 700 ML",
+    "category": "Licores",
+    "price": 37.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-216.png",
+    "description": "LICOR ELDERFLOWER DE KUYPER 700 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 217,
+    "name": "Licor BERTO Aperitivo x 1 lt",
+    "category": "Aperitivos",
+    "price": 22.9,
+    "size": "1 L",
+    "image": "assets/products/catalog-217.png",
+    "description": "Licor BERTO Aperitivo x 1 lt. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 218,
+    "name": "LICOR FERNET BRANCA MENTA 750 ML",
+    "category": "Aperitivos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-218.png",
+    "description": "LICOR FERNET BRANCA MENTA 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 219,
+    "name": "LICOR APERITIVO COCCHI ROSA 750 ML",
+    "category": "Aperitivos",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-219.png",
+    "description": "LICOR APERITIVO COCCHI ROSA 750 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 220,
+    "name": "Licor APEROL Original Botella 750ml",
+    "category": "Aperitivos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-220.webp",
+    "description": "Licor APEROL Original Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 221,
+    "name": "Vermouth AVELINO ROJO Botella 750ml",
+    "category": "Aperitivos",
+    "price": 30.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-221.png",
+    "description": "Vermouth AVELINO ROJO Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 222,
+    "name": "Vermouth AVELINO ROSA Botella 750ml",
+    "category": "Aperitivos",
+    "price": 32.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-222.png",
+    "description": "Vermouth AVELINO ROSA Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 223,
+    "name": "Vermouth CINZANO Rosso Botella 750ml",
+    "category": "Aperitivos",
+    "price": 34.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-223.png",
+    "description": "Vermouth CINZANO Rosso Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 224,
+    "name": "Vermouth MARTINI Bianco Botella 750ml",
+    "category": "Aperitivos",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-224.webp",
+    "description": "Vermouth MARTINI Bianco Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 225,
+    "name": "Nuestro Vermut de Garage Botella 750ml",
+    "category": "Aperitivos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-225.png",
+    "description": "Nuestro Vermut de Garage Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 226,
+    "name": "Vermouth COCCHI Dopo Teatro Amar 750ml",
+    "category": "Aperitivos",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-226.png",
+    "description": "Vermouth COCCHI Dopo Teatro Amar 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 227,
+    "name": "Vermouth COCCHI Storico Di Torino 750ml",
+    "category": "Aperitivos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-227.png",
+    "description": "Vermouth COCCHI Storico Di Torino 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 228,
+    "name": "⁠Licor AMARO MARTINA Aperitivo x 700 ml",
+    "category": "Aperitivos",
+    "price": 30.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-228.png",
+    "description": "⁠Licor AMARO MARTINA Aperitivo x 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 229,
+    "name": "Vermouth MARTINI Extra Dry Botella 750ml",
+    "category": "Aperitivos",
+    "price": 32.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-229.webp",
+    "description": "Vermouth MARTINI Extra Dry Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 230,
+    "name": "Licor FERNET BRANCA Original Botella 750ml",
+    "category": "Aperitivos",
+    "price": 34.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-230.webp",
+    "description": "Licor FERNET BRANCA Original Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 231,
+    "name": "Licor CAMPARI Bitter Original Botella 750ml",
+    "category": "Aperitivos",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-231.webp",
+    "description": "Licor CAMPARI Bitter Original Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 232,
+    "name": "vermouth rosso di torino chazalettes 750 ml",
+    "category": "Aperitivos",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-232.png",
+    "description": "vermouth rosso di torino chazalettes 750 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 233,
+    "name": "Vermouth DOLIN Dry de Chambery Botella 750ml",
+    "category": "Aperitivos",
+    "price": 26.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-233.png",
+    "description": "Vermouth DOLIN Dry de Chambery Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 234,
+    "name": "Vermouth DOLIN Blanc de Chambery Botella 750ml",
+    "category": "Aperitivos",
+    "price": 28.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-234.png",
+    "description": "Vermouth DOLIN Blanc de Chambery Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 235,
+    "name": "Vermouth DOLIN Rouge de Chambery Botella 750ml",
+    "category": "Aperitivos",
+    "price": 30.9,
+    "size": "750 ml",
+    "image": "assets/products/catalog-235.png",
+    "description": "Vermouth DOLIN Rouge de Chambery Botella 750ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 236,
+    "name": "Cerveza Importada CORONA 6 X 330 Ml",
+    "category": "Cervezas",
+    "price": 11.1,
+    "size": "6 × 330 ml",
+    "image": "assets/products/catalog-236.png",
+    "description": "Cerveza Importada CORONA 6 X 330 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 237,
+    "name": "Cerveza En Lata CONQUER 355 Ml",
+    "category": "Cervezas",
+    "price": 2.4,
+    "size": "355 ml",
+    "image": "assets/products/catalog-237.png",
+    "description": "Cerveza En Lata CONQUER 355 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 238,
+    "name": "Cerveza Reserva BIELA 355 ML",
+    "category": "Cervezas",
+    "price": 2.85,
+    "size": "355 ml",
+    "image": "assets/products/catalog-238.png",
+    "description": "Cerveza Reserva BIELA 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 239,
+    "name": "Cerveza Vaso 350 Ml + Destapador AMSTEL Unidad",
+    "category": "Cervezas",
+    "price": 3.3,
+    "size": "350 ml",
+    "image": "assets/products/catalog-239.png",
+    "description": "Cerveza Vaso 350 Ml + Destapador AMSTEL Unidad. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 240,
+    "name": "Cerveza Premium Twist Off CLUB 330 ML",
+    "category": "Cervezas",
+    "price": 1.5,
+    "size": "330 ml",
+    "image": "assets/products/catalog-240.png",
+    "description": "Cerveza Premium Twist Off CLUB 330 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 241,
+    "name": "Cerveza En Lata PILSENER 269  Ml",
+    "category": "Cervezas",
+    "price": 1.95,
+    "size": "269 ml",
+    "image": "assets/products/catalog-241.png",
+    "description": "Cerveza En Lata PILSENER 269  Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 242,
+    "name": "Cerveza Lata HEINEKEN 355 ML",
+    "category": "Cervezas",
+    "price": 2.4,
+    "size": "355 ml",
+    "image": "assets/products/catalog-242.png",
+    "description": "Cerveza Lata HEINEKEN 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 243,
+    "name": "Cerveza Negra Oatmeal Stout PÁRAMO BRAUHAUS 4 x 330 Ml",
+    "category": "Cervezas",
+    "price": 7.4,
+    "size": "4 × 330 ml",
+    "image": "assets/products/catalog-243.png",
+    "description": "Cerveza Negra Oatmeal Stout PÁRAMO BRAUHAUS 4 x 330 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 244,
+    "name": "Cerveza Clásica CLUB 12 X 355 ML",
+    "category": "Cervezas",
+    "price": 22.2,
+    "size": "12 × 355 ml",
+    "image": "assets/products/catalog-244.png",
+    "description": "Cerveza Clásica CLUB 12 X 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 245,
+    "name": "Cerveza En Lata HEINEKEN 6 X 269 Ml",
+    "category": "Cervezas",
+    "price": 11.1,
+    "size": "6 × 269 ml",
+    "image": "assets/products/catalog-245.png",
+    "description": "Cerveza En Lata HEINEKEN 6 X 269 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 246,
+    "name": "Cerveza Lager AC/DC 568 Ml",
+    "category": "Cervezas",
+    "price": 1.95,
+    "size": "568 ml",
+    "image": "assets/products/catalog-246.png",
+    "description": "Cerveza Lager AC/DC 568 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 247,
+    "name": "Cerveza Premium Platino CLUB 330 ML",
+    "category": "Cervezas",
+    "price": 2.4,
+    "size": "330 ml",
+    "image": "assets/products/catalog-247.png",
+    "description": "Cerveza Premium Platino CLUB 330 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 248,
+    "name": "Cerveza Lager 593 330 Ml",
+    "category": "Cervezas",
+    "price": 2.85,
+    "size": "330 ml",
+    "image": "assets/products/catalog-248.png",
+    "description": "Cerveza Lager 593 330 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 249,
+    "name": "Cerveza Premium Platino CLUB 12 X 355 ML",
+    "category": "Cervezas",
+    "price": 22.2,
+    "size": "12 × 355 ml",
+    "image": "assets/products/catalog-249.png",
+    "description": "Cerveza Premium Platino CLUB 12 X 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 250,
+    "name": "Cerveza Importada Clásica QUILMES 6 X 340 Ml",
+    "category": "Cervezas",
+    "price": 11.1,
+    "size": "6 × 340 ml",
+    "image": "assets/products/catalog-250.png",
+    "description": "Cerveza Importada Clásica QUILMES 6 X 340 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 251,
+    "name": "Cerveza Light PILSENER 355 ML",
+    "category": "Cervezas",
+    "price": 1.95,
+    "size": "355 ml",
+    "image": "assets/products/catalog-251.png",
+    "description": "Cerveza Light PILSENER 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 252,
+    "name": "Cerveza Una Ronda Más PILSENER Lata 355 ML",
+    "category": "Cervezas",
+    "price": 2.4,
+    "size": "355 ml",
+    "image": "assets/products/catalog-252.png",
+    "description": "Cerveza Una Ronda Más PILSENER Lata 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 253,
+    "name": "Cerveza Light En Lata BIELA 6 X 355 Ml",
+    "category": "Cervezas",
+    "price": 11.1,
+    "size": "6 × 355 ml",
+    "image": "assets/products/catalog-253.png",
+    "description": "Cerveza Light En Lata BIELA 6 X 355 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 254,
+    "name": "Cerveza En Botella CORONITA 210 ML",
+    "category": "Cervezas",
+    "price": 3.3,
+    "size": "210 ml",
+    "image": "assets/products/catalog-254.png",
+    "description": "Cerveza En Botella CORONITA 210 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 255,
+    "name": "Cerveza Premium Platino CLUB 355 ML",
+    "category": "Cervezas",
+    "price": 1.5,
+    "size": "355 ml",
+    "image": "assets/products/catalog-255.png",
+    "description": "Cerveza Premium Platino CLUB 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 256,
+    "name": "Cerveza En Lata PILSENER 12 X 355 ML",
+    "category": "Cervezas",
+    "price": 22.2,
+    "size": "12 × 355 ml",
+    "image": "assets/products/catalog-256.png",
+    "description": "Cerveza En Lata PILSENER 12 X 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 257,
+    "name": "Cerveza Importada En Botella CORONA 330 Ml",
+    "category": "Cervezas",
+    "price": 2.4,
+    "size": "330 ml",
+    "image": "assets/products/catalog-257.png",
+    "description": "Cerveza Importada En Botella CORONA 330 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 258,
+    "name": "Cerveza Light Lata BIELA 355 ML",
+    "category": "Cervezas",
+    "price": 2.85,
+    "size": "355 ml",
+    "image": "assets/products/catalog-258.png",
+    "description": "Cerveza Light Lata BIELA 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 259,
+    "name": "Cerveza Lager AMSTEL 355 ML",
+    "category": "Cervezas",
+    "price": 3.3,
+    "size": "355 ml",
+    "image": "assets/products/catalog-259.png",
+    "description": "Cerveza Lager AMSTEL 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 260,
+    "name": "Cerveza Importada ESTRELLA DEL SUR 6 X 330 Ml",
+    "category": "Cervezas",
+    "price": 11.1,
+    "size": "6 × 330 ml",
+    "image": "assets/products/catalog-260.png",
+    "description": "Cerveza Importada ESTRELLA DEL SUR 6 X 330 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 261,
+    "name": "Cerveza Artesanal Rubia Iguana Ipa 7.2% Vol. Alc. CAMINO DEL SOL Botella 296 CC",
+    "category": "Cervezas",
+    "price": 1.95,
+    "size": "296 ml",
+    "image": "assets/products/catalog-261.png",
+    "description": "Cerveza Artesanal Rubia Iguana Ipa 7.2% Vol. Alc. CAMINO DEL SOL Botella 296 CC. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 262,
+    "name": "Cerveza Premium CLUB 355 ML",
+    "category": "Cervezas",
+    "price": 2.4,
+    "size": "355 ml",
+    "image": "assets/products/catalog-262.png",
+    "description": "Cerveza Premium CLUB 355 ML. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 263,
+    "name": "Cerveza Roja Maltosa Altbier PÁRAMO BRAUHAUS 330 Ml",
+    "category": "Cervezas",
+    "price": 2.85,
+    "size": "330 ml",
+    "image": "assets/products/catalog-263.png",
+    "description": "Cerveza Roja Maltosa Altbier PÁRAMO BRAUHAUS 330 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 264,
+    "name": "Aguardiente Suave ZHUMIR 700 ml",
+    "category": "Zhumir",
+    "price": 18.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-264.png",
+    "description": "Aguardiente Suave ZHUMIR 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 265,
+    "name": "Aguardiente Canuto Caña Selecta ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 20.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-265.png",
+    "description": "Aguardiente Canuto Caña Selecta ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 266,
+    "name": "Aguardiente Coco Tropical & Notas Florales ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 8.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-266.png",
+    "description": "Aguardiente Coco Tropical & Notas Florales ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 267,
+    "name": "Aguardiente Tamarindo Caribeño Y Piña Hawaiano ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 10.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-267.png",
+    "description": "Aguardiente Tamarindo Caribeño Y Piña Hawaiano ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 268,
+    "name": "Aguardiente Durazno ZHUMIR 350 Ml",
+    "category": "Zhumir",
+    "price": 12.9,
+    "size": "350 ml",
+    "image": "assets/products/catalog-268.png",
+    "description": "Aguardiente Durazno ZHUMIR 350 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 269,
+    "name": "Aguardiente Ecuador ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 14.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-269.png",
+    "description": "Aguardiente Ecuador ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 270,
+    "name": "Aguardiente Seco ZHUMIR 350 ml",
+    "category": "Zhumir",
+    "price": 16.9,
+    "size": "350 ml",
+    "image": "assets/products/catalog-270.png",
+    "description": "Aguardiente Seco ZHUMIR 350 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 271,
+    "name": "Aguardiente Seco Extra ZHUMIR 350 Ml",
+    "category": "Zhumir",
+    "price": 18.9,
+    "size": "350 ml",
+    "image": "assets/products/catalog-271.png",
+    "description": "Aguardiente Seco Extra ZHUMIR 350 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 272,
+    "name": "Ron Gran Reserva 6 Años ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 20.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-272.png",
+    "description": "Ron Gran Reserva 6 Años ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 273,
+    "name": "Aguardiente Durazno Guaytambo ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 8.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-273.png",
+    "description": "Aguardiente Durazno Guaytambo ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 274,
+    "name": "Aguardiente Naranjilla Amazónica & Frutos Andinos ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 10.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-274.png",
+    "description": "Aguardiente Naranjilla Amazónica & Frutos Andinos ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 275,
+    "name": "Aguardiente Seco Extra Suave ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 12.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-275.png",
+    "description": "Aguardiente Seco Extra Suave ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 276,
+    "name": "Aguardiente Pink ZHUMIR 700 ml",
+    "category": "Zhumir",
+    "price": 14.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-276.png",
+    "description": "Aguardiente Pink ZHUMIR 700 ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 277,
+    "name": "Aguardiente Faja Verde ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 16.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-277.png",
+    "description": "Aguardiente Faja Verde ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 278,
+    "name": "Aguardiente Tradición ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 18.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-278.png",
+    "description": "Aguardiente Tradición ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 279,
+    "name": "Piña Colada Coctel ZHUMIR 700 Ml",
+    "category": "Zhumir",
+    "price": 20.9,
+    "size": "700 ml",
+    "image": "assets/products/catalog-279.png",
+    "description": "Piña Colada Coctel ZHUMIR 700 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 280,
+    "name": "Coctel De Vodka Sabor A Frutos Exóticos SWITCH 2000 Ml",
+    "category": "Cócteles",
+    "price": 4.9,
+    "size": "2000 ml",
+    "image": "assets/products/catalog-280.png",
+    "description": "Coctel De Vodka Sabor A Frutos Exóticos SWITCH 2000 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 281,
+    "name": "Bongo Bongo Coctel De Vodka Sabor a Frutos Exóticos SWITCH 1400 Ml",
+    "category": "Cócteles",
+    "price": 6.9,
+    "size": "1400 ml",
+    "image": "assets/products/catalog-281.png",
+    "description": "Bongo Bongo Coctel De Vodka Sabor a Frutos Exóticos SWITCH 1400 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 282,
+    "name": "Maracuyá Madness Coctel De Vodka SWITCH 1400 Ml",
+    "category": "Cócteles",
+    "price": 8.9,
+    "size": "1400 ml",
+    "image": "assets/products/catalog-282.png",
+    "description": "Maracuyá Madness Coctel De Vodka SWITCH 1400 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 283,
+    "name": "Coctel De Agave Sabor A Tamarindo Y Uva SWITCH 1400 Ml",
+    "category": "Cócteles",
+    "price": 10.9,
+    "size": "1400 ml",
+    "image": "assets/products/catalog-283.png",
+    "description": "Coctel De Agave Sabor A Tamarindo Y Uva SWITCH 1400 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 284,
+    "name": "Hippie Hour Coctel De Vodka Sabor A Hierbas Frescas Y Yuzú SWITCH 1400 Ml",
+    "category": "Cócteles",
+    "price": 12.9,
+    "size": "1400 ml",
+    "image": "assets/products/catalog-284.png",
+    "description": "Hippie Hour Coctel De Vodka Sabor A Hierbas Frescas Y Yuzú SWITCH 1400 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 285,
+    "name": "Coctel De Agave Sabor A Tamarindo Y Uva SWITCH 2000 Ml",
+    "category": "Cócteles",
+    "price": 14.9,
+    "size": "2000 ml",
+    "image": "assets/products/catalog-285.png",
+    "description": "Coctel De Agave Sabor A Tamarindo Y Uva SWITCH 2000 Ml. Precio propuesto en USD; confirma presentación y disponibilidad con MICHOKS.",
+    "occasions": [
+      "compartir"
+    ]
   }
 ]

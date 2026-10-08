@@ -23,15 +23,23 @@ try {
  await check('menor de edad: redirección a Vita sin guardar aprobación',async()=>{
   const ctx=await browser.newContext({serviceWorkers:'block'});const p=await ctx.newPage();await p.route('https://www.vita.com.ec/**',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>Vita</title><p>Vita</p>'}));await p.goto('http://127.0.0.1:4173');await p.locator('#age-decline').click();await p.waitForURL('https://www.vita.com.ec/');await p.goto('http://127.0.0.1:4173');assert.equal(await p.locator('#age-gate').isVisible(),true);assert.equal(await p.evaluate(()=>localStorage.getItem('michoks-age-confirmed')),null);await ctx.close();
  });
+ await check('animación al bajar y subir, hover elegante y movimiento reducido',async()=>{
+  await ready(page);await page.setViewportSize({width:1440,height:1000});await page.locator('#catalogo').scrollIntoViewIfNeeded();await page.waitForTimeout(900);
+  const card=page.locator('.product-card').first();await card.hover();await page.waitForTimeout(500);assert.notEqual(await card.locator('img').evaluate(img=>getComputedStyle(img).transform),'none');
+  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await card.locator('img').evaluate(img=>getComputedStyle(img).transform),'none');
+  await page.locator('#nosotros').scrollIntoViewIfNeeded();await page.locator('#catalogo').scrollIntoViewIfNeeded();assert.equal(await card.evaluate(el=>el.getAnimations().length),0);
+  await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#nosotros').scrollIntoViewIfNeeded();await page.waitForTimeout(100);await page.locator('#catalogo').scrollIntoViewIfNeeded();await page.waitForFunction(()=>[...document.querySelectorAll('.product-card')].some(el=>el.getAnimations().length>0));await page.waitForTimeout(900);
+ });
  await check('JSON y semántica',async()=>{await ready(page);assert.equal(await page.locator('.product-card').count(),12);assert.equal(await page.locator('h1').count(),1);for(const tag of ['header','nav','main','footer'])assert.equal(await page.locator(tag).count(),1);});
- await check('24 productos, mostrar más y fotografías locales válidas',async()=>{
+ await check('284 productos, paginación y fotografías locales válidas',async()=>{
   await page.locator('#load-more-products').click();assert.equal(await page.locator('.product-card').count(),24);
-  const items=await page.evaluate(async()=>await(await fetch('/data/productos.json')).json());assert.equal(items.length,24);assert.equal(new Set(items.map(p=>p.image)).size,24);
+  const items=await page.evaluate(async()=>await(await fetch('/data/productos.json')).json());assert.equal(items.length,284);assert.equal(new Set(items.map(p=>p.image)).size,284);
+  while(await page.locator('#load-more-products').isVisible())await page.locator('#load-more-products').click();assert.equal(await page.locator('.product-card').count(),284);
   for(const item of items)assert.equal(await page.evaluate(src=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(img.naturalWidth>0);img.onerror=()=>resolve(false);img.src=src;}),item.image),true,item.image);
  });
  await check('categorías nuevas y presupuesto con restablecimiento',async()=>{
-  for(const [category,n] of [['Rones',3],['Gins',2],['Licores',2],['Aperitivos',1]]){await page.locator('.category-tab[data-category="'+category+'"]').click();assert.equal(await page.locator('.product-card').count(),n);}
-  await page.locator('.category-tab[data-category="Todos"]').click();await page.locator('#product-budget').selectOption('20');assert.equal(await page.locator('.product-card').count(),8);
+  for(const [category,n] of [['Rones',30],['Gins',30],['Licores',30],['Aperitivos',20]]){await page.locator('.category-tab[data-category="'+category+'"]').click();assert.match(await page.locator('#results-count').textContent(),new RegExp('de '+n+' productos'));assert.equal(await page.locator('.product-card').count(),12);}
+  await page.locator('.category-tab[data-category="Todos"]').click();await page.locator('#product-budget').selectOption('20');const budgetIds=await page.locator('[data-add-product]').evaluateAll(nodes=>nodes.filter(n=>n.closest('.product-card')).map(n=>Number(n.dataset.addProduct)));const catalog=await page.evaluate(async()=>await(await fetch('/data/productos.json')).json());assert.ok(budgetIds.length>0);assert.ok(budgetIds.every(id=>catalog.find(p=>p.id===id).price<=20));
   await page.locator('#clear-active-filters').click();assert.equal(await page.locator('#product-budget').inputValue(),'all');assert.equal(await page.locator('.product-card').count(),12);
  });
  await check('Descubre filtra por las cuatro ocasiones',async()=>{

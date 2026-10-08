@@ -1,3 +1,4 @@
+import { initMotion } from './motion.js';
 import { confirmAge } from './age.js';
 import { initPWA } from './pwa.js';
 import { initNavigation } from './navigation.js';
@@ -24,6 +25,7 @@ async function start() {
 }
 initPWA();
 confirmAge().then(() => {
+  initMotion();
   initNavigation();
   start();
 });

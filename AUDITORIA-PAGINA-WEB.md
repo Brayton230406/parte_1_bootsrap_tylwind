@@ -20,7 +20,7 @@ La página presenta una licorería para personas adultas y permite explorar prod
 
 ## Catálogo ampliado
 
-La página contiene **24 productos en 11 categorías**. Se incorporaron 13 opciones: Black Label, Jack Daniel’s Old No. 7, Bacardí Oakheart, Havana Club Añejo Reserva, Absolut, Tanqueray London Dry, Bombay Sapphire, Baileys Original, Jägermeister Original, Don Julio Blanco, Martini Rosso, Trapiche Malbec y Havana Club Añejo Blanco.
+La página contiene **284 productos en 11 categorías**. Entre las opciones del catálogo se encuentran: Black Label, Jack Daniel’s Old No. 7, Bacardí Oakheart, Havana Club Añejo Reserva, Absolut, Tanqueray London Dry, Bombay Sapphire, Baileys Original, Jägermeister Original, Don Julio Blanco, Martini Rosso, Trapiche Malbec y Havana Club Añejo Blanco.
 
 Cada opción tiene una fotografía local distinta, nombre, presentación, categoría y precio. Las referencias de las fotografías están registradas en [sources.json](assets/products/sources.json); los datos de venta se editan en [productos.json](data/productos.json). El registro de procedencia documenta el origen de la imagen y no acredita por sí mismo una licencia de uso.
 
@@ -52,13 +52,13 @@ La navegación al catálogo y a Acerca de nosotros coloca el foco en el encabeza
 
 La suite [rubrica.mjs](js/tests/rubrica.mjs) comprueba catálogo, imágenes, filtros, ocasiones, misión/visión, navegación, carrito, formulario, persistencia y recuperación independiente desde los cuatro almacenamientos. También revisa ausencia de desbordamiento horizontal, axe y foco modal en 320, 390, 480, 768, 1024 y 1440 px. El HTML se revisa con html-validate.
 
-Resultado de la ejecución final: **26 comprobaciones aprobadas**, HTML sin errores y ninguna infracción detectada por axe en los seis tamaños evaluados. Los resultados también se registran en el README. Las pruebas usan un servidor local y Chromium. No incluyen una compra real, un envío real a WhatsApp, auditoría manual completa con lectores de pantalla, medición de Core Web Vitals en producción ni pruebas exhaustivas de Safari y Firefox.
+Resultado de la ejecución final: **27 comprobaciones aprobadas**, HTML sin errores y ninguna infracción detectada por axe en los seis tamaños evaluados. Los resultados también se registran en el README. Las pruebas usan un servidor local y Chromium. No incluyen una compra real, un envío real a WhatsApp, auditoría manual completa con lectores de pantalla, medición de Core Web Vitals en producción ni pruebas exhaustivas de Safari y Firefox.
 
 ## Guía de revisión manual de la página
 
 1. Desde la cabecera, abre Acerca de nosotros y confirma que se muestran misión y visión. Repite en móvil con el menú abierto.
 2. Prueba cada tarjeta de Descubre y observa el nombre del filtro activo y los resultados.
-3. Combina una categoría, un presupuesto y una búsqueda. Limpia los filtros y muestra los 24 productos.
+3. Combina una categoría, un presupuesto y una búsqueda. Limpia los filtros y muestra los 284 productos.
 4. Abre una vista rápida y compara imagen, nombre, presentación y precio con el catálogo.
 5. Añade varios productos, modifica cantidades, elimina, deshaz y recarga. Comprueba el total.
 6. Usa únicamente Tab, Shift+Tab, Enter y Escape. Revisa foco visible y cierre de los paneles.
@@ -71,10 +71,34 @@ La versión local amplía las opciones de compra y ofrece recorridos claros desd
 
 ## Actualización PWA y publicación
 
-Se añadieron manifiesto instalable, iconos estándar y maskable, service worker con caché versionada y aviso accesible de desconexión. Se comprueban los criterios de instalación de Chromium, el catálogo con sus 24 fotografías sin conexión, el carrito persistente, la reconexión y el enlace antiguo `michoks.html`. La caché se precarga durante la primera visita conectada; antes de completarse no hay garantía de uso offline. Las actualizaciones se activan al cerrar las pestañas anteriores. La consulta a WhatsApp requiere internet.
+Se añadieron manifiesto instalable, iconos estándar y maskable, service worker con caché versionada y aviso accesible de desconexión. Se comprueban los criterios de instalación de Chromium, el catálogo con sus 284 fotografías sin conexión, el carrito persistente, la reconexión y el enlace antiguo `michoks.html`. La caché se precarga durante la primera visita conectada; antes de completarse no hay garantía de uso offline. Las actualizaciones se activan al cerrar las pestañas anteriores. La consulta a WhatsApp requiere internet.
 
 El workflow de GitHub Actions ejecuta las verificaciones antes del despliegue. El archivo `michoks.html` se genera al publicar para conservar la dirección original sin duplicar el código fuente del proyecto.
 
 ## Confirmación de edad al entrar
 
 La primera visita muestra una pregunta de mayoría de edad. El contenido y la carga del catálogo permanecen bloqueados hasta pulsar “Sí, tengo 18 años o más”. La confirmación se conserva en localStorage (`michoks-age-confirmed`); si está restringido, se intenta sessionStorage. Si ambos están bloqueados se solicita nuevamente en la siguiente visita. “No” lleva a [Vita Ecuador](https://www.vita.com.ec/) y no guarda aprobación. Es una declaración del visitante, no una verificación documental de identidad. Al borrar los datos del navegador se vuelve a preguntar. Las pruebas comprueban ambos recorridos, persistencia, teclado y accesibilidad en seis tamaños.
+
+## Catálogo ampliado y movimiento elegante
+
+La versión actual incluye **284 opciones** y **9 packs**. La distribución comprobada es:
+
+| Categoría | Opciones |
+| --- | --- |
+| Whisky | 30 |
+| Vinos | 30 |
+| Cervezas | 30 |
+| Cócteles | 7 |
+| Zhumir | 17 |
+| Tequilas | 30 |
+| Vodkas | 30 |
+| Rones | 30 |
+| Gins | 30 |
+| Licores | 30 |
+| Aperitivos | 20 |
+
+Ocho categorías alcanzan 30 opciones. Aperitivos, Zhumir y cócteles se amplían con las referencias y fotografías disponibles, sin duplicar artículos para alcanzar una cifra. Las presentaciones provienen del catálogo de referencia; los precios nuevos son propuestas en USD y requieren confirmación comercial. Los packs tienen su cantidad explícita y una insignia. El catálogo muestra 12 productos por bloque para mantener la página manejable.
+
+Los encabezados y las tarjetas aparecen con una animación breve cuando entran en pantalla, tanto al bajar como al subir. Al pasar el ratón sobre una tarjeta, la botella se eleva e inclina ligeramente; las tarjetas de Descubre también tienen un movimiento discreto. El contenido nunca depende de una animación para ser visible. La preferencia `prefers-reduced-motion` desactiva el movimiento, y la entrada de foco detiene las animaciones de las tarjetas para facilitar el teclado. No se capturan ni bloquean los eventos de desplazamiento.
+
+El módulo `js/motion.js` usa IntersectionObserver y Web Animations; `assets/styles.css` define las microinteracciones. La PWA precarga el catálogo ampliado y sus fotografías después de la primera visita conectada. Esto requiere descargar más imágenes que la versión anterior; las nuevas fotos se limitan a 480 píxeles.

@@ -40,7 +40,7 @@ La arquitectura separa los datos y las operaciones del modelo de la presentació
 
 Edita `data/productos.json` para cambiar productos. Cada objeto requiere `id` entero único, `name`, `category`, `price` numérico no negativo, `size`, `description`, `occasions` (regalo, cena, cocteles o compartir) e `image` con ruta local `assets/products/`. La aplicación valida el formato, rechaza IDs repetidos y ofrece recargar si la petición o el parseo fallan. El texto se escapa antes de insertarlo en HTML; los mensajes de consulta conservan el texto original.
 
-El catálogo contiene 24 productos en 11 categorías y permite búsqueda, filtros por presupuesto y ocasión, ordenación, vista rápida y mostrar más. El carrito añade productos, modifica cantidades entre 1 y 99, elimina, vacía y deshace la última eliminación. Los totales se calculan sumando centavos enteros. El total permanece accesible desde una barra en móvil y el carrito se sincroniza entre pestañas.
+El catálogo contiene 284 productos en 11 categorías y permite búsqueda, filtros por presupuesto y ocasión, ordenación, vista rápida y mostrar más. El carrito añade productos, modifica cantidades entre 1 y 99, elimina, vacía y deshace la última eliminación. Los totales se calculan sumando centavos enteros. El total permanece accesible desde una barra en móvil y el carrito se sincroniza entre pestañas.
 
 ## Formularios y validaciones
 
@@ -101,7 +101,7 @@ Referencia para el marcado de errores: [MDN — aria-invalid](https://developer.
 
 ## Pruebas automatizadas
 
-Se verificaron **26 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
+Se verificaron **27 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
 
 Para repetirlas en macOS/Linux con Node.js instalado, las dependencias de pruebas se instalan fuera del proyecto:
 
@@ -130,7 +130,7 @@ Consulta [AUDITORIA-ESTUDIO.md](AUDITORIA-ESTUDIO.md) para el análisis criterio
 
 ## Auditoría de la página actualizada
 
-Consulta [AUDITORIA-PAGINA-WEB.md](AUDITORIA-PAGINA-WEB.md) para revisar navegación, contenido, diseño y experiencia de compra. Las 13 opciones nuevas tienen precios propuestos en USD sujetos a confirmación. La misión y visión son textos propuestos de marca.
+Consulta [AUDITORIA-PAGINA-WEB.md](AUDITORIA-PAGINA-WEB.md) para revisar navegación, contenido, diseño y experiencia de compra. Las opciones nuevas tienen precios propuestos en USD sujetos a confirmación. La misión y visión son textos propuestos de marca.
 
 ## Aplicación web progresiva (PWA)
 
@@ -140,10 +140,34 @@ En navegadores compatibles se puede instalar desde el menú del navegador; el pi
 
 Después de cambiar recursos ejecuta `node js/tests/build-pwa.mjs` y guarda el nuevo `sw.js`. La nueva versión del worker se activa al cerrar las pestañas de la versión anterior y volver a abrir MICHOKS; así no se mezclan archivos de distintas versiones. El catálogo sin conexión corresponde a la versión descargada.
 
-GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 26 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
+GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 27 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
 
 Referencia: [MDN: instalación de aplicaciones web progresivas](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
 ## Confirmación de edad al entrar
 
 La primera visita muestra una pregunta de mayoría de edad. El contenido y la carga del catálogo permanecen bloqueados hasta pulsar “Sí, tengo 18 años o más”. La confirmación se conserva en localStorage (`michoks-age-confirmed`); si está restringido, se intenta sessionStorage. Si ambos están bloqueados se solicita nuevamente en la siguiente visita. “No” lleva a [Vita Ecuador](https://www.vita.com.ec/) y no guarda aprobación. Es una declaración del visitante, no una verificación documental de identidad. Al borrar los datos del navegador se vuelve a preguntar. Las pruebas comprueban ambos recorridos, persistencia, teclado y accesibilidad en seis tamaños.
+
+## Catálogo ampliado y movimiento elegante
+
+La versión actual incluye **284 opciones** y **9 packs**. La distribución comprobada es:
+
+| Categoría | Opciones |
+| --- | --- |
+| Whisky | 30 |
+| Vinos | 30 |
+| Cervezas | 30 |
+| Cócteles | 7 |
+| Zhumir | 17 |
+| Tequilas | 30 |
+| Vodkas | 30 |
+| Rones | 30 |
+| Gins | 30 |
+| Licores | 30 |
+| Aperitivos | 20 |
+
+Ocho categorías alcanzan 30 opciones. Aperitivos, Zhumir y cócteles se amplían con las referencias y fotografías disponibles, sin duplicar artículos para alcanzar una cifra. Las presentaciones provienen del catálogo de referencia; los precios nuevos son propuestas en USD y requieren confirmación comercial. Los packs tienen su cantidad explícita y una insignia. El catálogo muestra 12 productos por bloque para mantener la página manejable.
+
+Los encabezados y las tarjetas aparecen con una animación breve cuando entran en pantalla, tanto al bajar como al subir. Al pasar el ratón sobre una tarjeta, la botella se eleva e inclina ligeramente; las tarjetas de Descubre también tienen un movimiento discreto. El contenido nunca depende de una animación para ser visible. La preferencia `prefers-reduced-motion` desactiva el movimiento, y la entrada de foco detiene las animaciones de las tarjetas para facilitar el teclado. No se capturan ni bloquean los eventos de desplazamiento.
+
+El módulo `js/motion.js` usa IntersectionObserver y Web Animations; `assets/styles.css` define las microinteracciones. La PWA precarga el catálogo ampliado y sus fotografías después de la primera visita conectada. Esto requiere descargar más imágenes que la versión anterior; las nuevas fotos se limitan a 480 píxeles.

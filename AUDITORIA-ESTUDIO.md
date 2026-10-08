@@ -1,4 +1,4 @@
-> Actualización: el catálogo ahora contiene 24 productos. Para la auditoría de la interfaz y los nuevos filtros consulta [AUDITORIA-PAGINA-WEB.md](AUDITORIA-PAGINA-WEB.md). Los resultados de 20 comprobaciones descritos aquí corresponden a la revisión anterior.
+> Actualización: el catálogo ahora contiene 284 productos. Para la auditoría de la interfaz y los nuevos filtros consulta [AUDITORIA-PAGINA-WEB.md](AUDITORIA-PAGINA-WEB.md). Los resultados de 20 comprobaciones descritos aquí corresponden a la revisión anterior.
 
 # Auditoría y guía de estudio de MICHOKS
 
