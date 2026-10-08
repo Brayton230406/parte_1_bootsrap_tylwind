@@ -64,7 +64,7 @@ Los errores son dinámicos, asociados mediante `aria-describedby`, anunciados co
 | localStorage | Copia persistente y eventos de sincronización entre pestañas del mismo origen. |
 | sessionStorage | Copia de recuperación durante la sesión de la pestaña. |
 | IndexedDB | Copia persistente asíncrona en la base `michoks`, almacén `state`. |
-| Cookies | Copia compacta de IDs y cantidades durante 30 días, con `SameSite=Lax` y `Secure` al usar HTTPS. |
+| Cookies | Solo con consentimiento: copia compacta de IDs y cantidades durante 30 días, con `SameSite=Lax` y `Secure` al usar HTTPS. |
 
 Cada copia incluye `version`, `updatedAt` y `cart`. Al iniciar se leen las cuatro, se descartan copias corruptas o con cantidades/IDs inválidos y se recupera la válida más reciente. Se conserva compatibilidad con el carrito antiguo de localStorage. Una selección vacía también tiene versión, evitando recuperar compras que se hayan eliminado. Las escrituras a IndexedDB se serializan. Si un mecanismo está bloqueado, se usan los disponibles y la aplicación sigue operativa en memoria. Si el navegador elimina todas las copias, no existe un servidor que pueda restaurarlas.
 
@@ -101,7 +101,7 @@ Referencia para el marcado de errores: [MDN — aria-invalid](https://developer.
 
 ## Pruebas automatizadas
 
-Se verificaron **27 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
+Se verificaron **29 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
 
 Para repetirlas en macOS/Linux con Node.js instalado, las dependencias de pruebas se instalan fuera del proyecto:
 
@@ -140,7 +140,7 @@ En navegadores compatibles se puede instalar desde el menú del navegador; el pi
 
 Después de cambiar recursos ejecuta `node js/tests/build-pwa.mjs` y guarda el nuevo `sw.js`. La nueva versión del worker se activa al cerrar las pestañas de la versión anterior y volver a abrir MICHOKS; así no se mezclan archivos de distintas versiones. El catálogo sin conexión corresponde a la versión descargada.
 
-GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 27 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
+GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 29 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
 
 Referencia: [MDN: instalación de aplicaciones web progresivas](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
@@ -171,3 +171,7 @@ Ocho categorías alcanzan 30 opciones. Aperitivos, Zhumir y cócteles se amplía
 Los encabezados y las tarjetas aparecen con una animación breve cuando entran en pantalla, tanto al bajar como al subir. Al pasar el ratón sobre una tarjeta, la botella se eleva e inclina ligeramente; las tarjetas de Descubre también tienen un movimiento discreto. El contenido nunca depende de una animación para ser visible. La preferencia `prefers-reduced-motion` desactiva el movimiento, y la entrada de foco detiene las animaciones de las tarjetas para facilitar el teclado. No se capturan ni bloquean los eventos de desplazamiento.
 
 El módulo `js/motion.js` usa IntersectionObserver y Web Animations; `assets/styles.css` define las microinteracciones. La PWA precarga el catálogo ampliado y sus fotografías después de la primera visita conectada. Esto requiere descargar más imágenes que la versión anterior; las nuevas fotos se limitan a 480 píxeles.
+
+## Preferencias de cookies
+
+Después de confirmar la edad, la primera visita permite aceptar o denegar la cookie funcional `michoks_cart` (30 días). No se lee ni escribe esta copia sin aprobación; la denegación elimina una copia anterior. El carrito continúa usando localStorage, sessionStorage e IndexedDB, tal como explica el aviso. La elección se recuerda con `michoks-cookie-consent`; el botón “Preferencias de cookies” del pie permite cambiarla. Aceptar activa la copia del carrito y revocar la elimina inmediatamente. Escape deniega. El aviso utiliza un diálogo nativo accesible, foco contenido, botones equivalentes y colores de MICHOKS. Las pruebas verifican rechazo, persistencia, aceptación posterior, revocación y accesibilidad en seis tamaños.

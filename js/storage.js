@@ -1,3 +1,4 @@
+import { cookiesAllowed, clearCartCookie } from './consent.js';
 // Cuatro copias versionadas. Una selección vacía también se guarda para no resucitar compras.
 export const STORAGE_KEY = 'michoks-cart';
 const COOKIE_KEY = 'michoks_cart';
@@ -20,7 +21,7 @@ function cookieValue() {
   return safely(() => decodeURIComponent(document.cookie.split('; ').find((item) => item.startsWith(`${COOKIE_KEY}=`))?.slice(COOKIE_KEY.length + 1) || ''));
 }
 function candidates(products) {
-  return [parse(safely(() => localStorage.getItem(STORAGE_KEY))), parse(safely(() => sessionStorage.getItem(STORAGE_KEY))), parse(cookieValue()), memory].map((value) => snapshot(value, products)).filter(Boolean);
+  return [parse(safely(() => localStorage.getItem(STORAGE_KEY))), parse(safely(() => sessionStorage.getItem(STORAGE_KEY))), cookiesAllowed() ? parse(cookieValue()) : null, memory].map((value) => snapshot(value, products)).filter(Boolean);
 }
 function newest(values) { return values.sort((a, b) => b.updatedAt - a.updatedAt)[0] || null; }
 function database() {
@@ -51,7 +52,7 @@ function persist(value) {
   for (const getStorage of [() => localStorage, () => sessionStorage]) {
     if (safely(() => { getStorage().setItem(STORAGE_KEY, text); return true; }, false)) successes++;
   }
-  if (safely(() => {
+  if (cookiesAllowed() && safely(() => {
     document.cookie = `${COOKIE_KEY}=${encodeURIComponent(text)}; Max-Age=2592000; Path=/; SameSite=Lax${location.protocol === 'https:' ? '; Secure' : ''}`;
     return cookieValue() === text;
   }, false)) successes++;
@@ -73,3 +74,9 @@ export function persistCart(cart) {
   return persist({ version: 1, updatedAt, cart: { ...cart } });
 }
 export function storageSettled() { return queue; }
+
+// Un cambio de preferencia se aplica también al carrito ya guardado.
+document.addEventListener('cookie:change', () => {
+  if (!cookiesAllowed()) clearCartCookie();
+  else if (memory) persist(memory);
+});

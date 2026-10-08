@@ -84,7 +84,7 @@
       </div>
     </section>
   </main>
-  <footer class="michoks-footer"><div class="shell pwa-controls"><button id="install-app" class="text-link" type="button" hidden>Instalar MICHOKS ↗</button><p id="connection-status" role="status" hidden></p></div><div class="shell"><div class="footer-top flex flex-col sm:flex-row justify-between gap-6"><p class="eyebrow">TU PRÓXIMO BRINDIS EMPIEZA AQUÍ.</p><div class="flex flex-wrap gap-6"><a href="#catalogo">Catálogo</a><a href="#destacados">Descubre</a><a href="#nosotros">Acerca de nosotros</a><a href="https://wa.me/593959862988" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#inicio">Volver arriba ↑</a></div></div><p class="footer-wordmark" aria-hidden="true">MICHOKS<span>✦</span></p><div class="footer-bottom flex flex-col sm:flex-row justify-between gap-3"><p>MICHOKS · Licorería</p><p>Venta exclusiva a mayores de 18 años. Disfruta con responsabilidad.</p></div></div></footer>
+  <footer class="michoks-footer"><div class="shell pwa-controls"><button id="install-app" class="text-link" type="button" hidden>Instalar MICHOKS ↗</button><p id="connection-status" role="status" hidden></p></div><div class="shell"><div class="footer-top flex flex-col sm:flex-row justify-between gap-6"><p class="eyebrow">TU PRÓXIMO BRINDIS EMPIEZA AQUÍ.</p><div class="flex flex-wrap gap-6"><a href="#catalogo">Catálogo</a><a href="#destacados">Descubre</a><a href="#nosotros">Acerca de nosotros</a><a href="https://wa.me/593959862988" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><button id="cookie-preferences" class="text-link" type="button">Preferencias de cookies</button><a href="#inicio">Volver arriba ↑</a></div></div><p class="footer-wordmark" aria-hidden="true">MICHOKS<span>✦</span></p><div class="footer-bottom flex flex-col sm:flex-row justify-between gap-3"><p>MICHOKS · Licorería</p><p>Venta exclusiva a mayores de 18 años. Disfruta con responsabilidad.</p></div></div></footer>
   <dialog id="cart-drawer" class="cart-drawer" aria-labelledby="cart-title">
     <div class="cart-panel">
       <div class="cart-header">
@@ -127,5 +127,8 @@
   <button id="cart-mini" class="cart-mini" type="button" aria-controls="cart-drawer" aria-haspopup="dialog" hidden><span class="mini-icon" aria-hidden="true">↗</span><span>Ver mi selección <small id="mini-units"></small></span><strong id="mini-total"></strong></button>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </div>
+  <dialog id="cookie-dialog" class="cookie-dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description">
+    <div class="cookie-panel"><div class="cookie-heading"><img src="assets/michoks-logo.svg" width="44" height="44" alt=""><p class="eyebrow">TU EXPERIENCIA, TU ELECCIÓN</p></div><h2 id="cookie-title">Un detalle para<br><em>recordar tu selección.</em></h2><p id="cookie-description">¿Aceptas que guardemos una copia de tu carrito en una cookie durante 30 días?</p><p class="cookie-explanation">Puedes denegar y seguir usando MICHOKS sin esa cookie. Tu carrito seguirá guardándose en el almacenamiento local del navegador. No usamos cookies de publicidad ni de seguimiento.</p><div class="cookie-actions"><button id="cookie-accept" class="primary-button" type="button">Aceptar cookies <span aria-hidden="true">↗</span></button><button id="cookie-deny" class="cookie-deny" type="button">Denegar cookies</button></div><p class="cookie-caption">Puedes cambiar tu elección en “Preferencias de cookies”, al pie de la página.</p></div>
+  </dialog>
 </body>
 </html>

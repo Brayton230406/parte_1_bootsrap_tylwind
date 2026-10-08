@@ -9,7 +9,7 @@ await new Promise(resolve=>server.listen(4174,'127.0.0.1',resolve));
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||undefined});
 try{
  const context=await browser.newContext();const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const base='http://127.0.0.1:4174'+prefix;
- await page.goto(base);if(await page.locator('#age-gate').isVisible())await page.locator('#age-accept').click();await page.locator('[data-add-product="1"]').waitFor();
+ await page.goto(base);if(await page.locator('#age-gate').isVisible())await page.locator('#age-accept').click();if(await page.locator('#cookie-dialog').isVisible())await page.locator('#cookie-accept').click();await page.locator('[data-add-product="1"]').waitFor();
  await page.evaluate(async()=>{await navigator.serviceWorker.ready;});
  await page.waitForFunction(()=>navigator.serviceWorker.controller!==null);
  const manifest=await page.evaluate(async()=>await(await fetch(document.querySelector('link[rel="manifest"]').href)).json());assert.equal(manifest.display,'standalone');assert.equal(manifest.start_url,'./index.html');assert.equal(manifest.scope,'./');assert.deepEqual(manifest.icons.map(i=>i.sizes),['192x192','512x512','512x512']);

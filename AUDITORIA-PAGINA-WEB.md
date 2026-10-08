@@ -52,7 +52,7 @@ La navegación al catálogo y a Acerca de nosotros coloca el foco en el encabeza
 
 La suite [rubrica.mjs](js/tests/rubrica.mjs) comprueba catálogo, imágenes, filtros, ocasiones, misión/visión, navegación, carrito, formulario, persistencia y recuperación independiente desde los cuatro almacenamientos. También revisa ausencia de desbordamiento horizontal, axe y foco modal en 320, 390, 480, 768, 1024 y 1440 px. El HTML se revisa con html-validate.
 
-Resultado de la ejecución final: **27 comprobaciones aprobadas**, HTML sin errores y ninguna infracción detectada por axe en los seis tamaños evaluados. Los resultados también se registran en el README. Las pruebas usan un servidor local y Chromium. No incluyen una compra real, un envío real a WhatsApp, auditoría manual completa con lectores de pantalla, medición de Core Web Vitals en producción ni pruebas exhaustivas de Safari y Firefox.
+Resultado de la ejecución final: **29 comprobaciones aprobadas**, HTML sin errores y ninguna infracción detectada por axe en los seis tamaños evaluados. Los resultados también se registran en el README. Las pruebas usan un servidor local y Chromium. No incluyen una compra real, un envío real a WhatsApp, auditoría manual completa con lectores de pantalla, medición de Core Web Vitals en producción ni pruebas exhaustivas de Safari y Firefox.
 
 ## Guía de revisión manual de la página
 
@@ -102,3 +102,7 @@ Ocho categorías alcanzan 30 opciones. Aperitivos, Zhumir y cócteles se amplía
 Los encabezados y las tarjetas aparecen con una animación breve cuando entran en pantalla, tanto al bajar como al subir. Al pasar el ratón sobre una tarjeta, la botella se eleva e inclina ligeramente; las tarjetas de Descubre también tienen un movimiento discreto. El contenido nunca depende de una animación para ser visible. La preferencia `prefers-reduced-motion` desactiva el movimiento, y la entrada de foco detiene las animaciones de las tarjetas para facilitar el teclado. No se capturan ni bloquean los eventos de desplazamiento.
 
 El módulo `js/motion.js` usa IntersectionObserver y Web Animations; `assets/styles.css` define las microinteracciones. La PWA precarga el catálogo ampliado y sus fotografías después de la primera visita conectada. Esto requiere descargar más imágenes que la versión anterior; las nuevas fotos se limitan a 480 píxeles.
+
+## Preferencias de cookies
+
+Después de confirmar la edad, la primera visita permite aceptar o denegar la cookie funcional `michoks_cart` (30 días). No se lee ni escribe esta copia sin aprobación; la denegación elimina una copia anterior. El carrito continúa usando localStorage, sessionStorage e IndexedDB, tal como explica el aviso. La elección se recuerda con `michoks-cookie-consent`; el botón “Preferencias de cookies” del pie permite cambiarla. Aceptar activa la copia del carrito y revocar la elimina inmediatamente. Escape deniega. El aviso utiliza un diálogo nativo accesible, foco contenido, botones equivalentes y colores de MICHOKS. Las pruebas verifican rechazo, persistencia, aceptación posterior, revocación y accesibilidad en seis tamaños.

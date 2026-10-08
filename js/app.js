@@ -1,3 +1,4 @@
+import { initCookieConsent } from './consent.js';
 import { initMotion } from './motion.js';
 import { confirmAge } from './age.js';
 import { initPWA } from './pwa.js';
@@ -24,7 +25,8 @@ async function start() {
   }
 }
 initPWA();
-confirmAge().then(() => {
+confirmAge().then(async () => {
+  await initCookieConsent();
   initMotion();
   initNavigation();
   start();
