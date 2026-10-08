@@ -101,7 +101,7 @@ Referencia para el marcado de errores: [MDN — aria-invalid](https://developer.
 
 ## Pruebas automatizadas
 
-Se verificaron **29 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
+Se verificaron **31 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
 
 Para repetirlas en macOS/Linux con Node.js instalado, las dependencias de pruebas se instalan fuera del proyecto:
 
@@ -140,7 +140,7 @@ En navegadores compatibles se puede instalar desde el menú del navegador; el pi
 
 Después de cambiar recursos ejecuta `node js/tests/build-pwa.mjs` y guarda el nuevo `sw.js`. La nueva versión del worker se activa al cerrar las pestañas de la versión anterior y volver a abrir MICHOKS; así no se mezclan archivos de distintas versiones. El catálogo sin conexión corresponde a la versión descargada.
 
-GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 29 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
+GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 31 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
 
 Referencia: [MDN: instalación de aplicaciones web progresivas](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
@@ -175,3 +175,7 @@ El módulo `js/motion.js` usa IntersectionObserver y Web Animations; `assets/sty
 ## Preferencias de cookies
 
 Después de confirmar la edad, la primera visita permite aceptar o denegar la cookie funcional `michoks_cart` (30 días). No se lee ni escribe esta copia sin aprobación; la denegación elimina una copia anterior. El carrito continúa usando localStorage, sessionStorage e IndexedDB, tal como explica el aviso. La elección se recuerda con `michoks-cookie-consent`; el botón “Preferencias de cookies” del pie permite cambiarla. Aceptar activa la copia del carrito y revocar la elimina inmediatamente. Escape deniega. El aviso utiliza un diálogo nativo accesible, foco contenido, botones equivalentes y colores de MICHOKS. Las pruebas verifican rechazo, persistencia, aceptación posterior, revocación y accesibilidad en seis tamaños.
+
+## Modo oscuro
+
+El botón de sol/luna de la cabecera alterna entre modo claro y oscuro. La primera visita utiliza la preferencia del sistema; una elección manual se recuerda con `michoks-theme` en localStorage, con sessionStorage como alternativa. La elección se aplica antes de cargar el CSS para evitar destellos y se sincroniza entre pestañas. Las superficies del catálogo, Descubre, vista rápida, carrito, campos y errores se adaptan; las fotos mantienen fondos claros para conservar legibilidad. Los avisos de edad y cookies conservan su identidad oscura en ambos modos. Las pruebas comprueban persistencia, sincronización y contraste en seis tamaños.
