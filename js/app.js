@@ -1,3 +1,4 @@
+import { confirmAge } from './age.js';
 import { initPWA } from './pwa.js';
 import { initNavigation } from './navigation.js';
 import { loadProducts } from './repo.js';
@@ -22,5 +23,7 @@ async function start() {
   }
 }
 initPWA();
-initNavigation();
-start();
+confirmAge().then(() => {
+  initNavigation();
+  start();
+});

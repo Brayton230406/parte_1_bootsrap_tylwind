@@ -2534,3 +2534,17 @@ html { scroll-padding-top:110px; }
 
 .pwa-controls { display:flex; flex-wrap:wrap; gap:16px; padding-block:16px; }
 .pwa-controls p { font-size:14px; line-height:1.6; max-width:800px; }
+
+/* El contenido permanece oculto antes de confirmar, incluso sin JavaScript. */
+#age-content[hidden], #age-gate[hidden] { display:none !important; }
+.age-gate { min-height:100svh; padding:32px 20px; display:grid; place-items:center; background:radial-gradient(ellipse at top,#36432b,#171b17 70%); color:#f8f9ed; }
+.age-card { width:min(100%,520px); text-align:center; padding:36px 24px; border:1px solid #758442; border-radius:24px; background:#1c251d; box-shadow:0 24px 80px #0004; }
+.age-card>img { display:block; margin:0 auto 28px; }
+.age-card .eyebrow { color:#d9f477; margin-bottom:16px; }
+.age-card h2 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(42px,9vw,64px); font-weight:700; line-height:1.05; margin-bottom:24px; }
+.age-card p { line-height:1.7; }
+.age-actions { display:grid; gap:14px; margin-block:28px; }
+.age-actions .primary-button { justify-content:space-between; width:100%; min-height:52px; }
+.age-decline { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px; border:1px solid #8c9b70; border-radius:12px; font-weight:600; min-height:52px; }
+.age-decline:hover { background:#35442c; }
+.age-card .age-note { font-size:13px; color:#d1dac5; }

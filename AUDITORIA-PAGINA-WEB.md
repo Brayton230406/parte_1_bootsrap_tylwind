@@ -52,7 +52,7 @@ La navegación al catálogo y a Acerca de nosotros coloca el foco en el encabeza
 
 La suite [rubrica.mjs](js/tests/rubrica.mjs) comprueba catálogo, imágenes, filtros, ocasiones, misión/visión, navegación, carrito, formulario, persistencia y recuperación independiente desde los cuatro almacenamientos. También revisa ausencia de desbordamiento horizontal, axe y foco modal en 320, 390, 480, 768, 1024 y 1440 px. El HTML se revisa con html-validate.
 
-Resultado de la ejecución final: **24 comprobaciones aprobadas**, HTML sin errores y ninguna infracción detectada por axe en los seis tamaños evaluados. Los resultados también se registran en el README. Las pruebas usan un servidor local y Chromium. No incluyen una compra real, un envío real a WhatsApp, auditoría manual completa con lectores de pantalla, medición de Core Web Vitals en producción ni pruebas exhaustivas de Safari y Firefox.
+Resultado de la ejecución final: **26 comprobaciones aprobadas**, HTML sin errores y ninguna infracción detectada por axe en los seis tamaños evaluados. Los resultados también se registran en el README. Las pruebas usan un servidor local y Chromium. No incluyen una compra real, un envío real a WhatsApp, auditoría manual completa con lectores de pantalla, medición de Core Web Vitals en producción ni pruebas exhaustivas de Safari y Firefox.
 
 ## Guía de revisión manual de la página
 
@@ -74,3 +74,7 @@ La versión local amplía las opciones de compra y ofrece recorridos claros desd
 Se añadieron manifiesto instalable, iconos estándar y maskable, service worker con caché versionada y aviso accesible de desconexión. Se comprueban los criterios de instalación de Chromium, el catálogo con sus 24 fotografías sin conexión, el carrito persistente, la reconexión y el enlace antiguo `michoks.html`. La caché se precarga durante la primera visita conectada; antes de completarse no hay garantía de uso offline. Las actualizaciones se activan al cerrar las pestañas anteriores. La consulta a WhatsApp requiere internet.
 
 El workflow de GitHub Actions ejecuta las verificaciones antes del despliegue. El archivo `michoks.html` se genera al publicar para conservar la dirección original sin duplicar el código fuente del proyecto.
+
+## Confirmación de edad al entrar
+
+La primera visita muestra una pregunta de mayoría de edad. El contenido y la carga del catálogo permanecen bloqueados hasta pulsar “Sí, tengo 18 años o más”. La confirmación se conserva en localStorage (`michoks-age-confirmed`); si está restringido, se intenta sessionStorage. Si ambos están bloqueados se solicita nuevamente en la siguiente visita. “No” lleva a [Vita Ecuador](https://www.vita.com.ec/) y no guarda aprobación. Es una declaración del visitante, no una verificación documental de identidad. Al borrar los datos del navegador se vuelve a preguntar. Las pruebas comprueban ambos recorridos, persistencia, teclado y accesibilidad en seis tamaños.

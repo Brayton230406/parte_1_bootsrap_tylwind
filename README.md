@@ -101,7 +101,7 @@ Referencia para el marcado de errores: [MDN — aria-invalid](https://developer.
 
 ## Pruebas automatizadas
 
-Se verificaron **24 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
+Se verificaron **26 comprobaciones**, incluyendo recuperación independiente desde los cuatro almacenamientos, formulario válido e inválido, operaciones del carrito, sincronización entre pestañas y axe en 320, 390, 480, 768, 1024 y 1440 px. El HTML se validó sin errores. Las pruebas de axe se ejecutan con el catálogo y el carrito abiertos; la navegación por Tab permanece dentro del diálogo.
 
 Para repetirlas en macOS/Linux con Node.js instalado, las dependencias de pruebas se instalan fuera del proyecto:
 
@@ -140,6 +140,10 @@ En navegadores compatibles se puede instalar desde el menú del navegador; el pi
 
 Después de cambiar recursos ejecuta `node js/tests/build-pwa.mjs` y guarda el nuevo `sw.js`. La nueva versión del worker se activa al cerrar las pestañas de la versión anterior y volver a abrir MICHOKS; así no se mezclan archivos de distintas versiones. El catálogo sin conexión corresponde a la versión descargada.
 
-GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 24 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
+GitHub Actions valida el HTML, comprueba que la caché esté actualizada, ejecuta las 26 comprobaciones de interfaz y las pruebas de instalación/offline antes de desplegar. Publica `index.html` y una copia compatible en `michoks.html`, conservando el enlace antiguo. Las pruebas PWA se ejecutan bajo la subcarpeta real de GitHub Pages.
 
 Referencia: [MDN: instalación de aplicaciones web progresivas](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
+
+## Confirmación de edad al entrar
+
+La primera visita muestra una pregunta de mayoría de edad. El contenido y la carga del catálogo permanecen bloqueados hasta pulsar “Sí, tengo 18 años o más”. La confirmación se conserva en localStorage (`michoks-age-confirmed`); si está restringido, se intenta sessionStorage. Si ambos están bloqueados se solicita nuevamente en la siguiente visita. “No” lleva a [Vita Ecuador](https://www.vita.com.ec/) y no guarda aprobación. Es una declaración del visitante, no una verificación documental de identidad. Al borrar los datos del navegador se vuelve a preguntar. Las pruebas comprueban ambos recorridos, persistencia, teclado y accesibilidad en seis tamaños.

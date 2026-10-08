@@ -15,6 +15,18 @@
   <script type="module" src="js/app.js"></script>
 </head>
 <body>
+  <section id="age-gate" class="age-gate" aria-labelledby="age-title" aria-describedby="age-description">
+    <div class="age-card">
+      <img src="assets/michoks-logo.svg" width="64" height="64" alt="MICHOKS">
+      <p class="eyebrow">BIENVENIDO A MICHOKS</p>
+      <h2 id="age-title">¿Tienes 18 años<br>o más?</h2>
+      <p id="age-description">Nuestro catálogo de licores está dirigido exclusivamente a personas adultas. Confirma tu edad para continuar.</p>
+      <div class="age-actions"><button id="age-accept" class="primary-button" type="button" disabled>Sí, tengo 18 años o más <span aria-hidden="true">↗</span></button><a id="age-decline" class="age-decline" href="https://www.vita.com.ec/">No, soy menor de 18 años <span aria-hidden="true">↗</span></a></div>
+      <p class="age-note">Si eres menor de edad, te llevaremos al sitio de Vita Ecuador.</p>
+      <noscript><p>Activa JavaScript para confirmar tu edad y entrar a MICHOKS.</p></noscript>
+    </div>
+  </section>
+  <div id="age-content" hidden>
   <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
   <div class="notice-bar"><span>BUENAS BOTELLAS. BUENOS MOMENTOS.</span><span class="hidden sm:block">Disfruta con responsabilidad · +18</span></div>
   <header class="michoks-header">
@@ -115,5 +127,6 @@
   <dialog id="product-dialog" class="product-dialog" aria-labelledby="detail-title"><button class="close-button dialog-close" type="button" aria-label="Cerrar detalle">×</button><div id="dialog-content"></div></dialog>
   <button id="cart-mini" class="cart-mini" type="button" aria-controls="cart-drawer" aria-haspopup="dialog" hidden><span class="mini-icon" aria-hidden="true">↗</span><span>Ver mi selección <small id="mini-units"></small></span><strong id="mini-total"></strong></button>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
 </body>
 </html>
