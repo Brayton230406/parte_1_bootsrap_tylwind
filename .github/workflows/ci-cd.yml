@@ -1,79 +1,75 @@
-name: CI/CD - Mar de Fondo
+name: Verificar y publicar MICHOKS PWA
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Pruebas de calidad
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
-
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-
-      - name: Instalar dependencias
-        run: npm ci
-
-      - name: Compilar Tailwind de MICHOKS
-        run: npm run build:css
-
-      - name: Instalar navegador de pruebas
-        run: npx playwright install chromium
-
-      - name: Validar HTML5
-        run: npm run test:html
-
-      - name: Ejecutar pruebas WCAG, responsive y enlaces
-        run: npm run test:e2e -- --reporter=line
-
+          node-version: '22'
+      - name: Instalar herramientas de verificación
+        run: |
+          mkdir -p /tmp/michoks-qa
+          npm install --prefix /tmp/michoks-qa --no-audit --no-fund @playwright/test@1.64.0 @axe-core/playwright@4.13.0 html-validate@11.4.0
+          /tmp/michoks-qa/node_modules/.bin/playwright install --with-deps chromium
+      - name: Validar HTML y caché PWA
+        run: |
+          /tmp/michoks-qa/node_modules/.bin/html-validate index.html
+          node js/tests/build-pwa.mjs
+          git diff --exit-code -- sw.js
+      - name: Verificar carrito, accesibilidad e instalación sin conexión
+        run: |
+          cp js/tests/rubrica.mjs /tmp/michoks-qa/rubrica.mjs
+          cp js/tests/pwa.mjs /tmp/michoks-qa/pwa.mjs
+          node /tmp/michoks-qa/rubrica.mjs "$GITHUB_WORKSPACE"
+          node /tmp/michoks-qa/pwa.mjs "$GITHUB_WORKSPACE"
+      - name: Guardar capturas de revisión
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturas-michoks
+          path: /tmp/michoks-qa/*.png
+          if-no-files-found: ignore
   deploy:
-    name: Publicar en GitHub Pages
-    needs: quality
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: verify
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
-
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-
-      - name: Preparar sitio estático
+      - name: Preparar sitio y conservar enlace anterior
         run: |
           mkdir dist
-          cp index.html online.html offline.html michoks.html styles.css a11y.css offline-assets.css michoks.css michoks-a11y.css michoks-brand.css michoks-product-images.css michoks-tailwind.css script.js michoks.js README.md AUDITORIA.md dist/
-          mkdir -p dist/assets
-          cp -R assets/. dist/assets/
-          mkdir -p dist/vendor
-          cp vendor/bootstrap.min.css vendor/tailwind.css dist/vendor/
-
-      - name: Subir artefacto de Pages
+          cp index.html manifest.webmanifest sw.js dist/
+          cp index.html dist/michoks.html
+          cp -R assets data js dist/
+          rm -rf dist/js/tests
+          touch dist/.nojekyll
+      - name: Subir sitio
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-
-      - name: Desplegar sitio
+      - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,304 @@
+[
+  {
+    "id": 1,
+    "name": "Whisky Johnnie Walker Red Label",
+    "category": "Whisky",
+    "price": 39.9,
+    "size": "750 ml",
+    "image": "assets/products/red-label.png",
+    "description": "Whisky escocés clásico para llevar, compartir o regalar.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Whisky Old Parr 12 años",
+    "category": "Whisky",
+    "price": 59.9,
+    "size": "750 ml",
+    "image": "assets/products/old-parr-12.jpg",
+    "description": "Whisky de 12 años con perfil suave y presentación premium.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Vino Casillero del Diablo",
+    "category": "Vinos",
+    "price": 18.9,
+    "size": "750 ml",
+    "image": "assets/products/casillero-cabernet.jpg",
+    "description": "Vino chileno para acompañar la mesa y llevar a casa.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Cerveza Club Verde",
+    "category": "Cervezas",
+    "price": 1.5,
+    "size": "330 ml",
+    "image": "assets/products/club-verde.png",
+    "description": "La Club Verde bien fría, lista para tu pedido.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Cerveza Pilsener",
+    "category": "Cervezas",
+    "price": 1.25,
+    "size": "330 ml",
+    "image": "assets/products/pilsener.png",
+    "description": "La clásica Pilsener ecuatoriana para llevar.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Cóctel Switch Bongo Bongo",
+    "category": "Cócteles",
+    "price": 1.5,
+    "size": "1500 ml",
+    "image": "assets/products/switch-bongo.png",
+    "description": "Cóctel Switch Bongo Bongo en presentación de 1,5 litros. Confirma el precio y disponibilidad al consultar.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Zhumir Seco Suave",
+    "category": "Zhumir",
+    "price": 9.9,
+    "size": "700 ml",
+    "image": "assets/products/zhumir-seco.png",
+    "description": "Zhumir ecuatoriano para llevar, con el sabor de siempre.",
+    "occasions": [
+      "compartir"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Tequila José Cuervo Especial",
+    "category": "Tequilas",
+    "price": 34.9,
+    "size": "750 ml",
+    "image": "assets/products/jose-cuervo.png",
+    "description": "Tequila José Cuervo para completar tu pedido de licores.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Vodka Smirnoff",
+    "category": "Vodkas",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/smirnoff.jpg",
+    "description": "Vodka Smirnoff original, una botella infaltable en tu compra.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Vino Gato Negro",
+    "category": "Vinos",
+    "price": 12.9,
+    "size": "750 ml",
+    "image": "assets/products/gato-negro.png",
+    "description": "Vino Gato Negro para una compra práctica y rendidora.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Whisky Chivas Regal 12",
+    "category": "Whisky",
+    "price": 69.9,
+    "size": "750 ml",
+    "image": "assets/products/chivas-12.jpg",
+    "description": "Whisky premium de 12 años para ocasiones especiales.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Whisky Johnnie Walker Black Label",
+    "category": "Whisky",
+    "price": 59.9,
+    "size": "750 ml",
+    "image": "assets/products/black-label.png",
+    "description": "Whisky Johnnie Walker Black Label en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "regalo"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Whisky Jack Daniel’s Old No. 7",
+    "category": "Whisky",
+    "price": 49.9,
+    "size": "750 ml",
+    "image": "assets/products/jack-daniels.webp",
+    "description": "Whisky Jack Daniel’s Old No. 7 en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "regalo",
+      "compartir"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Ron Bacardí Oakheart",
+    "category": "Rones",
+    "price": 22.9,
+    "size": "750 ml",
+    "image": "assets/products/bacardi.webp",
+    "description": "Ron Bacardí Oakheart en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles",
+      "compartir"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Ron Havana Club Añejo Reserva",
+    "category": "Rones",
+    "price": 29.9,
+    "size": "750 ml",
+    "image": "assets/products/havana-club.png",
+    "description": "Ron Havana Club Añejo Reserva en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Vodka Absolut",
+    "category": "Vodkas",
+    "price": 29.9,
+    "size": "700 ml",
+    "image": "assets/products/absolut.webp",
+    "description": "Vodka Absolut en presentación de 700 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Gin Tanqueray London Dry",
+    "category": "Gins",
+    "price": 39.9,
+    "size": "700 ml",
+    "image": "assets/products/tanqueray.webp",
+    "description": "Gin Tanqueray London Dry en presentación de 700 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles",
+      "regalo"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Gin Bombay Sapphire",
+    "category": "Gins",
+    "price": 42.9,
+    "size": "750 ml",
+    "image": "assets/products/bombay-sapphire.webp",
+    "description": "Gin Bombay Sapphire en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles",
+      "regalo"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Licor Baileys Original",
+    "category": "Licores",
+    "price": 29.9,
+    "size": "750 ml",
+    "image": "assets/products/baileys.png",
+    "description": "Licor Baileys Original en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cena",
+      "regalo"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Licor Jägermeister Original",
+    "category": "Licores",
+    "price": 32.9,
+    "size": "1 L",
+    "image": "assets/products/jagermeister.webp",
+    "description": "Licor Jägermeister Original en presentación de 1 L. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles",
+      "compartir"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Tequila Don Julio Blanco",
+    "category": "Tequilas",
+    "price": 74.9,
+    "size": "750 ml",
+    "image": "assets/products/don-julio.webp",
+    "description": "Tequila Don Julio Blanco en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "regalo",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Vermouth Martini Rosso",
+    "category": "Aperitivos",
+    "price": 18.9,
+    "size": "750 ml",
+    "image": "assets/products/martini-rosso.webp",
+    "description": "Vermouth Martini Rosso en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cena",
+      "cocteles"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Vino Trapiche Malbec",
+    "category": "Vinos",
+    "price": 15.9,
+    "size": "750 ml",
+    "image": "assets/products/trapiche-malbec.png",
+    "description": "Vino Trapiche Malbec en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cena"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Ron Havana Club Añejo Blanco",
+    "category": "Rones",
+    "price": 24.9,
+    "size": "750 ml",
+    "image": "assets/products/havana-blanco.png",
+    "description": "Ron Havana Club Añejo Blanco en presentación de 750 ml. Consulta disponibilidad para tu pedido.",
+    "occasions": [
+      "cocteles",
+      "compartir"
+    ]
+  }
+]

@@ -3,77 +3,117 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mar de Fondo, cevichería ecuatoriana con sabores frescos de la costa.">
-  <meta name="theme-color" content="#092f3b">
-  <title>Mar de Fondo | Cevichería ecuatoriana</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="a11y.css">
-  <script src="script.js" defer></script>
+  <meta name="description" content="Descubre el catálogo de MICHOKS: whiskys, vinos, cervezas y licores. Arma tu selección y coordina tu pedido por WhatsApp.">
+  <meta name="theme-color" content="#171b17">
+  <title>MICHOKS | Tu próximo brindis empieza aquí</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="icon" href="assets/michoks-logo.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/michoks-bar.jpg">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="js/app.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="Mar de Fondo, inicio">
-        <span class="brand-mark" aria-hidden="true">✦</span>
-        <span>Mar de <em>Fondo</em></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="main-nav">Menú</button>
-      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-        <a href="#menu">Carta</a>
-        <a href="#historia">Nuestra historia</a>
-        <a href="#visitanos">Visítanos</a>
-        <a class="button button-small" href="#reservar">Reservar mesa</a>
-      </nav>
+  <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
+  <div class="notice-bar"><span>BUENAS BOTELLAS. BUENOS MOMENTOS.</span><span class="hidden sm:block">Disfruta con responsabilidad · +18</span></div>
+  <header class="michoks-header">
+    <div class="shell flex items-center justify-between gap-4">
+      <a class="brand" href="#inicio" aria-label="MICHOKS, inicio"><img src="assets/michoks-logo.svg" width="44" height="44" alt=""><span>MICHOKS<small>LICORERÍA<span class="brand-motto"> · BUENOS MOMENTOS</span></small></span></a>
+      <nav id="main-nav" class="michoks-nav" aria-label="Navegación principal"><a href="#catalogo">El catálogo</a><a href="#destacados">Descubre</a><a href="#nosotros">Acerca de nosotros</a></nav>
+      <div class="flex items-center gap-2"><button class="menu-button" type="button" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button><button class="cart-button" type="button" aria-controls="cart-drawer" aria-haspopup="dialog" aria-label="Abrir carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg><span class="hidden sm:inline">Mi carrito</span><span id="cart-count">0</span></button></div>
     </div>
   </header>
-
-  <main id="contenido">
-    <section id="inicio" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Cevichería ecuatoriana · Quito</p>
-          <h1>El mar servido <span>con carácter.</span></h1>
-          <p class="hero-text">Pescado fresco, limón recién exprimido y recetas de la costa para compartir sin apuro.</p>
-          <div class="hero-actions">
-            <a class="button" href="#menu">Explorar la carta <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#visitanos">Encontrar un local <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="hero-note"><span class="status-dot"></span><span>Abierto hoy · 11:30 — 21:30</span></div>
+  <main id="inicio">
+    <section class="michoks-hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="assets/michoks-bar.jpg" width="1600" height="1069" alt="Preparación de un cóctel con hielo y piel de naranja" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="shell hero-layout relative">
+        <div class="hero-content"><p class="eyebrow"><span class="little-dot"></span> TU LICORERÍA, A UN CLIC</p><h1 id="hero-title">Elige tu<br>próximo<br><em>brindis.</em></h1><p class="hero-description">Los clásicos de siempre. Tu próxima botella favorita.<br class="hidden sm:block"> Encuentra lo que va contigo en MICHOKS.</p><div class="hero-actions"><a class="primary-button" href="#catalogo">Descubrir el catálogo <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#destacados">Encuentra tu estilo <span aria-hidden="true">↓</span></a></div><p class="hero-footnote"><span aria-hidden="true">✦</span> Tu selección guardada. Tu consulta, por WhatsApp.</p></div>
+        <div class="hero-caption"><span class="eyebrow">EL ARTE DE ELEGIR BIEN</span><p>La botella correcta.<br>El momento perfecto.</p><a href="#destacados" aria-label="Descubre la selección MICHOKS">↓</a></div>
+      </div>
+    </section>
+    <div class="service-strip"><div class="shell grid grid-cols-1 sm:grid-cols-3 gap-4"><p><span aria-hidden="true">01</span> Encuentra tu favorito</p><p><span aria-hidden="true">02</span> Arma tu selección</p><p><span aria-hidden="true">03</span> Coordina por WhatsApp</p></div></div>
+    <section id="catalogo" aria-labelledby="catalog-title" class="catalog-section section-space">
+      <div class="shell">
+        <div class="section-heading flex flex-col md:flex-row md:items-end justify-between gap-5"><div><p class="eyebrow">LA SELECCIÓN MICHOKS</p><h2 id="catalog-title" tabindex="-1">Tu gusto. <em>Tu botella.</em></h2></div><p>Desde un clásico hasta algo diferente.<br>Todo empieza por elegir.</p></div>
+        <div class="catalog-tools flex flex-col lg:flex-row gap-4 justify-between">
+          <div class="category-tabs flex flex-wrap gap-2" role="group" aria-label="Filtrar productos"></div>
+          <label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><span class="sr-only">Buscar productos</span><input id="product-search" type="search" placeholder="Busca tu favorito…" autocomplete="off"></label>
         </div>
-        <div class="hero-image reveal reveal-delay" role="img" aria-label="Ceviche fresco servido con limón y hierbas"></div>
-      </div>
-      <div class="hero-ticker">
-        <div class="ticker-track"><span>CEVICHE DE CAMARÓN</span><i aria-hidden="true">✳</i><span>ENCEBOLLADO MANABA</span><i aria-hidden="true">✳</i><span>ARROZ MARINERO</span><i aria-hidden="true">✳</i><span>CEVICHE DE CAMARÓN</span><i aria-hidden="true">✳</i><span>ENCEBOLLADO MANABA</span></div>
+        <div id="active-filters" class="active-filters" hidden><p id="active-filters-label"></p><button id="clear-active-filters" type="button">Limpiar filtros <span aria-hidden="true">×</span></button></div>
+        <div class="catalog-meta flex flex-wrap items-center justify-between gap-3"><p id="results-count" role="status">Cargando catálogo…</p><label class="sort-label">Presupuesto <select id="product-budget"><option value="all">Todos los precios</option><option value="20">Hasta $20</option><option value="40">Hasta $40</option><option value="70">Hasta $70</option></select></label><label class="sort-label">Ordenar por <select id="product-sort"><option value="featured">Selección Michoks</option><option value="price-asc">Menor precio</option><option value="price-desc">Mayor precio</option><option value="name">Nombre A–Z</option></select></label></div>
+        <div id="product-grid" class="product-grid grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10"></div>
+        <div class="catalog-more"><button id="load-more-products" class="primary-button" type="button" hidden>Ver más productos <span aria-hidden="true">+</span></button></div>
+        <div id="empty-products" class="empty-products" hidden><p class="text-2xl font-bold">No encontramos esa botella.</p><p>Prueba otra palabra o vuelve a ver toda la selección.</p><button id="reset-filters" class="primary-button" type="button">Ver todos los productos <span aria-hidden="true">↗</span></button></div>
+        <p class="catalog-disclaimer">Precios referenciales en USD. Los precios de las nuevas opciones son propuestas de catálogo, sujetos a confirmación por MICHOKS. Fotografías de referencia de las marcas; el empaque puede variar. Confirma presentación y disponibilidad por WhatsApp.</p>
+        <noscript><p>Activa JavaScript para usar el catálogo y el carrito. También puedes <a href="https://wa.me/593959862988" target="_blank" rel="noopener noreferrer">consultar la selección por WhatsApp</a>.</p></noscript>
       </div>
     </section>
-
-    <section id="menu" class="section menu-section">
-      <div class="container">
-        <div class="section-heading reveal"><div><p class="eyebrow">Para empezar</p><h2>La carta que<br><em>vuelve a llamar.</em></h2></div><p>Ingredientes honestos, porciones generosas y ese punto ácido que sabe a costa.</p></div>
-        <div class="menu-grid">
-          <article class="menu-card reveal"><div class="dish-image dish-one" role="img" aria-label="Ceviche de camarón servido con chifles"></div><div class="dish-info"><div><h3>Ceviche de camarón</h3><p>Tomate, limón, cebolla morada y chifles.</p></div><strong>$12.90</strong></div></article>
-          <article class="menu-card reveal reveal-delay"><div class="dish-image dish-two" role="img" aria-label="Encebollado manaba con yuca y cebolla encurtida"></div><div class="dish-info"><div><h3>Encebollado manaba</h3><p>Albacora, yuca, cebolla encurtida y cilantro.</p></div><strong>$8.50</strong></div></article>
-          <article class="menu-card reveal reveal-delay-2"><div class="dish-image dish-three" role="img" aria-label="Arroz marinero con mariscos"></div><div class="dish-info"><div><h3>Arroz marinero</h3><p>Arroz cremoso, calamar, camarón y pescado.</p></div><strong>$14.50</strong></div></article>
+    <section id="destacados" aria-labelledby="discover-title" class="discover-section section-space">
+      <div class="shell">
+        <div class="section-heading discovery-heading"><div><p class="eyebrow">ELIGE EL PLAN. ENCUENTRA TU BOTELLA.</p><h2 id="discover-title">Un buen momento.<br><em>Una buena elección.</em></h2></div><p>No necesitas conocer todas las etiquetas.<br>Empieza por lo que tienes en mente.</p></div>
+        <div class="occasion-grid">
+          <article class="occasion-card occasion-gift"><div class="occasion-photo"><img src="assets/products/old-parr-12.jpg" width="800" height="800" alt="" loading="lazy"><span class="occasion-number" aria-hidden="true">01</span></div><div class="occasion-copy"><p class="eyebrow">UN DETALLE CON CARÁCTER</p><h3>Para regalar.</h3><p>Whiskys y botellas especiales para un detalle bien elegido.</p><button class="inline-action" type="button" data-occasion="regalo">Encontrar un regalo <span aria-hidden="true">↗</span></button></div></article>
+          <article class="occasion-card occasion-dinner"><div class="occasion-photo"><img src="assets/products/casillero-cabernet.jpg" width="800" height="800" alt="" loading="lazy"><span class="occasion-number" aria-hidden="true">02</span></div><div class="occasion-copy"><p class="eyebrow">PARA ACOMPAÑAR LA MESA</p><h3>Una buena cena.</h3><p>Vinos y aperitivos para acompañar la conversación.</p><button class="inline-action" type="button" data-occasion="cena">Elegir para la mesa <span aria-hidden="true">↗</span></button></div></article>
+          <article class="occasion-card occasion-mix"><div class="occasion-photo"><img src="assets/products/tanqueray.webp" width="800" height="800" alt="" loading="lazy"><span class="occasion-number" aria-hidden="true">03</span></div><div class="occasion-copy"><p class="eyebrow">TU TOQUE PERSONAL</p><h3>Mixología en casa.</h3><p>Rones, gins y vodkas para explorar nuevas combinaciones.</p><button class="inline-action" type="button" data-occasion="cocteles">Explorar combinaciones <span aria-hidden="true">↗</span></button></div></article>
+          <article class="occasion-card occasion-share"><div class="occasion-photo"><img src="assets/products/club-verde.png" width="800" height="800" alt="" loading="lazy"><span class="occasion-number" aria-hidden="true">04</span></div><div class="occasion-copy"><p class="eyebrow">LO SIMPLE TAMBIÉN SE DISFRUTA</p><h3>Para compartir.</h3><p>Cervezas y opciones prácticas para reuniones entre adultos.</p><button class="inline-action" type="button" data-occasion="compartir">Ver opciones para compartir <span aria-hidden="true">↗</span></button></div></article>
         </div>
-        <div class="center-action"><a class="button button-outline" href="#reservar">Ver carta completa <span aria-hidden="true">↗</span></a></div>
+        <div class="discovery-guide"><div><p class="eyebrow">¿PREFIERES IR DIRECTO?</p><p>Descubre las nuevas categorías.</p></div><div class="discovery-shortcuts"><button type="button" class="inline-action" data-category="Rones">Rones ↗</button><button type="button" class="inline-action" data-category="Gins">Gins ↗</button><button type="button" class="inline-action" data-category="Licores">Licores ↗</button></div></div>
       </div>
     </section>
-
-    <section id="historia" class="story-section">
-      <div class="container story-grid"><div class="story-image reveal" role="img" aria-label="Cocinero preparando un plato de mariscos"></div><div class="story-copy reveal reveal-delay"><p class="eyebrow">Nuestra manera</p><h2>Del Pacífico a<br><em>tu mesa.</em></h2><p>Creemos que una buena cevichería empieza mucho antes del primer bocado: en elegir bien el producto, respetar sus tiempos y cocinar con memoria.</p><p>Somos una casa de sabores costeños que celebra lo simple, lo fresco y la sobremesa larga.</p><a class="text-link" href="#visitanos">Conoce nuestra historia <span aria-hidden="true">→</span></a></div></div>
+    <section id="nosotros" aria-labelledby="story-title" class="story-section section-space">
+      <div class="shell">
+        <div class="about-heading"><div><p class="eyebrow">ACERCA DE NOSOTROS</p><h2 id="story-title" tabindex="-1">El buen gusto<br>se <em>comparte.</em></h2></div><p>En MICHOKS creemos que elegir una botella debe ser tan agradable como el momento que la acompaña. Te acercamos un catálogo variado y una forma sencilla de consultar tu selección.</p></div>
+        <div class="purpose-grid">
+          <article class="purpose-card"><span class="purpose-symbol" aria-hidden="true">↗</span><p class="eyebrow">NUESTRO PROPÓSITO</p><h3>Misión.</h3><p>Acercar una selección diversa de licores a personas adultas, ayudándolas a elegir con información clara, atención cercana y una experiencia de compra sencilla que promueva el consumo responsable.</p></article>
+          <article class="purpose-card"><span class="purpose-symbol" aria-hidden="true">✦</span><p class="eyebrow">HACIA DÓNDE VAMOS</p><h3>Visión.</h3><p>Ser una licorería de referencia por la confianza, la variedad y el cuidado de cada experiencia; un lugar donde descubrir nuevas opciones y recibir orientación para elegir con tranquilidad.</p></article>
+        </div>
+        <div class="about-values"><p>Variedad para elegir.</p><p>Claridad para decidir.</p><p>Responsabilidad para disfrutar.</p><a class="text-link" href="https://wa.me/593959862988" target="_blank" rel="noopener noreferrer">Conversemos por WhatsApp <span aria-hidden="true">↗</span></a></div>
+      </div>
     </section>
-
-    <section id="visitanos" class="locations-section">
-      <div class="container locations-grid"><div class="locations-copy reveal"><p class="eyebrow">Ven a vernos</p><h2>Tu mesa<br><em>te espera.</em></h2><div class="location-item"><span class="location-number">01</span><div><h3>La Floresta</h3><p>Av. 12 de Octubre y Coruña<br>Quito, Ecuador</p><a href="tel:+59322345678">+593&nbsp;2&nbsp;234&nbsp;5678</a></div></div><div class="location-item"><span class="location-number">02</span><div><h3>Cumbayá</h3><p>Av. Interoceánica, local 14<br>Quito, Ecuador</p><a href="tel:+59322345679">+593&nbsp;2&nbsp;234&nbsp;5679</a></div></div></div><div class="map-panel reveal reveal-delay"><div class="map-pin" aria-hidden="true">✦</div><span>Abierto todos los días</span><strong>11:30 — 21:30</strong><a class="button button-light" href="#reservar">Cómo llegar <span aria-hidden="true">↗</span></a></div></div>
-    </section>
-
-    <section id="reservar" class="reservation-section"><div class="container reservation-grid"><div><p class="eyebrow">Una mesa, una historia</p><h2>Reserva y<br><em>ven con hambre.</em></h2><p>Te confirmaremos tu reserva por WhatsApp. Para grupos de más de 8 personas, escríbenos directamente.</p></div><form class="reservation-form" id="reservation-form"><label>Nombre<input type="text" name="nombre" autocomplete="name" required></label><label>Teléfono<input type="tel" name="telefono" autocomplete="tel" required></label><div class="form-row"><label>Fecha<input type="date" name="fecha" required></label><label>Personas<select name="personas"><option>2 personas</option><option>3 personas</option><option>4 personas</option><option>5+ personas</option></select></label></div><button class="button" type="submit">Solicitar reserva <span aria-hidden="true">→</span></button><p id="form-message" class="form-message" role="status"></p></form></div></section>
   </main>
-
-  <footer class="site-footer"><div class="container footer-grid"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">✦</span><span>Mar de <em>Fondo</em></span></a><p>Sabores de la costa, sin disfraz.</p><div class="footer-links"><a href="#menu">Carta</a><a href="#visitanos">Locales</a><a href="#reservar">Reservas</a><a href="https://instagram.com" rel="noreferrer">Instagram</a></div></div></footer>
+  <footer class="michoks-footer"><div class="shell pwa-controls"><button id="install-app" class="text-link" type="button" hidden>Instalar MICHOKS ↗</button><p id="connection-status" role="status" hidden></p></div><div class="shell"><div class="footer-top flex flex-col sm:flex-row justify-between gap-6"><p class="eyebrow">TU PRÓXIMO BRINDIS EMPIEZA AQUÍ.</p><div class="flex flex-wrap gap-6"><a href="#catalogo">Catálogo</a><a href="#destacados">Descubre</a><a href="#nosotros">Acerca de nosotros</a><a href="https://wa.me/593959862988" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#inicio">Volver arriba ↑</a></div></div><p class="footer-wordmark" aria-hidden="true">MICHOKS<span>✦</span></p><div class="footer-bottom flex flex-col sm:flex-row justify-between gap-3"><p>MICHOKS · Licorería</p><p>Venta exclusiva a mayores de 18 años. Disfruta con responsabilidad.</p></div></div></footer>
+  <dialog id="cart-drawer" class="cart-drawer" aria-labelledby="cart-title">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <div><p class="eyebrow">UNA BUENA ELECCIÓN, SIEMPRE.</p><h2 id="cart-title">Tu próximo <em>brindis.</em></h2><p class="cart-header-caption">Tu selección, a tu manera.</p></div>
+        <button class="close-button" type="button" aria-label="Cerrar carrito" data-close-cart>×</button>
+      </div>
+      <div class="cart-layout">
+        <section class="cart-selection" aria-label="Productos seleccionados">
+          <div class="cart-toolbar"><p id="cart-summary" role="status"></p><button id="clear-cart" type="button" hidden>Vaciar carrito</button></div>
+          <div class="cart-undo" id="cart-undo" hidden><p id="cart-undo-message" role="status"></p><button id="undo-cart" type="button">Deshacer ↶</button></div>
+          <p id="cart-feedback" class="cart-feedback" role="status"></p>
+          <div id="cart-items" class="cart-items"></div>
+          <section id="cart-recommendations" class="cart-recommendations" aria-labelledby="recommendations-title"><p class="eyebrow">ALGO MÁS PARA COMPARTIR</p><h3 id="recommendations-title">Completa el momento.</h3><div id="recommendation-items"></div></section>
+          <button class="continue-shopping" type="button" data-discover-catalog>← Seguir explorando el catálogo</button>
+        </section>
+        <aside class="cart-footer" aria-label="Resumen y consulta">
+          <p class="eyebrow">CASI LISTO PARA BRINDAR</p><h3 class="summary-heading">Tu selección.</h3>
+          <div class="summary-row"><span>Productos <span id="summary-units"></span></span><strong id="cart-subtotal">$0.00</strong></div>
+          <div class="summary-row"><span>Entrega</span><span>Por coordinar</span></div>
+          <div class="cart-total"><span>Total estimado <small>USD</small></span><strong id="cart-total">$0.00</strong></div>
+          <form id="order-form" novalidate aria-label="Datos opcionales para tu consulta">
+          <div id="order-preferences" class="order-preferences">
+            <fieldset class="delivery-options"><legend>¿Cómo prefieres recibirlo?</legend><div><label><input type="radio" name="delivery" value="coordinar" checked><span>Por coordinar</span></label><label><input type="radio" name="delivery" value="domicilio"><span>A domicilio</span></label></div></fieldset>
+            <details class="customer-details"><summary>Añadir datos de contacto <span>Opcional</span></summary><div class="customer-field"><label for="customer-name">Tu nombre</label><input id="customer-name" type="text" maxlength="60" data-rule="name" autocomplete="name" aria-describedby="customer-name-hint customer-name-error"><p id="customer-name-hint" class="field-hint">Opcional · de 2 a 60 caracteres.</p><p id="customer-name-error" class="field-error" aria-live="polite"></p></div><div class="customer-field"><label for="customer-phone">Celular</label><input id="customer-phone" type="tel" maxlength="20" data-rule="phone" autocomplete="tel" aria-describedby="customer-phone-hint customer-phone-error"><p id="customer-phone-hint" class="field-hint">Opcional · 0991234567 o +593991234567.</p><p id="customer-phone-error" class="field-error" aria-live="polite"></p></div><div class="customer-field"><label for="customer-email">Correo</label><input id="customer-email" type="email" maxlength="120" data-rule="email" autocomplete="email" aria-describedby="customer-email-hint customer-email-error"><p id="customer-email-hint" class="field-hint">Opcional · nombre@dominio.com.</p><p id="customer-email-error" class="field-error" aria-live="polite"></p></div><div class="customer-field" id="address-field" hidden><label for="customer-address">Dirección o referencia</label><input id="customer-address" type="text" maxlength="160" data-rule="address" autocomplete="address-line1" aria-describedby="customer-address-hint customer-address-error"><p id="customer-address-hint" class="field-hint">Opcional · de 8 a 160 caracteres.</p><p id="customer-address-error" class="field-error" aria-live="polite"></p></div></details>
+            <label class="order-note-label" for="order-note">Dale tu toque <span>Opcional</span></label><textarea id="order-note" data-rule="note" aria-describedby="order-note-hint order-note-error" rows="2" maxlength="300" placeholder="¿Es para un regalo? ¿Alguna indicación?"></textarea><p id="order-note-hint" class="field-hint">Hasta 300 caracteres, sin etiquetas HTML.</p><p id="order-note-error" class="field-error" aria-live="polite"></p><p class="note-counter"><span id="note-count">0</span>/300</p>
+          </div>
+          <p class="cart-note">Precios referenciales. Confirmaremos disponibilidad y costo de entrega contigo.</p>
+          <button id="checkout-button" class="primary-button w-full" type="submit" disabled><span class="checkout-label">Consultar por WhatsApp</span><span aria-hidden="true">↗</span></button>
+          </form>
+          <p class="checkout-status" id="checkout-status" role="status"></p>
+          <a id="whatsapp-fallback" class="text-link" href="https://wa.me/593959862988" target="_blank" rel="noopener noreferrer" hidden>Abrir mi consulta en WhatsApp ↗</a>
+          <details id="order-preview" class="order-preview"><summary>Ver el mensaje de mi consulta</summary><pre id="order-message"></pre><button id="copy-order" type="button">Copiar mensaje</button><p id="copy-status" role="status"></p></details>
+          <p class="responsible-note">+18 · Consumo responsable<br>Tu selección se guarda. La consulta no confirma un pedido.</p>
+        </aside>
+      </div>
+      <div id="cart-mobile-summary" class="cart-mobile-summary" hidden><div><span>Total estimado</span><strong id="mobile-cart-total">$0.00</strong></div><button id="review-order" class="primary-button" type="button">Ver resumen <span aria-hidden="true">↗</span></button></div>
+    </div>
+  </dialog>
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="detail-title"><button class="close-button dialog-close" type="button" aria-label="Cerrar detalle">×</button><div id="dialog-content"></div></dialog>
+  <button id="cart-mini" class="cart-mini" type="button" aria-controls="cart-drawer" aria-haspopup="dialog" hidden><span class="mini-icon" aria-hidden="true">↗</span><span>Ver mi selección <small id="mini-units"></small></span><strong id="mini-total"></strong></button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

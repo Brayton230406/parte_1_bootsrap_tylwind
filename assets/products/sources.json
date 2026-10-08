@@ -75,5 +75,96 @@
     "file": "assets/products/switch-bongo.png",
     "source": "https://www.aki.com.ec/producto/coctel-bongo-bongo-switch-1500-ml/",
     "imageUrl": "https://pub-ed96616ad25d44d98cc375304ed6f73a.r2.dev/2025/02/794166006449-1-1-3.png"
+  },
+  {
+    "id": 13,
+    "name": "Whisky Johnnie Walker Black Label",
+    "file": "assets/products/black-label.png",
+    "source": "https://licoreriasunidas.pe/products/whisky-johnnie-walker-black-label-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/files/DIADELAMADRE-2026-06-23T182228.154.png?v=1782256989&width=800"
+  },
+  {
+    "id": 14,
+    "name": "Whisky Jack Daniel’s Old No. 7",
+    "file": "assets/products/jack-daniels.webp",
+    "source": "https://licoreriasunidas.pe/products/whisky-jack-daniels-old-n-7-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/3d6483e47fbd46e1b44ab115d492f5da.webp?v=1677336982&width=800"
+  },
+  {
+    "id": 15,
+    "name": "Ron Bacardí Oakheart",
+    "file": "assets/products/bacardi.webp",
+    "source": "https://licoreriasunidas.pe/products/ron-bacardi-oakheart-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/c264b4c941bd4c98ade228a7dc121a4a.webp?v=1677705120&width=800"
+  },
+  {
+    "id": 16,
+    "name": "Ron Havana Club Añejo Reserva",
+    "file": "assets/products/havana-club.png",
+    "source": "https://licoreriasunidas.pe/products/ron-havana-club-anejo-reserva-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/files/CopiadeRONCARUPANO6ANOS.png?v=1745689545&width=800"
+  },
+  {
+    "id": 17,
+    "name": "Vodka Absolut",
+    "file": "assets/products/absolut.webp",
+    "source": "https://licoreriasunidas.pe/products/vodka-absolut-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/2e061f5225f7429eaf76d282125ac1c8.webp?v=1677775979&width=800"
+  },
+  {
+    "id": 18,
+    "name": "Gin Tanqueray London Dry",
+    "file": "assets/products/tanqueray.webp",
+    "source": "https://licoreriasunidas.pe/products/gin-tanqueray-london-dry-botella-700ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/2f6f5ce40a2b4a7db25bdecb587be082.webp?v=1677707746&width=800"
+  },
+  {
+    "id": 19,
+    "name": "Gin Bombay Sapphire",
+    "file": "assets/products/bombay-sapphire.webp",
+    "source": "https://licoreriasunidas.pe/products/gin-bombay-sapphire-london-dry-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/1f1448bb94dd49ddaf2856d9f90826b1.webp?v=1677707942&width=800"
+  },
+  {
+    "id": 20,
+    "name": "Licor Baileys Original",
+    "file": "assets/products/baileys.png",
+    "source": "https://licoreriasunidas.pe/products/licor-de-crema-baileys-original-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/files/DIADELAMADRE-2026-06-23T180115.161.png?v=1782255685&width=800"
+  },
+  {
+    "id": 21,
+    "name": "Licor Jägermeister Original",
+    "file": "assets/products/jagermeister.webp",
+    "source": "https://licoreriasunidas.pe/products/licor-jagermeister-original-botella-1l",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/licor-jaggermeister-original-botella-1l-269a3dafc3.webp?v=1681506126&width=800"
+  },
+  {
+    "id": 22,
+    "name": "Tequila Don Julio Blanco",
+    "file": "assets/products/don-julio.webp",
+    "source": "https://licoreriasunidas.pe/products/tequila-don-julio-blanco-botella-700ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/products/tequila-don-julio-blanco-botella-700ml.webp?v=1677796244&width=800"
+  },
+  {
+    "id": 23,
+    "name": "Vermouth Martini Rosso",
+    "file": "assets/products/martini-rosso.webp",
+    "source": "https://licoreriasunidas.pe/products/licor-vermouth-martini-rosso-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/files/VM-MRR7-50.webp?v=1747173641&width=800"
+  },
+  {
+    "id": 24,
+    "name": "Vino Trapiche Malbec",
+    "file": "assets/products/trapiche-malbec.png",
+    "source": "https://licoreriasunidas.pe/products/vino-trapiche-malbec-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/files/VinoTRAPICHEMalbecBotella750ml.png?v=1747940551&width=800"
+  },
+  {
+    "id": 25,
+    "name": "Ron Havana Club Añejo Blanco",
+    "file": "assets/products/havana-blanco.png",
+    "source": "https://licoreriasunidas.pe/products/ron-havana-club-anejo-blanco-botella-750ml",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0723/4165/1736/files/Disenosintitulo_69.png?v=1728171808&width=800"
   }
 ]

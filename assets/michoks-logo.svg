@@ -1,18 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">Michoks Licorería</title>
-  <desc id="desc">Logo circular negro y dorado de Michoks Licorería</desc>
-  <defs><linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffe08a"/><stop offset=".45" stop-color="#d9a441"/><stop offset="1" stop-color="#9f6410"/></linearGradient></defs>
-  <circle cx="256" cy="256" r="247" fill="#080706" stroke="url(#gold)" stroke-width="8"/>
-  <circle cx="256" cy="256" r="218" fill="none" stroke="#d9a441" stroke-width="2"/>
-  <g fill="url(#gold)" stroke="#24170b" stroke-width="7">
-    <path d="M155 224h30v-74c0-15 8-24 20-24h20c12 0 20 9 20 24v74h26v30H155z"/>
-    <path d="M257 224h28v-101c0-14 8-23 20-23h20c12 0 20 9 20 23v101h28v30H257z"/>
-    <path d="M357 224h27v-69c0-14 8-23 20-23h18c12 0 20 9 20 23v69h25v30H357z"/>
-  </g>
-  <g fill="#080706" font-family="Georgia,serif" text-anchor="middle">
-    <text x="256" y="321" fill="url(#gold)" font-size="70" font-style="italic" font-weight="700">Michoks</text>
-    <text x="256" y="365" fill="#f5f0e8" font-family="Arial,sans-serif" font-size="25" letter-spacing="10">LICORERÍA</text>
-    <path d="M148 381h75M289 381h75" stroke="#d9a441" stroke-width="4"/>
-    <text x="256" y="409" fill="#d9a441" font-family="Arial,sans-serif" font-size="12" letter-spacing="5">BUENOS MOMENTOS</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">MICHOKS</title>
+  <desc id="desc">Monograma M con una copa integrada y una estrella, en verde lima y negro.</desc>
+  <rect width="96" height="96" rx="26" fill="#d7ef71"/>
+  <rect x="7" y="7" width="82" height="82" rx="20" fill="none" stroke="#172019" stroke-opacity=".16"/>
+  <path d="M24 66V29l24 23 24-23v37" fill="none" stroke="#172019" stroke-width="10" stroke-linecap="square" stroke-linejoin="round"/>
+  <path d="M48 53v19m-10 0h20" fill="none" stroke="#172019" stroke-width="5" stroke-linecap="round"/>
+  <path d="m76 13 2.2 5.8L84 21l-5.8 2.2L76 29l-2.2-5.8L68 21l5.8-2.2Z" fill="#172019"/>
 </svg>
