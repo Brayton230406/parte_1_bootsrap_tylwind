@@ -1,0 +1,58 @@
+[v-cloak] { display: none; }
+
+.account-page { background: #f2f4ec; color: #19251b; min-height: 100vh; }
+.account-shell { max-width: 76rem; margin: auto; padding-inline: clamp(1rem, 4vw, 3rem); }
+.account-header { background: #fcfcf5; border-bottom: 1px solid #d7dfd1; }
+.account-header .account-shell { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 4.6rem; }
+.account-brand { display: inline-flex; align-items: center; gap: .65rem; font-weight: 850; letter-spacing: .08em; }
+.account { padding-block: clamp(1.5rem, 4vw, 4rem); }
+.account h1 { margin-block: 0 .8rem; font-size: clamp(2.1rem, 6vw, 3.8rem); font-weight: 760; line-height: 1.05; letter-spacing: -.06em; }
+.account h2 { font-size: clamp(1.5rem, 3vw, 2.3rem); font-weight: 750; letter-spacing: -.035em; line-height: 1.1; margin-block: 0 .65rem; }
+.account h3 { font-size: 1.2rem; font-weight: 730; margin-bottom: .5rem; }
+.account-status:empty { display: none; }
+.account-status { margin-block: .75rem; color: #34563a; font-weight: 650; }
+.account-muted { color: #536050; }
+.account-auth, .account-panel { background: #fcfcf6; border: 1px solid #d7dfd1; border-radius: 1.25rem; overflow: hidden; }
+.account-auth { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.account-auth-image { background: #243527 url('/assets/michoks-bar.jpg') center / cover; }
+.account-auth-content, .account-panel { padding: clamp(1.15rem, 4vw, 2.6rem); }
+.account-welcome { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #253b2a; color: #f6faed; padding: clamp(1.15rem, 4vw, 2.6rem); border-radius: 1.25rem; }
+.account-role { color: #cae0bd; margin-bottom: .55rem; font-size: .85rem; font-weight: 700; }
+.account-welcome button { color: inherit; }
+.account-navigation { display: flex; flex-wrap: wrap; gap: .4rem; margin-block: 1rem; }
+.account-navigation button[aria-pressed=true], .account-primary { background: #294b30; color: #fffdf4; border-color: #294b30; }
+.account form { margin-block: 1rem; }
+.account label { display: block; margin-block: .8rem; font-weight: 630; }
+.account label.account-check { display: flex; align-items: start; gap: .55rem; font-weight: 450; }
+.account-check input { margin-top: .25rem; accent-color: #34563a; }
+.account input:not([type=checkbox]), .account select, .account textarea {
+  display: block;
+  width: min(100%, 36rem);
+  margin-top: .25rem;
+  border: 1px solid #a3afa0;
+  border-radius: .55rem;
+  padding: .65rem .75rem;
+  background: #fff;
+  color: #19251b;
+  font-weight: 450;
+}
+.account button { margin: .18rem .25rem .18rem 0; border: 1px solid #a3afa0; border-radius: .55rem; padding: .53rem .82rem; min-height: 2.75rem; font-weight: 650; }
+.account button:disabled { opacity: .58; cursor: not-allowed; }
+.account button:focus-visible, .account input:focus-visible, .account select:focus-visible { outline: 2px solid #597445; outline-offset: 3px; }
+.account .table-scroll { overflow: auto; margin-block: .75rem; border: 1px solid #d7dfd1; border-radius: .55rem; }
+.account table { width: 100%; border-collapse: collapse; }
+.account th { background: #ecf1e7; }
+.account td, .account th { text-align: left; padding: .65rem; border-bottom: 1px solid #d7dfd1; overflow-wrap: anywhere; }
+.account-empty { padding: 1.25rem; background: #edf2e9; border-radius: .65rem; }
+.account-empty p { margin-bottom: .35rem; }
+.account-orders { padding: 0; list-style: none; margin-bottom: 1rem; }
+.account-orders > li { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: .75rem; padding-block: .9rem; border-bottom: 1px solid #d7dfd1; }
+.account-order-state { background: #e2ecdc; color: #294b30; font-size: .85rem; font-weight: 700; border-radius: 2rem; padding: .25rem .6rem; }
+.inventory-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1rem; }
+.inventory-grid form { margin-block: .5rem 0; padding: 1rem; background: #f0f4eb; border-radius: .7rem; }
+@media (max-width: 42rem) {
+  .account-auth, .inventory-grid { grid-template-columns: 1fr; }
+  .account-auth-image { min-height: 9.5rem; }
+  .account-orders > li { grid-template-columns: 1fr auto; }
+  .account-order-actions { grid-column: 1 / -1; }
+}

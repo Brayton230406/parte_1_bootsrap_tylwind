@@ -1,14 +1,24 @@
+import { getCart, putCart } from './services/orders.service.js';
+import { getToken, request } from './services/api.js';
+import { removeLegacyCart } from './storage.js';
 import { revealElements } from './motion.js';
 import { money, normalize, categoryClass, productPhoto, escapeHTML, trapDialogFocus } from './components.js';
-import { rules, initValidation, showFieldError } from './validation.js';
-import { STORAGE_KEY, MAX_QUANTITY, readCart, saveCart, cartEntries, cartTotalValue, setQuantity, removeProduct, restoreProducts } from './cart.js';
+import { rules, showFieldError } from './validation.js';
+import { MAX_QUANTITY, cartEntries, cartTotalValue, setQuantity, removeProduct, restoreProducts } from './cart.js';
 
 
 
-const WHATSAPP_NUMBER = '593959862988';
-
-export function initView(products) {
-  const state = { category: 'Todos', search: '', sort: 'featured', budget: 'all', occasion: '', limit: 12, cart: readCart(products) };
+export function initView(products, { user, cart, legacy }) {
+  const isCustomer = Boolean(user?.roles.includes('cliente'));
+  const isAdmin = Boolean(user?.roles.includes('administrador'));
+  const productById = new Map(products.map(product => [product.id, product]));
+  const selection = rows => Object.fromEntries(rows.map(item => [item.id_producto, item.cantidad]));
+  const toItems = values => Object.entries(values).map(([id_producto, cantidad]) => ({ id_producto, cantidad }));
+  const stockLimit = product => Math.min(MAX_QUANTITY, Math.floor(product.stock));
+  let committed = selection(cart);
+  let saving = false;
+  let submittingOrder = false;
+  const state = { category: 'Todos', search: '', sort: 'featured', budget: 'all', occasion: '', limit: 12, cart: committed };
   const productGrid = document.querySelector('#product-grid');
   const emptyProducts = document.querySelector('#empty-products');
   const searchInput = document.querySelector('#product-search');
@@ -23,6 +33,45 @@ export function initView(products) {
   const menuButton = document.querySelector('.menu-button');
   const nav = document.querySelector('#main-nav');
   [cartDrawer, dialog].forEach(trapDialogFocus);
+  const importButton = document.querySelector('#import-legacy-cart');
+
+  async function reloadCart() {
+    committed = selection(await getCart());
+    state.cart = committed;
+    removedCart = null;
+    renderCart();
+  }
+  async function saveCart(next, options) {
+    if (saving || submittingOrder) return false;
+    saving = true;
+    state.cart = next;
+    renderCart(options);
+    try {
+      await putCart(toItems(next), toItems(committed));
+      committed = next;
+      return true;
+    } catch (error) {
+      state.cart = committed;
+      removedCart = null;
+      if (error.status === 401) location.assign('/cuenta');
+      try { await reloadCart(); } catch { /* Keep the last confirmed selection. */ }
+      showToast(error.message);
+      return false;
+    } finally {
+      saving = false;
+      renderCart();
+    }
+  }
+  importButton.addEventListener('click', async () => {
+    const restored = restoreProducts(committed, legacy);
+    if (await saveCart(restored)) {
+      await removeLegacyCart();
+      legacy = {};
+      renderCart();
+      showToast('Selección anterior guardada en tu cuenta.');
+    }
+  });
+
   let toastTimer;
   let cartOpener;
   let removedCart = null;
@@ -62,15 +111,17 @@ export function initView(products) {
     const entries = cartEntries(state.cart, products);
     cartCount.textContent = entries.reduce((sum, entry) => sum + entry.quantity, 0);
     cartTotal.textContent = money(cartTotalValue(entries));
-    checkoutButton.disabled = entries.length === 0;
+    const unavailable = entries.some(({ product, quantity }) => quantity > stockLimit(product));
+    checkoutButton.disabled = saving || submittingOrder || !entries.length || unavailable;
+    document.querySelector('#availability-note').hidden = !unavailable;
+    importButton.hidden = !isCustomer || !Object.keys(legacy).length;
+    importButton.disabled = saving || submittingOrder;
     const units = entries.reduce((sum, entry) => sum + entry.quantity, 0);
     document.querySelector('#cart-summary').textContent = `${entries.length} ${entries.length === 1 ? 'producto' : 'productos'} · ${units} ${units === 1 ? 'unidad' : 'unidades'}`;
     document.querySelector('#clear-cart').hidden = entries.length === 0;
     document.querySelector('.cart-button').setAttribute('aria-label', `Abrir carrito, ${units} ${units === 1 ? 'unidad' : 'unidades'}`);
     document.querySelector('#cart-undo').hidden = removedCart === null;
-    document.querySelector('#checkout-status').textContent = '';
-    document.querySelector('#whatsapp-fallback').hidden = true;
-    if (!preserveRows) cartItems.innerHTML = entries.length ? entries.map(({ product, quantity }) => `<article class="cart-line"><div class="cart-line-image product-card-image ${categoryClass(product)}">${productPhoto(product)}</div><div class="cart-line-info"><p class="cart-category">${escapeHTML(product.category)} <span>· ${escapeHTML(product.size)}</span></p><h3>${escapeHTML(product.name)}</h3><p class="unit-price">${money(product.price)} por unidad</p><div class="cart-line-actions"><div class="quantity-controls"><button type="button" aria-label="Reducir ${escapeHTML(product.name)}" data-decrease="${product.id}">−</button><input type="number" min="1" max="99" step="1" inputmode="numeric" value="${quantity}" aria-describedby="quantity-${product.id}-error" aria-label="Cantidad de ${escapeHTML(product.name)}" id="quantity-${product.id}" data-quantity="${product.id}"><button type="button" aria-label="Aumentar ${escapeHTML(product.name)}" data-increase="${product.id}" ${quantity >= MAX_QUANTITY ? 'disabled' : ''}>+</button></div><p id="quantity-${product.id}-error" class="field-error" aria-live="polite"></p><button class="remove-product" type="button" aria-label="Eliminar ${escapeHTML(product.name)}" data-remove="${product.id}">Eliminar</button></div></div><strong class="line-price">${money(Math.round(product.price * 100) * quantity / 100)}</strong></article>`).join('') : '<div class="cart-empty"><div class="empty-emblem" aria-hidden="true">M<span>✦</span></div><p class="eyebrow">LOS BUENOS MOMENTOS EMPIEZAN AQUÍ</p><h3>Un carrito vacío.<br>Mil buenos planes.</h3><p>Encuentra esa botella que va contigo.<br>Nosotros te ayudamos con el resto.</p><button class="primary-button" type="button" data-discover-catalog>Descubrir el catálogo <span aria-hidden="true">↗</span></button></div>';
+    if (!preserveRows) cartItems.innerHTML = entries.length ? entries.map(({ product, quantity }) => `<article class="cart-line"><div class="cart-line-image product-card-image ${categoryClass(product)}">${productPhoto(product)}</div><div class="cart-line-info"><p class="cart-category">${escapeHTML(product.category)} <span>· ${escapeHTML(product.size)}</span></p><h3>${escapeHTML(product.name)}</h3><p class="unit-price">${money(product.price)} por unidad</p><div class="cart-line-actions"><div class="quantity-controls"><button type="button" aria-label="Reducir ${escapeHTML(product.name)}" data-decrease="${product.id}">−</button><input type="number" min="1" max="99" step="1" inputmode="numeric" value="${quantity}" aria-describedby="quantity-${product.id}-error" aria-label="Cantidad de ${escapeHTML(product.name)}" id="quantity-${product.id}" data-quantity="${product.id}"><button type="button" aria-label="Aumentar ${escapeHTML(product.name)}" data-increase="${product.id}" ${quantity >= stockLimit(product) ? 'disabled' : ''}>+</button></div><p id="quantity-${product.id}-error" class="field-error" aria-live="polite"></p><button class="remove-product" type="button" aria-label="Eliminar ${escapeHTML(product.name)}" data-remove="${product.id}">Eliminar</button></div></div><strong class="line-price">${money(Math.round(product.price * 100) * quantity / 100)}</strong></article>`).join('') : '<div class="cart-empty"><div class="empty-emblem" aria-hidden="true">M<span>✦</span></div><p class="eyebrow">LOS BUENOS MOMENTOS EMPIEZAN AQUÍ</p><h3>Un carrito vacío.<br>Mil buenos planes.</h3><p>Encuentra esa botella que va contigo.<br>Nosotros te ayudamos con el resto.</p><button class="primary-button" type="button" data-discover-catalog>Descubrir el catálogo <span aria-hidden="true">↗</span></button></div>';
     document.querySelector('#cart-subtotal').textContent = money(cartTotalValue(entries));
     document.querySelector('#mobile-cart-total').textContent = money(cartTotalValue(entries));
     document.querySelector('#cart-mobile-summary').hidden = !entries.length;
@@ -81,7 +132,7 @@ export function initView(products) {
     document.querySelector('#mini-total').textContent = money(cartTotalValue(entries));
     cartDrawer.classList.toggle('is-empty', !entries.length);
     document.querySelector('#order-preferences').hidden = !entries.length;
-    document.querySelector('#order-preview').hidden = !entries.length;
+
     if (preserveRows) {
       for (const { product, quantity } of entries) {
         const input = cartItems.querySelector(`[data-quantity="${product.id}"]`);
@@ -89,11 +140,11 @@ export function initView(products) {
         const row = input?.closest('.cart-line');
         if (row) {
           row.querySelector('.line-price').textContent = money(Math.round(product.price * 100) * quantity / 100);
-          row.querySelector('[data-increase]').disabled = quantity >= MAX_QUANTITY;
+          row.querySelector('[data-increase]').disabled = quantity >= stockLimit(product);
         }
       }
     } else renderRecommendations();
-    updateOrderMessage(); updateCatalogSelection();
+    updateCatalogSelection();
 
     if (!preserveRows && focusSelector && cartDrawer.open) (cartItems.querySelector(`${focusSelector}:not(:disabled)`) || cartItems.querySelector('button:not(:disabled)') || cartDrawer.querySelector('[data-close-cart]')).focus({ preventScroll: true });
   }
@@ -104,66 +155,75 @@ export function initView(products) {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => { toast.classList.remove('is-visible'); feedback.textContent = ''; }, 5000);
   }
-  function addToCart(id) {
-    if (!products.some((product) => product.id === id)) return;
-    if ((state.cart[id] || 0) >= MAX_QUANTITY) { showToast('Máximo de 99 unidades por producto. Consulta pedidos mayores por WhatsApp.'); return; }
-    state.cart = setQuantity(state.cart, id, (state.cart[id] || 0) + 1); lastAddedId = id;
-    const saved = saveCart(state.cart); renderCart();
-    showToast(saved ? `${products.find((product) => product.id === id).name} añadido a tu selección.` : 'Producto añadido. Tu navegador no permite guardar el carrito al cerrar.');
+  async function addToCart(id) {
+    const product = productById.get(id);
+    if (!product || !stockLimit(product) || isAdmin && !isCustomer) return;
+    if (!isCustomer) { location.assign('/cuenta?desde=tienda'); return; }
+    if (saving || submittingOrder) return;
+    const quantity = (state.cart[id] || 0) + 1;
+    if (quantity > stockLimit(product)) { showToast('Alcanzaste la cantidad disponible.'); return; }
+    lastAddedId = id;
+    if (await saveCart(setQuantity(state.cart, id, quantity))) showToast(`${product.name} añadido a tu selección.`);
   }
   function changeQuantity(id, amount) {
-    if (!state.cart[id]) return;
-    if (state.cart[id] + amount <= 0) { removeFromCart(id); return; }
-    state.cart = setQuantity(state.cart, id, Math.min(MAX_QUANTITY, state.cart[id] + amount));
-    if (state.cart[id] <= 0) state.cart = removeProduct(state.cart, id);
-    const saved = saveCart(state.cart); renderCart();
-    if (!saved) showToast('Cantidad actualizada. No se pudo guardar para otra visita.');
+    if (saving || submittingOrder || !state.cart[id]) return;
+    const quantity = state.cart[id] + amount;
+    if (quantity <= 0) { removeFromCart(id); return; }
+    if (amount > 0 && quantity > stockLimit(productById.get(id))) return;
+    saveCart(setQuantity(state.cart, id, quantity));
   }
   function removeFromCart(id) {
-    if (!state.cart[id]) return;
+    if (saving || submittingOrder || !state.cart[id]) return;
     removedCart = { [id]: state.cart[id] };
-    state.cart = removeProduct(state.cart, id);
     document.querySelector('#cart-undo-message').textContent = 'Producto eliminado del carrito.';
-    persistCartChange();
-  }
-  function persistCartChange(options) {
-    const saved = saveCart(state.cart); renderCart(options);
-    if (!saved) showToast('Cambio realizado. No se pudo guardar para otra visita.');
+    saveCart(removeProduct(state.cart, id));
   }
   cartItems.addEventListener('change', (event) => {
     const input = event.target.closest('[data-quantity]');
     if (!input) return;
-    const id = Number(input.dataset.quantity);
+    if (saving || submittingOrder) { input.value = state.cart[input.dataset.quantity]; return; }
+    const id = input.dataset.quantity;
     const quantity = Number(input.value);
     if (!rules.quantity.test(input.value)) {
       showFieldError(input, 'Introduce una cantidad entera entre 1 y 99.');
       showToast('Introduce una cantidad entera entre 1 y 99.');
       return;
     }
+    if (quantity > stockLimit(productById.get(id))) {
+      showFieldError(input, 'La cantidad supera las existencias disponibles.');
+      return;
+    }
     showFieldError(input, '');
-    state.cart = setQuantity(state.cart, id, quantity); persistCartChange({ preserveRows: true });
+    saveCart(setQuantity(state.cart, id, quantity), { preserveRows: true });
   });
   document.querySelector('#clear-cart').addEventListener('click', () => {
-    removedCart = { ...state.cart }; state.cart = {};
+    if (saving || submittingOrder) return;
+    removedCart = { ...state.cart };
     document.querySelector('#cart-undo-message').textContent = 'Carrito vaciado. Puedes recuperar tu selección.';
-    persistCartChange(); document.querySelector('#undo-cart').focus();
+    saveCart({});
+    document.querySelector('#undo-cart').focus();
   });
   document.querySelector('#undo-cart').addEventListener('click', () => {
-    if (!removedCart) return;
-    // Restore removed quantities while preserving additions made after removal.
-    state.cart = restoreProducts(state.cart, removedCart);
-    removedCart = null; persistCartChange();
+    if (!removedCart || saving || submittingOrder) return;
+    const restored = restoreProducts(state.cart, removedCart);
+    removedCart = null;
+    saveCart(restored);
     cartItems.querySelector('button')?.focus();
-  });
-  window.addEventListener('storage', (event) => {
-    if (event.key !== STORAGE_KEY && event.key !== null) return;
-    state.cart = readCart(products); removedCart = null; renderCart();
   });
   function syncScroll() { document.body.classList.toggle('no-scroll', cartDrawer.open || dialog.open); document.querySelector('#cart-mini').hidden = !cartEntries(state.cart, products).length || cartDrawer.open || dialog.open; }
   function openCart(opener = document.activeElement) {
+    if (!isCustomer) return;
     closeMenu(); cartOpener = opener;
     cartDrawer.setAttribute('aria-hidden', 'false');
     renderCart(); cartDrawer.showModal(); syncScroll();
+    if (!saving && !submittingOrder) refreshOpenCart();
+  }
+  async function refreshOpenCart() {
+    saving = true;
+    renderCart();
+    try { await reloadCart(); }
+    catch (error) { showToast(error.message); }
+    finally { saving = false; renderCart(); }
   }
   function closeCart() { cartDrawer.close(); }
   cartDrawer.addEventListener('close', () => {
@@ -174,7 +234,7 @@ export function initView(products) {
   function openProduct(id) {
     const product = products.find((item) => item.id === id);
     if (!product) return;
-    dialogContent.innerHTML = `<div class="dialog-layout"><div class="dialog-main-image product-card-image ${categoryClass(product)}" id="dialog-main-image">${productPhoto(product)}</div><div class="dialog-info"><p class="eyebrow">${escapeHTML(product.category)} · ${escapeHTML(product.size)}</p><h2 id="detail-title">${escapeHTML(product.name)}</h2><p>${escapeHTML(product.description)}</p><strong class="dialog-price">${money(product.price)}</strong><p>Precio referencial. Confirma la presentación y disponibilidad al consultar.</p>${product.image ? `<div class="dialog-gallery" role="group" aria-label="Ver fotografía del producto">${['Botella completa', 'Ampliar etiqueta'].map((label, index) => `<button type="button" class="dialog-thumb ${index === 0 ? 'is-selected' : ''} product-card-image ${categoryClass(product)} view-${index}" aria-label="${label}" aria-pressed="${index === 0}" data-dialog-image="${index}"><span>${label}</span></button>`).join('')}</div>` : ''}<button class="primary-button w-full" type="button" data-dialog-add="${product.id}">Añadir al carrito <span aria-hidden="true">+</span></button></div></div>`;
+    dialogContent.innerHTML = `<div class="dialog-layout"><div class="dialog-main-image product-card-image ${categoryClass(product)}" id="dialog-main-image">${productPhoto(product)}</div><div class="dialog-info"><p class="eyebrow">${escapeHTML(product.category)} · ${escapeHTML(product.size)}</p><h2 id="detail-title">${escapeHTML(product.name)}</h2><p>${escapeHTML(product.description)}</p><strong class="dialog-price">${money(product.price)}</strong><p>${stockLimit(product) ? 'Disponible' : 'Agotado'}</p>${product.image ? `<div class="dialog-gallery" role="group" aria-label="Ver fotografía del producto">${['Botella completa', 'Ampliar etiqueta'].map((label, index) => `<button type="button" class="dialog-thumb ${index === 0 ? 'is-selected' : ''} product-card-image ${categoryClass(product)} view-${index}" aria-label="${label}" aria-pressed="${index === 0}" data-dialog-image="${index}"><span>${label}</span></button>`).join('')}</div>` : ''}${stockLimit(product) && (!isAdmin || isCustomer) ? `<button class="primary-button w-full" type="button" data-dialog-add="${product.id}">${isCustomer ? 'Añadir al carrito' : 'Ingresa para comprar'} <span aria-hidden="true">+</span></button>` : ''}</div></div>`;
     dialog.showModal(); syncScroll();
   }
   function setCategory(category, scroll = false) {
@@ -197,12 +257,12 @@ export function initView(products) {
   document.addEventListener('click', (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
-    const recommend = target.closest('[data-recommend-product]'); if (recommend) addToCart(Number(recommend.dataset.recommendProduct));
-    const add = target.closest('[data-add-product]'); if (add) addToCart(Number(add.dataset.addProduct));
-    const view = target.closest('[data-view-product]'); if (view) openProduct(Number(view.dataset.viewProduct));
-    const increase = target.closest('[data-increase]'); if (increase) changeQuantity(Number(increase.dataset.increase), 1);
-    const remove = target.closest('[data-remove]'); if (remove) removeFromCart(Number(remove.dataset.remove));
-    const decrease = target.closest('[data-decrease]'); if (decrease) changeQuantity(Number(decrease.dataset.decrease), -1);
+    const recommend = target.closest('[data-recommend-product]'); if (recommend) addToCart(recommend.dataset.recommendProduct);
+    const add = target.closest('[data-add-product]'); if (add) addToCart(add.dataset.addProduct);
+    const view = target.closest('[data-view-product]'); if (view) openProduct(view.dataset.viewProduct);
+    const increase = target.closest('[data-increase]'); if (increase) changeQuantity(increase.dataset.increase, 1);
+    const remove = target.closest('[data-remove]'); if (remove) removeFromCart(remove.dataset.remove);
+    const decrease = target.closest('[data-decrease]'); if (decrease) changeQuantity(decrease.dataset.decrease, -1);
     const occasion = target.closest('[data-occasion]');
     if (occasion) {
       state.category = 'Todos'; state.search = ''; state.budget = 'all'; state.limit = 12; state.occasion = occasion.dataset.occasion;
@@ -218,7 +278,7 @@ export function initView(products) {
       document.querySelectorAll('.dialog-thumb').forEach((button) => { const selected = button === viewImage; button.classList.toggle('is-selected', selected); button.setAttribute('aria-pressed', String(selected)); });
     }
     const dialogAdd = target.closest('[data-dialog-add]');
-    if (dialogAdd) { addToCart(Number(dialogAdd.dataset.dialogAdd)); dialog.close(); openCart(document.querySelector('.cart-button')); }
+    if (dialogAdd) addToCart(dialogAdd.dataset.dialogAdd);
   });
   document.querySelector('.cart-button').addEventListener('click', () => openCart());
   document.querySelector('#cart-mini').addEventListener('click', () => openCart(document.querySelector('.cart-button')));
@@ -231,33 +291,23 @@ export function initView(products) {
   document.querySelector('#load-more-products').addEventListener('click', () => { const previous = state.limit; state.limit += 12; renderProducts(); productGrid.querySelectorAll('.add-product')[previous]?.focus({ preventScroll: false }); });
   document.querySelector('#clear-active-filters').addEventListener('click', () => { document.dispatchEvent(new Event('catalog:reset')); searchInput.focus(); });
   document.querySelector('#reset-filters').addEventListener('click', () => { state.search = ''; state.budget = 'all'; document.querySelector('#product-budget').value = 'all'; searchInput.value = ''; setCategory('Todos'); searchInput.focus(); });
-  function orderMessage() {
-    const entries = cartEntries(state.cart, products);
-    const lines = entries.map(({ product, quantity }) => `${quantity} × ${product.name} (${product.size}) — ${money(Math.round(product.price * 100) * quantity / 100)}`);
-    const delivery = document.querySelector('input[name="delivery"]:checked').value;
-    const note = document.querySelector('#order-note').value.trim();
-    const contact = [['Nombre', '#customer-name'], ['Celular', '#customer-phone'], ['Correo', '#customer-email'], ...(delivery === 'domicilio' ? [['Dirección', '#customer-address']] : [])].map(([label, selector]) => { const value = document.querySelector(selector).value.trim(); return value ? `${label}: ${value}` : ''; }).filter(Boolean);
-    return ['Hola MICHOKS, quisiera consultar esta selección:', '', ...lines, '', `Total referencial: ${money(cartTotalValue(entries))} USD.`, `Entrega: ${delivery === 'domicilio' ? 'me gustaría consultar envío a domicilio' : 'por coordinar'}.`, ...contact, ...(note ? [`Indicaciones: ${note}`] : []), '¿Me confirman disponibilidad, precio final y opciones de entrega?', 'Soy mayor de 18 años.'].join('\n');
-  }
-  function updateOrderMessage() {
-    document.querySelector('#order-message').textContent = orderMessage();
-    document.querySelector('#note-count').textContent = document.querySelector('#order-note').value.length;
-    document.querySelector('#copy-status').textContent = '';
-    document.querySelector('#checkout-status').textContent = '';
-    document.querySelector('#whatsapp-fallback').hidden = true;
-  }
   function updateCatalogSelection() {
     document.querySelectorAll('[data-add-product]').forEach((button) => {
-      const quantity = state.cart[button.dataset.addProduct] || 0;
+      const id = button.dataset.addProduct;
+      const quantity = state.cart[id] || 0;
+      const available = stockLimit(productById.get(id));
+      const label = !available ? 'Agotado' : quantity ? `En tu carrito · ${quantity}` :
+        isCustomer ? 'Añadir al carrito' : isAdmin ? 'Disponible' : 'Ingresa para comprar';
       button.classList.toggle('is-in-cart', quantity > 0);
-      button.innerHTML = quantity ? `En tu carrito · ${quantity}<span aria-hidden="true">+</span>` : 'Añadir al carrito <span aria-hidden="true">+</span>';
-      button.disabled = quantity >= MAX_QUANTITY;
+      button.textContent = label;
+      button.setAttribute('aria-label', `${label}: ${productById.get(id).name}`);
+      button.disabled = !available || quantity >= available || isAdmin && !isCustomer || saving || submittingOrder;
     });
   }
   function renderRecommendations() {
     const entries = cartEntries(state.cart, products);
     const base = entries.find(({ product }) => product.id === lastAddedId)?.product || entries[0]?.product;
-    const available = products.filter((product) => !state.cart[product.id]);
+    const available = products.filter((product) => stockLimit(product) && !state.cart[product.id]);
     const suggestions = [...available].sort((a, b) => Number(b.category === base?.category) - Number(a.category === base?.category) || a.price - b.price).slice(0, 2);
     document.querySelector('#cart-recommendations').hidden = !entries.length || !suggestions.length;
     document.querySelector('#recommendation-items').innerHTML = suggestions.map((product) => `<article class="recommendation"><div class="recommendation-image product-card-image ${categoryClass(product)}">${productPhoto(product)}</div><div><p>${escapeHTML(product.name)}</p><span>${money(product.price)} · ${escapeHTML(product.size)}</span></div><button type="button" aria-label="Añadir a mi selección: ${escapeHTML(product.name)}" data-recommend-product="${product.id}">+</button></article>`).join('');
@@ -267,24 +317,59 @@ export function initView(products) {
     document.querySelector('input[name="delivery"]:checked').focus({ preventScroll: true });
   });
   const form = document.querySelector('#order-form');
-  const validateOrder = initValidation(form, updateOrderMessage);
-  form.addEventListener('submit', (event) => { event.preventDefault(); prepareConsultation(); });
-  document.querySelectorAll('input[name="delivery"]').forEach((input) => input.addEventListener('change', () => { document.querySelector('#address-field').hidden = input.value !== 'domicilio'; updateOrderMessage(); }));
-  document.querySelector('#copy-order').addEventListener('click', async () => {
-    const status = document.querySelector('#copy-status');
-    if (!validateOrder()) return;
-    try { await navigator.clipboard.writeText(orderMessage()); status.textContent = 'Mensaje copiado. Listo para compartir.'; }
-    catch { status.textContent = 'Puedes seleccionar y copiar el mensaje de arriba.'; }
-  });
-  function prepareConsultation() {
-    if (!cartEntries(state.cart, products).length || !validateOrder()) return;
+  const deliveryAddress = document.querySelector('#delivery-address');
+  function updateDelivery() {
+    const home = form.elements.delivery.value === 'domicilio';
+    deliveryAddress.hidden = !home;
+    deliveryAddress.disabled = !home || submittingOrder;
+    document.querySelector('#delivery-summary').textContent = home ? 'Entrega a domicilio' : 'Retiro en tienda';
+    document.querySelector('#delivery-hint').textContent = home
+      ? 'Confirmaremos cobertura y tarifa. El envío no está incluido.'
+      : 'Coordinaremos contigo el punto y horario de retiro.';
+  }
+  form.addEventListener('change', updateDelivery);
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!isCustomer || saving || submittingOrder || checkoutButton.disabled) return;
+    if (!getToken()) { location.assign('/cuenta?desde=tienda'); return; }
     const invalidQuantity = cartItems.querySelector('[aria-invalid="true"]');
     if (invalidQuantity) { invalidQuantity.focus(); return; }
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderMessage())}`;
-    const fallback = document.querySelector('#whatsapp-fallback'); fallback.href = url; fallback.hidden = false;
-    window.open(url, '_blank', 'noopener,noreferrer');
-    document.querySelector('#checkout-status').textContent = 'Continúa en WhatsApp y envía el mensaje para consultar. Tu pedido aún no está confirmado.';
-  }
+    const values = Object.fromEntries(new FormData(form));
+    const items = toItems(committed);
+    const status = document.querySelector('#checkout-status');
+    submittingOrder = true;
+    checkoutButton.disabled = true;
+    updateCatalogSelection();
+    status.textContent = 'Registrando pedido…';
+    let message;
+    try {
+      const {data} = await request('/pedidos', { method: 'POST', body: {
+        items, desde_carrito: true, modalidad_entrega: values.delivery === 'domicilio' ? 'delivery' : 'retiro',
+        direccion: values.direccion, ciudad: values.ciudad, observacion: values.observacion,
+      }});
+      committed = {};
+      state.cart = committed;
+      removedCart = null;
+      form.reset();
+      message = `Pedido #${data.id_pedido} registrado. Consulta su estado en Mi cuenta.`;
+      await Promise.allSettled(items.map(async item => {
+        const {data: product} = await request('/productos/' + item.id_producto);
+        productById.get(item.id_producto).stock = product.stock;
+      }));
+    } catch (error) {
+      if (error.status === 401) location.assign('/cuenta?desde=tienda');
+      if (error.status === 409) {
+        try { await reloadCart(); } catch { /* Keep the last confirmed selection. */ }
+      }
+      message = error.message;
+    } finally {
+      submittingOrder = false;
+      updateDelivery();
+      renderCart();
+      status.textContent = message;
+    }
+  });
+  updateDelivery();
   document.addEventListener('catalog:reset', () => {
     state.search = ''; state.category = 'Todos'; state.sort = 'featured'; state.budget = 'all'; state.occasion = ''; state.limit = 12;
     document.querySelector('#product-budget').value = 'all';

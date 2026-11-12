@@ -5,7 +5,7 @@ export function initPWA() {
   let prompt;
   function connection() {
     status.hidden = navigator.onLine;
-    status.textContent = navigator.onLine ? '' : 'Sin conexión: puedes explorar y guardar tu selección. Para consultar por WhatsApp necesitas internet. Precios y disponibilidad por confirmar.';
+    status.textContent = navigator.onLine ? '' : 'Sin conexión: el catálogo actualizado y el registro de pedidos necesitan conexión con el servidor.';
   }
   connection();
   window.addEventListener('online', connection);

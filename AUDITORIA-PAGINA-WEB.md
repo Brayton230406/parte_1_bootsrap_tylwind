@@ -110,3 +110,15 @@ Después de confirmar la edad, la primera visita permite aceptar o denegar la co
 ## Modo oscuro
 
 El botón de sol/luna de la cabecera alterna entre modo claro y oscuro. La primera visita utiliza la preferencia del sistema; una elección manual se recuerda con `michoks-theme` en localStorage, con sessionStorage como alternativa. La elección se aplica antes de cargar el CSS para evitar destellos y se sincroniza entre pestañas. Las superficies del catálogo, Descubre, vista rápida, carrito, campos y errores se adaptan; las fotos mantienen fondos claros para conservar legibilidad. Los avisos de edad y cookies conservan su identidad oscura en ambos modos. Las pruebas comprueban persistencia, sincronización y contraste en seis tamaños.
+
+
+## Actualización: tienda de barrio, retiro y domicilio (19-10-2026)
+
+El carrito exige nombre y celular; para domicilio exige dirección y ofrece referencia opcional. El retiro no requiere dirección. El correo es opcional y se valida cuando se completa. Los mensajes del formulario usan aria-invalid/aria-describedby y enfocan el primer error. El resumen distingue modalidades y avisa que el envío no está incluido. Los datos de contacto no se guardan en los mecanismos de persistencia del carrito.
+
+El nuevo esquema de `database/` modela 62 tablas e incluye roles, pedidos, reservas, pagos, retiro, domicilio y facturación. Es un modelo físico ejecutable con SQLite, no una base conectada a GitHub Pages. La web aún no autentica roles, no cobra mediante una pasarela y no emite comprobantes SRI. Para esos flujos se necesita la API descrita en `database/README.md`.
+
+
+## Formulario simplificado y validación progresiva (19-10-2026)
+
+Esta actualización sustituye el comportamiento anterior de campos opcionales. Nombre y apellido, celular y correo son obligatorios; domicilio además exige dirección. Los campos se validan en cada evento input/change y en blur: el siguiente solo se habilita cuando el anterior es válido. Se usa disabled nativo, sin encerrar el foco. Al intentar enviar, el primer error recibe foco. Los mensajes usan aria-describedby, aria-live y aria-invalid. Se eliminaron «Dale tu toque» y la referencia adicional. No se modificó el modelo físico ni se añadieron cobros en línea.

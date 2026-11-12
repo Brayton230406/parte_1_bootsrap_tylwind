@@ -79,9 +79,9 @@
   --tw-ring-offset-color:#fff;
   --tw-ring-color:rgba(59,130,246,.5);
   --tw-ring-offset-shadow:0 0 #0000;
-  --tw-ring-shadow:0 0 #0000;
+  --tw-ring-shadow:0 0 #f534347b;
   --tw-shadow:0 0 #0000;
-  --tw-shadow-colored:0 0 #0000;
+  --tw-shadow-colored:0 0 #d83d3db4;
   --tw-blur: ;
   --tw-brightness: ;
   --tw-contrast: ;
@@ -2629,6 +2629,25 @@ html[data-theme="dark"] .continue-shopping { color:#d7ef71; }
 html[data-theme="dark"] .note-counter { color:#c3cfbb; }
 html[data-theme="dark"] .category-tab:hover { background:#34462b; color:#f2f5e9; }
 html[data-theme="dark"] .category-tab.is-active { background:#d7ef71; color:#171b17; }
+html[data-theme="dark"] .remove-product { color: #c3cfbb; }
 html[data-theme="dark"] .remove-product:hover { color:#ffb6a7; }
-html[data-theme="dark"] .remove-product { color:#c3cfbb; }
-html[data-theme="dark"] .remove-product:hover { color:#ffb6a7; }
+
+/* El orden del formulario se comunica visualmente y mediante disabled nativo. */
+.customer-field input:disabled {
+  opacity: 1;
+  background: #e9ede4;
+  border-color: #b5c0ac;
+  color: #56604e;
+  cursor: not-allowed;
+}
+html[data-theme="dark"] .customer-field input:disabled {
+  background: #243024;
+  border-color: #829575;
+  color: #c3cfbb;
+}
+
+/* Controls that depend on the authenticated customer and delivery choice. */
+.cart-button[hidden], #delivery-address[hidden] { display: none; }
+.delivery-address { margin-block: .8rem; }
+.delivery-address legend { font-weight: 700; }
+.add-product:disabled:not(.is-in-cart) { opacity: .68; cursor: default; }

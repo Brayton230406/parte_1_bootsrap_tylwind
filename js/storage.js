@@ -39,7 +39,7 @@ async function indexed(action, value) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('state', action === 'get' ? 'readonly' : 'readwrite');
     const store = tx.objectStore('state');
-    const request = action === 'get' ? store.get(STORAGE_KEY) : store.put(value, STORAGE_KEY);
+    const request = action === 'get' ? store.get(STORAGE_KEY) : action === 'delete' ? store.delete(STORAGE_KEY) : store.put(value, STORAGE_KEY);
     tx.oncomplete = () => resolve(request.result);
     tx.onerror = () => reject(tx.error);
     tx.onabort = () => reject(tx.error);
@@ -61,13 +61,26 @@ function persist(value) {
   return successes > 0;
 }
 export function readStoredCart(products) { return { ...(newest(candidates(products))?.cart || {}) }; }
-export async function recoverCart(products) {
+async function recoverSnapshot(products) {
   const values = candidates(products);
   try { const value = snapshot(await indexed('get'), products); if (value) values.push(value); } catch { /* Other stores remain usable. */ }
-  values.push(...candidates(products)); // Include changes from another tab while IndexedDB was loading.
-  const recovered = newest(values);
+  values.push(...candidates(products));
+  return newest(values);
+}
+export async function recoverCart(products) {
+  const recovered = await recoverSnapshot(products);
   if (recovered) persist(recovered);
   return { ...(recovered?.cart || {}) };
+}
+export async function readLegacyCart(products) {
+  return { ...((await recoverSnapshot(products))?.cart || {}) };
+}
+export async function removeLegacyCart() {
+  memory = null;
+  safely(() => localStorage.removeItem(STORAGE_KEY));
+  safely(() => sessionStorage.removeItem(STORAGE_KEY));
+  clearCartCookie();
+  try { await queue; await indexed('delete'); } catch { /* Storage can be blocked by the browser. */ }
 }
 export function persistCart(cart) {
   const updatedAt = Math.max(Date.now(), (memory?.updatedAt || 0) + 1);

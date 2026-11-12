@@ -1,75 +1,45 @@
-name: Verificar y publicar MICHOKS PWA
+name: Verificar MICHOKS MVC
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   verify:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: michoks_test
+          POSTGRES_PASSWORD: local-ci-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d michoks_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: 5432
+      PGDATABASE: michoks_test
+      PGUSER: postgres
+      PGPASSWORD: local-ci-only
+      TEST_DATABASE: 'true'
     steps:
-      - name: Descargar código
-        uses: actions/checkout@v4
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Instalar herramientas de verificación
-        run: |
-          mkdir -p /tmp/michoks-qa
-          npm install --prefix /tmp/michoks-qa --no-audit --no-fund @playwright/test@1.64.0 @axe-core/playwright@4.13.0 html-validate@11.4.0
-          /tmp/michoks-qa/node_modules/.bin/playwright install --with-deps chromium
-      - name: Validar HTML y caché PWA
-        run: |
-          /tmp/michoks-qa/node_modules/.bin/html-validate index.html
-          node js/tests/build-pwa.mjs
-          git diff --exit-code -- sw.js
-      - name: Verificar carrito, accesibilidad e instalación sin conexión
-        run: |
-          cp js/tests/rubrica.mjs /tmp/michoks-qa/rubrica.mjs
-          cp js/tests/pwa.mjs /tmp/michoks-qa/pwa.mjs
-          node /tmp/michoks-qa/rubrica.mjs "$GITHUB_WORKSPACE"
-          node /tmp/michoks-qa/pwa.mjs "$GITHUB_WORKSPACE"
-      - name: Guardar capturas de revisión
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: capturas-michoks
-          path: /tmp/michoks-qa/*.png
-          if-no-files-found: ignore
-  deploy:
-    needs: verify
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Descargar código
-        uses: actions/checkout@v4
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Preparar sitio y conservar enlace anterior
-        run: |
-          mkdir dist
-          cp index.html manifest.webmanifest sw.js dist/
-          cp index.html dist/michoks.html
-          cp -R assets data js dist/
-          rm -rf dist/js/tests
-          touch dist/.nojekyll
-      - name: Subir sitio
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Publicar
-        id: deployment
-        uses: actions/deploy-pages@v4
+          cache: npm
+      - run: npm ci
+      - run: npm run db:init
+      - run: npm run db:check
+      - run: npm test
+      - run: node js/tests/build-pwa.mjs

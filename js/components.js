@@ -5,7 +5,7 @@ export function normalize(text) { return text.normalize('NFD').replace(/[\u0300-
 export function categoryClass(product) { return `category-${normalize(product.category).replace(/[^a-z0-9-]/g, '')}`; }
 export function productPhoto(product) {
     if (!product.image) return '<div class="photo-pending"><span aria-hidden="true">M.</span><p>Fotografía por confirmar</p></div>';
-    return `<img class="product-photo" src="${product.image}" alt="${escapeHTML(product.name)}, fotografía de referencia" width="800" height="800" loading="lazy" decoding="async">`;
+    return `<img class="product-photo" src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}, fotografía de referencia" width="800" height="800" loading="lazy" decoding="async">`;
   }
 
 // <dialog> supplies modal semantics; this helper keeps Tab within visible controls.

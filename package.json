@@ -1,0 +1,7 @@
+{
+  "name": "michoks-mvc", "version": "2.0.0", "private": true, "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node --env-file-if-exists=.env server/server.js", "dev": "node --watch --env-file-if-exists=.env server/server.js", "db:check": "node --env-file-if-exists=.env server/scripts/check-db.js", "db:init": "node --env-file-if-exists=.env server/scripts/init-db.js", "db:import-catalog": "node --env-file-if-exists=.env server/scripts/import-catalog.js", "db:demo": "node --env-file-if-exists=.env server/scripts/seed-demo-inventory.js", "admin:create": "node --env-file-if-exists=.env server/scripts/create-admin.js", "test": "node --test server/tests/*.test.js" },
+  "dependencies": { "express": "^5.1.0", "pg": "^8.16.0", "helmet": "^8.1.0", "cors": "^2.8.5", "express-rate-limit": "^8.0.0", "vue": "^3.5.0" },
+  "devDependencies": { "supertest": "^7.1.0" }
+}

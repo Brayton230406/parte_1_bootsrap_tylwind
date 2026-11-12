@@ -1,0 +1,3603 @@
+{
+  "usuario": {
+    "columns": [
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre_usuario",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(160)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "correo",
+        "type": "VARCHAR(254)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "telefono",
+        "type": "VARCHAR(30)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "password_hash",
+        "type": "TEXT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "creado_en",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "ultimo_acceso",
+        "type": "TIMESTAMPTZ",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_usuario"
+    ],
+    "references": []
+  },
+  "rol": {
+    "columns": [
+      {
+        "name": "codigo_rol",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "codigo_rol"
+    ],
+    "references": []
+  },
+  "usuario_rol": {
+    "columns": [
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo_rol",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha_asignacion",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_usuario",
+      "codigo_rol"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      },
+      {
+        "column": "codigo_rol",
+        "table": "rol",
+        "target": "codigo_rol"
+      }
+    ]
+  },
+  "cliente": {
+    "columns": [
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo_rol",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "fecha_alta",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "observacion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_cliente"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      }
+    ]
+  },
+  "empleado": {
+    "columns": [
+      {
+        "name": "id_empleado",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo_rol",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "codigo_empleado",
+        "type": "VARCHAR(40)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cargo",
+        "type": "VARCHAR(100)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha_ingreso",
+        "type": "DATE",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "fecha_salida",
+        "type": "DATE",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_empleado"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      }
+    ]
+  },
+  "administrador": {
+    "columns": [
+      {
+        "name": "id_administrador",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo_rol",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "fecha_designacion",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "observacion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_administrador"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      }
+    ]
+  },
+  "verificacion_edad": {
+    "columns": [
+      {
+        "name": "id_verificacion_edad",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "declaracion_mayoria",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "metodo",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_verificacion_edad"
+    ],
+    "references": [
+      {
+        "column": "id_cliente",
+        "table": "cliente",
+        "target": "id_cliente"
+      }
+    ]
+  },
+  "sesion": {
+    "columns": [
+      {
+        "name": "id_sesion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "inicio",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "expiracion",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "revocada_en",
+        "type": "TIMESTAMPTZ",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "token_hash",
+        "type": "VARCHAR(64)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_sesion"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      }
+    ]
+  },
+  "preferencia": {
+    "columns": [
+      {
+        "name": "id_preferencia",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tema",
+        "type": "VARCHAR(10)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "canal_contacto",
+        "type": "VARCHAR(20)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_preferencia"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      }
+    ]
+  },
+  "consentimiento": {
+    "columns": [
+      {
+        "name": "id_consentimiento",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_usuario",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "version",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "aceptado",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_consentimiento"
+    ],
+    "references": [
+      {
+        "column": "id_usuario",
+        "table": "usuario",
+        "target": "id_usuario"
+      }
+    ]
+  },
+  "direccion": {
+    "columns": [
+      {
+        "name": "id_direccion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "direccion",
+        "type": "VARCHAR(300)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "ciudad",
+        "type": "VARCHAR(100)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "referencia",
+        "type": "VARCHAR(300)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "pais",
+        "type": "CHAR(2)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_direccion"
+    ],
+    "references": [
+      {
+        "column": "id_cliente",
+        "table": "cliente",
+        "target": "id_cliente"
+      }
+    ]
+  },
+  "unidad_medida": {
+    "columns": [
+      {
+        "name": "id_unidad_medida",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "simbolo",
+        "type": "VARCHAR(15)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_unidad_medida"
+    ],
+    "references": []
+  },
+  "presentacion": {
+    "columns": [
+      {
+        "name": "id_presentacion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_unidad_medida",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "unidades_pack",
+        "type": "INTEGER",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_presentacion"
+    ],
+    "references": [
+      {
+        "column": "id_unidad_medida",
+        "table": "unidad_medida",
+        "target": "id_unidad_medida"
+      }
+    ]
+  },
+  "marca": {
+    "columns": [
+      {
+        "name": "id_marca",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "pais_origen",
+        "type": "CHAR(2)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_marca"
+    ],
+    "references": []
+  },
+  "categoria": {
+    "columns": [
+      {
+        "name": "id_categoria",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_categoria"
+    ],
+    "references": []
+  },
+  "producto": {
+    "columns": [
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_marca",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_presentacion",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "sku",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(180)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "precio_base",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_producto"
+    ],
+    "references": [
+      {
+        "column": "id_marca",
+        "table": "marca",
+        "target": "id_marca"
+      },
+      {
+        "column": "id_presentacion",
+        "table": "presentacion",
+        "target": "id_presentacion"
+      }
+    ]
+  },
+  "producto_categoria": {
+    "columns": [
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_categoria",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_producto",
+      "id_categoria"
+    ],
+    "references": [
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      },
+      {
+        "column": "id_categoria",
+        "table": "categoria",
+        "target": "id_categoria"
+      }
+    ]
+  },
+  "imagen_producto": {
+    "columns": [
+      {
+        "name": "id_imagen_producto",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "ruta",
+        "type": "TEXT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "texto_alternativo",
+        "type": "VARCHAR(250)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "orden",
+        "type": "INTEGER",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_imagen_producto"
+    ],
+    "references": [
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      }
+    ]
+  },
+  "resena": {
+    "columns": [
+      {
+        "name": "id_resena",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "puntuacion",
+        "type": "SMALLINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "comentario",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_resena"
+    ],
+    "references": [
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      },
+      {
+        "column": "id_cliente",
+        "table": "cliente",
+        "target": "id_cliente"
+      }
+    ]
+  },
+  "almacen": {
+    "columns": [
+      {
+        "name": "id_almacen",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(100)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "direccion",
+        "type": "VARCHAR(300)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_almacen"
+    ],
+    "references": []
+  },
+  "ubicacion": {
+    "columns": [
+      {
+        "name": "id_ubicacion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_almacen",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo",
+        "type": "VARCHAR(40)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_ubicacion"
+    ],
+    "references": [
+      {
+        "column": "id_almacen",
+        "table": "almacen",
+        "target": "id_almacen"
+      }
+    ]
+  },
+  "lote": {
+    "columns": [
+      {
+        "name": "id_lote",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo_lote",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha_caducidad",
+        "type": "DATE",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_lote"
+    ],
+    "references": [
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      }
+    ]
+  },
+  "producto_almacen": {
+    "columns": [
+      {
+        "name": "id_producto_almacen",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_almacen",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "stock_minimo",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_producto_almacen"
+    ],
+    "references": [
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      },
+      {
+        "column": "id_almacen",
+        "table": "almacen",
+        "target": "id_almacen"
+      }
+    ]
+  },
+  "existencia": {
+    "columns": [
+      {
+        "name": "id_existencia",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_producto_almacen",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_lote",
+        "type": "BIGINT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_ubicacion",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_existencia"
+    ],
+    "references": [
+      {
+        "column": "id_producto_almacen",
+        "table": "producto_almacen",
+        "target": "id_producto_almacen"
+      },
+      {
+        "column": "id_lote",
+        "table": "lote",
+        "target": "id_lote"
+      },
+      {
+        "column": "id_ubicacion",
+        "table": "ubicacion",
+        "target": "id_ubicacion"
+      }
+    ]
+  },
+  "tipo_movimiento": {
+    "columns": [
+      {
+        "name": "id_tipo_movimiento",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "signo",
+        "type": "SMALLINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_tipo_movimiento"
+    ],
+    "references": []
+  },
+  "movimiento_inventario": {
+    "columns": [
+      {
+        "name": "id_movimiento_inventario",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_existencia",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_tipo_movimiento",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "referencia",
+        "type": "VARCHAR(160)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_movimiento_inventario"
+    ],
+    "references": [
+      {
+        "column": "id_existencia",
+        "table": "existencia",
+        "target": "id_existencia"
+      },
+      {
+        "column": "id_tipo_movimiento",
+        "table": "tipo_movimiento",
+        "target": "id_tipo_movimiento"
+      }
+    ]
+  },
+  "reserva_inventario": {
+    "columns": [
+      {
+        "name": "id_reserva_inventario",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_existencia",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_detalle_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "vence_en",
+        "type": "TIMESTAMPTZ",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activa",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "creada_en",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_reserva_inventario"
+    ],
+    "references": [
+      {
+        "column": "id_existencia",
+        "table": "existencia",
+        "target": "id_existencia"
+      }
+    ]
+  },
+  "condicion_pago": {
+    "columns": [
+      {
+        "name": "id_condicion_pago",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "dias_credito",
+        "type": "INTEGER",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_condicion_pago"
+    ],
+    "references": []
+  },
+  "proveedor": {
+    "columns": [
+      {
+        "name": "id_proveedor",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_condicion_pago",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "razon_social",
+        "type": "VARCHAR(180)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "identificacion_fiscal",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_proveedor"
+    ],
+    "references": [
+      {
+        "column": "id_condicion_pago",
+        "table": "condicion_pago",
+        "target": "id_condicion_pago"
+      }
+    ]
+  },
+  "contacto_proveedor": {
+    "columns": [
+      {
+        "name": "id_contacto_proveedor",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_proveedor",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(140)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "telefono",
+        "type": "VARCHAR(30)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "correo",
+        "type": "VARCHAR(254)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_contacto_proveedor"
+    ],
+    "references": [
+      {
+        "column": "id_proveedor",
+        "table": "proveedor",
+        "target": "id_proveedor"
+      }
+    ]
+  },
+  "producto_proveedor": {
+    "columns": [
+      {
+        "name": "id_proveedor",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "costo",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "codigo_proveedor",
+        "type": "VARCHAR(80)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_proveedor",
+      "id_producto"
+    ],
+    "references": [
+      {
+        "column": "id_proveedor",
+        "table": "proveedor",
+        "target": "id_proveedor"
+      },
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      }
+    ]
+  },
+  "compra": {
+    "columns": [
+      {
+        "name": "id_compra",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_proveedor",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "estado",
+        "type": "VARCHAR(15)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "moneda",
+        "type": "CHAR(3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_compra"
+    ],
+    "references": [
+      {
+        "column": "id_proveedor",
+        "table": "proveedor",
+        "target": "id_proveedor"
+      }
+    ]
+  },
+  "detalle_compra": {
+    "columns": [
+      {
+        "name": "id_detalle_compra",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_compra",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "costo_unitario",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_detalle_compra"
+    ],
+    "references": [
+      {
+        "column": "id_compra",
+        "table": "compra",
+        "target": "id_compra"
+      },
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      }
+    ]
+  },
+  "recepcion_compra": {
+    "columns": [
+      {
+        "name": "id_recepcion_compra",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_compra",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_almacen",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "referencia",
+        "type": "VARCHAR(100)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_recepcion_compra"
+    ],
+    "references": [
+      {
+        "column": "id_compra",
+        "table": "compra",
+        "target": "id_compra"
+      },
+      {
+        "column": "id_almacen",
+        "table": "almacen",
+        "target": "id_almacen"
+      }
+    ]
+  },
+  "detalle_recepcion": {
+    "columns": [
+      {
+        "name": "id_detalle_recepcion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_recepcion_compra",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_detalle_compra",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad_recibida",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_detalle_recepcion"
+    ],
+    "references": [
+      {
+        "column": "id_recepcion_compra",
+        "table": "recepcion_compra",
+        "target": "id_recepcion_compra"
+      },
+      {
+        "column": "id_detalle_compra",
+        "table": "detalle_compra",
+        "target": "id_detalle_compra"
+      }
+    ]
+  },
+  "cupon": {
+    "columns": [
+      {
+        "name": "id_cupon",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "codigo",
+        "type": "VARCHAR(40)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(10)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "valor",
+        "type": "NUMERIC(12,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "vigente_desde",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "vigente_hasta",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_cupon"
+    ],
+    "references": []
+  },
+  "estado_pedido": {
+    "columns": [
+      {
+        "name": "id_estado_pedido",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "es_anulado",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_estado_pedido"
+    ],
+    "references": []
+  },
+  "pedido": {
+    "columns": [
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_direccion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "modalidad_entrega",
+        "type": "VARCHAR(15)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "moneda",
+        "type": "CHAR(3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "observacion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_pedido"
+    ],
+    "references": [
+      {
+        "column": "id_cliente",
+        "table": "cliente",
+        "target": "id_cliente"
+      },
+      {
+        "column": "id_direccion",
+        "table": "direccion",
+        "target": "id_direccion"
+      },
+      {
+        "column": "id_estado_pedido",
+        "table": "estado_pedido",
+        "target": "id_estado_pedido"
+      }
+    ]
+  },
+  "pedido_cupon": {
+    "columns": [
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_cupon",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "monto_descuento",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_pedido",
+      "id_cupon"
+    ],
+    "references": [
+      {
+        "column": "id_pedido",
+        "table": "pedido",
+        "target": "id_pedido"
+      },
+      {
+        "column": "id_cupon",
+        "table": "cupon",
+        "target": "id_cupon"
+      }
+    ]
+  },
+  "historial_pedido": {
+    "columns": [
+      {
+        "name": "id_historial_pedido",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "observacion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_historial_pedido"
+    ],
+    "references": [
+      {
+        "column": "id_pedido",
+        "table": "pedido",
+        "target": "id_pedido"
+      },
+      {
+        "column": "id_estado_pedido",
+        "table": "estado_pedido",
+        "target": "id_estado_pedido"
+      }
+    ]
+  },
+  "detalle_pedido": {
+    "columns": [
+      {
+        "name": "id_detalle_pedido",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "precio_unitario",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_detalle_pedido"
+    ],
+    "references": [
+      {
+        "column": "id_pedido",
+        "table": "pedido",
+        "target": "id_pedido"
+      },
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      }
+    ]
+  },
+  "carrito": {
+    "columns": [
+      {
+        "name": "id_carrito",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "token_invitado",
+        "type": "VARCHAR(64)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "creado_en",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "estado",
+        "type": "VARCHAR(15)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_carrito"
+    ],
+    "references": [
+      {
+        "column": "id_cliente",
+        "table": "cliente",
+        "target": "id_cliente"
+      }
+    ]
+  },
+  "detalle_carrito": {
+    "columns": [
+      {
+        "name": "id_carrito",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_producto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "INTEGER",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_carrito",
+      "id_producto"
+    ],
+    "references": [
+      {
+        "column": "id_carrito",
+        "table": "carrito",
+        "target": "id_carrito"
+      },
+      {
+        "column": "id_producto",
+        "table": "producto",
+        "target": "id_producto"
+      }
+    ]
+  },
+  "estado_pago": {
+    "columns": [
+      {
+        "name": "id_estado_pago",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "es_confirmado",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_estado_pago"
+    ],
+    "references": []
+  },
+  "metodo_pago": {
+    "columns": [
+      {
+        "name": "id_metodo_pago",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_metodo_pago"
+    ],
+    "references": []
+  },
+  "pago": {
+    "columns": [
+      {
+        "name": "id_pago",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_metodo_pago",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_pago",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "importe",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "moneda",
+        "type": "CHAR(3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "referencia_externa",
+        "type": "VARCHAR(160)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_pago"
+    ],
+    "references": [
+      {
+        "column": "id_pedido",
+        "table": "pedido",
+        "target": "id_pedido"
+      },
+      {
+        "column": "id_metodo_pago",
+        "table": "metodo_pago",
+        "target": "id_metodo_pago"
+      },
+      {
+        "column": "id_estado_pago",
+        "table": "estado_pago",
+        "target": "id_estado_pago"
+      }
+    ]
+  },
+  "reembolso": {
+    "columns": [
+      {
+        "name": "id_reembolso",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_pago",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "importe",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "motivo",
+        "type": "TEXT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "referencia_externa",
+        "type": "VARCHAR(160)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_reembolso"
+    ],
+    "references": [
+      {
+        "column": "id_pago",
+        "table": "pago",
+        "target": "id_pago"
+      }
+    ]
+  },
+  "estado_envio": {
+    "columns": [
+      {
+        "name": "id_estado_envio",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "es_entregado",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "es_final",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_estado_envio"
+    ],
+    "references": []
+  },
+  "transportista": {
+    "columns": [
+      {
+        "name": "id_transportista",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(140)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "telefono",
+        "type": "VARCHAR(30)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_transportista"
+    ],
+    "references": []
+  },
+  "envio": {
+    "columns": [
+      {
+        "name": "id_envio",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_transportista",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_envio",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "guia",
+        "type": "VARCHAR(100)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha_programada",
+        "type": "TIMESTAMPTZ",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "creado_en",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_envio"
+    ],
+    "references": [
+      {
+        "column": "id_pedido",
+        "table": "pedido",
+        "target": "id_pedido"
+      },
+      {
+        "column": "id_transportista",
+        "table": "transportista",
+        "target": "id_transportista"
+      },
+      {
+        "column": "id_estado_envio",
+        "table": "estado_envio",
+        "target": "id_estado_envio"
+      }
+    ]
+  },
+  "historial_envio": {
+    "columns": [
+      {
+        "name": "id_historial_envio",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_envio",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_envio",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "observacion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_historial_envio"
+    ],
+    "references": [
+      {
+        "column": "id_envio",
+        "table": "envio",
+        "target": "id_envio"
+      },
+      {
+        "column": "id_estado_envio",
+        "table": "estado_envio",
+        "target": "id_estado_envio"
+      }
+    ]
+  },
+  "datos_facturacion": {
+    "columns": [
+      {
+        "name": "id_datos_facturacion",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_cliente",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tipo_identificacion",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "identificacion",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "razon_social",
+        "type": "VARCHAR(180)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "direccion_fiscal",
+        "type": "VARCHAR(300)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "email",
+        "type": "VARCHAR(254)",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_datos_facturacion"
+    ],
+    "references": [
+      {
+        "column": "id_cliente",
+        "table": "cliente",
+        "target": "id_cliente"
+      }
+    ]
+  },
+  "estado_factura": {
+    "columns": [
+      {
+        "name": "id_estado_factura",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "es_anulado",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_estado_factura"
+    ],
+    "references": []
+  },
+  "factura": {
+    "columns": [
+      {
+        "name": "id_factura",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_datos_facturacion",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_factura",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "numero",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha_emision",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "tipo_identificacion_snapshot",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "identificacion_snapshot",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "razon_social_snapshot",
+        "type": "VARCHAR(180)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "direccion_fiscal_snapshot",
+        "type": "VARCHAR(300)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "email_snapshot",
+        "type": "VARCHAR(254)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "subtotal",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descuento",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "impuesto",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "total",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "moneda",
+        "type": "CHAR(3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_factura"
+    ],
+    "references": [
+      {
+        "column": "id_pedido",
+        "table": "pedido",
+        "target": "id_pedido"
+      },
+      {
+        "column": "id_datos_facturacion",
+        "table": "datos_facturacion",
+        "target": "id_datos_facturacion"
+      },
+      {
+        "column": "id_estado_factura",
+        "table": "estado_factura",
+        "target": "id_estado_factura"
+      }
+    ]
+  },
+  "detalle_factura": {
+    "columns": [
+      {
+        "name": "id_detalle_factura",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_factura",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_detalle_pedido",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descripcion",
+        "type": "VARCHAR(250)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "precio_unitario",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "descuento",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "base_imponible",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "impuesto",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "total_linea",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_detalle_factura"
+    ],
+    "references": [
+      {
+        "column": "id_factura",
+        "table": "factura",
+        "target": "id_factura"
+      },
+      {
+        "column": "id_detalle_pedido",
+        "table": "detalle_pedido",
+        "target": "id_detalle_pedido"
+      }
+    ]
+  },
+  "impuesto": {
+    "columns": [
+      {
+        "name": "id_impuesto",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(80)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tasa",
+        "type": "NUMERIC(7,4)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "vigente_desde",
+        "type": "DATE",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "vigente_hasta",
+        "type": "DATE",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_impuesto"
+    ],
+    "references": []
+  },
+  "detalle_factura_impuesto": {
+    "columns": [
+      {
+        "name": "id_detalle_factura",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_impuesto",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "base_imponible",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tasa_aplicada",
+        "type": "NUMERIC(7,4)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "importe",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_detalle_factura",
+      "id_impuesto"
+    ],
+    "references": [
+      {
+        "column": "id_detalle_factura",
+        "table": "detalle_factura",
+        "target": "id_detalle_factura"
+      },
+      {
+        "column": "id_impuesto",
+        "table": "impuesto",
+        "target": "id_impuesto"
+      }
+    ]
+  },
+  "aplicacion_pago_factura": {
+    "columns": [
+      {
+        "name": "id_pago",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_factura",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "importe_aplicado",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_pago",
+      "id_factura"
+    ],
+    "references": [
+      {
+        "column": "id_pago",
+        "table": "pago",
+        "target": "id_pago"
+      },
+      {
+        "column": "id_factura",
+        "table": "factura",
+        "target": "id_factura"
+      }
+    ]
+  },
+  "nota_credito": {
+    "columns": [
+      {
+        "name": "id_nota_credito",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_factura",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "numero",
+        "type": "VARCHAR(60)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "motivo",
+        "type": "TEXT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "total",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "anulada",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_nota_credito"
+    ],
+    "references": [
+      {
+        "column": "id_factura",
+        "table": "factura",
+        "target": "id_factura"
+      }
+    ]
+  },
+  "detalle_nota_credito": {
+    "columns": [
+      {
+        "name": "id_detalle_nota_credito",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_nota_credito",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_detalle_factura",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cantidad",
+        "type": "NUMERIC(14,3)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "importe",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_detalle_nota_credito"
+    ],
+    "references": [
+      {
+        "column": "id_nota_credito",
+        "table": "nota_credito",
+        "target": "id_nota_credito"
+      },
+      {
+        "column": "id_detalle_factura",
+        "table": "detalle_factura",
+        "target": "id_detalle_factura"
+      }
+    ]
+  },
+  "zona_delivery": {
+    "columns": [
+      {
+        "name": "id_zona_delivery",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(100)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "cobertura",
+        "type": "TEXT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_zona_delivery"
+    ],
+    "references": []
+  },
+  "tarifa_delivery": {
+    "columns": [
+      {
+        "name": "id_tarifa_delivery",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_zona_delivery",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "importe",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "moneda",
+        "type": "CHAR(3)",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "vigente_desde",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "vigente_hasta",
+        "type": "TIMESTAMPTZ",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_tarifa_delivery"
+    ],
+    "references": [
+      {
+        "column": "id_zona_delivery",
+        "table": "zona_delivery",
+        "target": "id_zona_delivery"
+      }
+    ]
+  },
+  "repartidor": {
+    "columns": [
+      {
+        "name": "id_repartidor",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_transportista",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "nombre",
+        "type": "VARCHAR(140)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "telefono",
+        "type": "VARCHAR(30)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_repartidor"
+    ],
+    "references": [
+      {
+        "column": "id_transportista",
+        "table": "transportista",
+        "target": "id_transportista"
+      }
+    ]
+  },
+  "vehiculo": {
+    "columns": [
+      {
+        "name": "id_vehiculo",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_transportista",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "placa",
+        "type": "VARCHAR(20)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(40)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "capacidad",
+        "type": "NUMERIC(14,3)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "activo",
+        "type": "BOOLEAN",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_vehiculo"
+    ],
+    "references": [
+      {
+        "column": "id_transportista",
+        "table": "transportista",
+        "target": "id_transportista"
+      }
+    ]
+  },
+  "delivery": {
+    "columns": [
+      {
+        "name": "id_delivery",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_envio",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_direccion",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_zona_delivery",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_tarifa_delivery",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "direccion_entrega_snapshot",
+        "type": "VARCHAR(300)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "ciudad_snapshot",
+        "type": "VARCHAR(100)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "referencia",
+        "type": "VARCHAR(300)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "latitud",
+        "type": "NUMERIC(9,6)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "longitud",
+        "type": "NUMERIC(9,6)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "creado_en",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "ventana_inicio",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "ventana_fin",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "costo_acordado",
+        "type": "NUMERIC(16,2)",
+        "required": true,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_delivery"
+    ],
+    "references": [
+      {
+        "column": "id_envio",
+        "table": "envio",
+        "target": "id_envio"
+      },
+      {
+        "column": "id_direccion",
+        "table": "direccion",
+        "target": "id_direccion"
+      },
+      {
+        "column": "id_zona_delivery",
+        "table": "zona_delivery",
+        "target": "id_zona_delivery"
+      },
+      {
+        "column": "id_tarifa_delivery",
+        "table": "tarifa_delivery",
+        "target": "id_tarifa_delivery"
+      }
+    ]
+  },
+  "asignacion_delivery": {
+    "columns": [
+      {
+        "name": "id_asignacion_delivery",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_delivery",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_repartidor",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_vehiculo",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha_asignacion",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "fecha_fin",
+        "type": "TIMESTAMPTZ",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_asignacion_delivery"
+    ],
+    "references": [
+      {
+        "column": "id_delivery",
+        "table": "delivery",
+        "target": "id_delivery"
+      },
+      {
+        "column": "id_repartidor",
+        "table": "repartidor",
+        "target": "id_repartidor"
+      },
+      {
+        "column": "id_vehiculo",
+        "table": "vehiculo",
+        "target": "id_vehiculo"
+      }
+    ]
+  },
+  "intento_entrega": {
+    "columns": [
+      {
+        "name": "id_intento_entrega",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_delivery",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "id_estado_envio",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      },
+      {
+        "name": "resultado",
+        "type": "VARCHAR(20)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "observacion",
+        "type": "TEXT",
+        "required": false,
+        "generated": false,
+        "default": false
+      }
+    ],
+    "primaryKey": [
+      "id_intento_entrega"
+    ],
+    "references": [
+      {
+        "column": "id_delivery",
+        "table": "delivery",
+        "target": "id_delivery"
+      },
+      {
+        "column": "id_estado_envio",
+        "table": "estado_envio",
+        "target": "id_estado_envio"
+      }
+    ]
+  },
+  "evidencia_entrega": {
+    "columns": [
+      {
+        "name": "id_evidencia_entrega",
+        "type": "BIGINT",
+        "required": false,
+        "generated": true,
+        "default": true
+      },
+      {
+        "name": "id_intento_entrega",
+        "type": "BIGINT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "tipo",
+        "type": "VARCHAR(20)",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "url_archivo",
+        "type": "TEXT",
+        "required": true,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "receptor",
+        "type": "VARCHAR(160)",
+        "required": false,
+        "generated": false,
+        "default": false
+      },
+      {
+        "name": "fecha",
+        "type": "TIMESTAMPTZ",
+        "required": true,
+        "generated": false,
+        "default": true
+      }
+    ],
+    "primaryKey": [
+      "id_evidencia_entrega"
+    ],
+    "references": [
+      {
+        "column": "id_intento_entrega",
+        "table": "intento_entrega",
+        "target": "id_intento_entrega"
+      }
+    ]
+  }
+}

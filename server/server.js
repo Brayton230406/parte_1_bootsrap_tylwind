@@ -1,0 +1,5 @@
+import { app } from './app.js';
+import { pool } from './config/db.js';
+const server=app.listen(Number(process.env.PORT || 3000),process.env.HOST || '127.0.0.1',()=>console.log(`MICHOKS MVC: http://${process.env.HOST || '127.0.0.1'}:${process.env.PORT || 3000}`));
+async function shutdown(){server.close(async()=>{await pool.end();process.exit(0);});}
+process.on('SIGTERM',shutdown);process.on('SIGINT',shutdown);

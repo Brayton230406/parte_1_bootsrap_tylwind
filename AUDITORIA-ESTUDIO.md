@@ -1,7 +1,3 @@
-> Cookies: la copia del carrito ahora requiere aceptación en el aviso inicial. Denegar conserva los otros almacenamientos y elimina esa cookie. El pie permite cambiar la preferencia.
-
-> Actualización: el catálogo ahora contiene 284 productos. Para la auditoría de la interfaz y los nuevos filtros consulta [AUDITORIA-PAGINA-WEB.md](AUDITORIA-PAGINA-WEB.md). Los resultados de 20 comprobaciones descritos aquí corresponden a la revisión anterior.
-
 # Auditoría y guía de estudio de MICHOKS
 
 Fecha: 7 de octubre de 2026. Alcance: copia local de `parte_1_bootsrap_tylwind`. Esta auditoría no certifica el contenido publicado en GitHub Pages ni asigna la nota del docente.

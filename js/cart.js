@@ -4,7 +4,10 @@ export const MAX_QUANTITY = 99;
 export const readCart = readStoredCart;
 export const saveCart = persistCart;
 
-export function cartEntries(cart, products) { return Object.entries(cart).map(([id, quantity]) => ({ product: products.find((product) => product.id === Number(id)), quantity })); }
+export function cartEntries(cart, products) { return Object.entries(cart).flatMap(([id, quantity]) => {
+  const product = products.find(item => String(item.id) === id);
+  return product ? [{ product, quantity }] : [];
+}); }
 
 export function cartTotalValue(entries) { return entries.reduce((sum, { product, quantity }) => sum + Math.round(product.price * 100) * quantity, 0) / 100; }
 
