@@ -49,3 +49,5 @@ confirmAge().then(() => {
   initNavigation();
   start();
 });
+
+import './router.js';

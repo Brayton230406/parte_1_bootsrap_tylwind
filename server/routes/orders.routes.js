@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import * as orders from '../controllers/order.controller.js';
+import { requireAuth, requireRole } from '../middleware/auth.js';
+const api = Router();
+api.get('/carrito',requireAuth,requireRole('cliente'),orders.getCart);
+api.put('/carrito',requireAuth,requireRole('cliente'),orders.putCart);
+api.get('/pedidos',requireAuth,requireRole('cliente'),orders.list);
+api.post('/pedidos',requireAuth,requireRole('cliente'),orders.create);
+api.get('/pedidos/:id',requireAuth,requireRole('cliente'),orders.detail);
+api.post('/pedidos/:id/cancelacion',requireAuth,requireRole('cliente'),orders.cancel);
+export default api;

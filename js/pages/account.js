@@ -60,7 +60,7 @@ createApp({
         const {data} = await request('/auth/login', {method:'POST', body});
         setToken(data.token);
         if (data.user.roles.includes('cliente') && new URLSearchParams(location.search).get('desde') === 'tienda') {
-          location.assign('/#catalogo');
+          document.dispatchEvent(new CustomEvent('michoks:navigate', {detail:'/'}));
           return;
         }
         await loadAccount();

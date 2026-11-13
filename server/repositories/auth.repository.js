@@ -1,6 +1,7 @@
-import { createHash, randomBytes } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import { pool, transaction } from '../config/db.js';
 import { hashPassword, verifyPassword } from '../lib/password.js';
+import { createToken, verifyToken } from '../lib/token.js';
 import { HttpError } from '../lib/http.js';
 const digest = token => createHash('sha256').update(token).digest('hex');
 export async function register(input) {
@@ -18,7 +19,7 @@ export async function register(input) {
 export async function login(identifier, password) {
   const { rows: [user] } = await pool.query('SELECT * FROM usuario WHERE lower(correo)=lower($1) OR lower(nombre_usuario)=lower($1)', [identifier]);
   if (!user || !user.activo || !await verifyPassword(password, user.password_hash)) throw new HttpError(401, 'Credenciales incorrectas.');
-  const token = randomBytes(32).toString('hex');
+  const token = await createToken(user.id_usuario, Number(process.env.SESSION_HOURS || 24));
   await transaction(async db => {
     const updated = await db.query('UPDATE usuario SET ultimo_acceso=now() WHERE id_usuario=$1 AND activo AND password_hash=$2',
       [user.id_usuario, user.password_hash]);
@@ -28,7 +29,9 @@ export async function login(identifier, password) {
   return { token, user: await authenticate(token) };
 }
 export async function authenticate(token) {
-  if (!/^[a-f0-9]{64}$/.test(token || '')) throw new HttpError(401, 'Inicia sesión para continuar.');
+  if (typeof token !== 'string' || token.length > 4096) throw new HttpError(401, 'Inicia sesión para continuar.');
+  const legacy = /^[a-f0-9]{64}$/.test(token);
+  const subject = legacy ? null : await verifyToken(token);
   const { rows: [user] } = await pool.query(`SELECT u.id_usuario,u.nombre_usuario,u.nombre,u.correo,c.id_cliente,
     ARRAY(SELECT ur.codigo_rol FROM usuario_rol ur WHERE ur.id_usuario=u.id_usuario
       AND (ur.codigo_rol NOT IN ('cliente','empleado','administrador')
@@ -37,7 +40,7 @@ export async function authenticate(token) {
         OR (ur.codigo_rol='administrador' AND EXISTS(SELECT 1 FROM administrador a WHERE a.id_usuario=u.id_usuario AND a.activo)))) AS roles
     FROM sesion s JOIN usuario u USING(id_usuario) LEFT JOIN cliente c USING(id_usuario)
     WHERE s.token_hash=$1 AND s.revocada_en IS NULL AND s.expiracion>now() AND u.activo`, [digest(token)]);
-  if (!user) throw new HttpError(401, 'La sesión expiró. Inicia sesión nuevamente.');
+  if (!user || (subject && String(user.id_usuario) !== subject)) throw new HttpError(401, 'La sesión expiró. Inicia sesión nuevamente.');
   return user;
 }
 export async function logout(token) { await pool.query('UPDATE sesion SET revocada_en=now() WHERE token_hash=$1', [digest(token)]); }

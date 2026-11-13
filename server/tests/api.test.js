@@ -55,6 +55,12 @@ test('PostgreSQL: cuenta, carrito, pedido, inventario y administración', {
     return 'Bearer ' + body.data.token;
   }
   const token = await signIn(username);
+  const jwt = token.slice('Bearer '.length);
+  assert.equal(jwt.split('.').length, 3);
+  const parts = jwt.split('.');
+  const tampered = parts[0] + '.' + parts[1] + '.' + (parts[2][0] === 'A' ? 'B' : 'A') + parts[2].slice(1);
+  await api.get(prefix + '/auth/me').set('Authorization', 'Bearer ' + tampered).expect(401);
+
   await api.get(prefix + '/admin/esquema').set('Authorization', token).expect(403);
   const items = [{id_producto: id, cantidad: 2}];
   await api.put(prefix + '/carrito').set('Authorization', token).send({items, previos: []}).expect(200);

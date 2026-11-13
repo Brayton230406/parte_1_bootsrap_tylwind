@@ -56,3 +56,4 @@
   .account-orders > li { grid-template-columns: 1fr auto; }
   .account-order-actions { grid-column: 1 / -1; }
 }
+#account-view[hidden] { display: none; }

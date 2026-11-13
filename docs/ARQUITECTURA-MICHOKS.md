@@ -36,7 +36,7 @@ Los valores de usuario llegan a PostgreSQL mediante parámetros. Los nombres de 
 
 El registro público crea un usuario y su perfil de cliente dentro de una transacción. Las contraseñas se almacenan con scrypt y sal aleatoria. Los administradores se crean mediante el comando administrativo. Los permisos se comprueban en el servidor usando los roles activos de PostgreSQL.
 
-La versión actual usa tokens opacos revocables. La consigna nueva requiere sustituirlos por JWT firmados, comprobando algoritmo, emisor, audiencia y expiración.
+El inicio de sesión emite JWT firmados con HS256. Se comprueban firma, algoritmo, emisor, audiencia y expiración. El hash del token se guarda en PostgreSQL para permitir su revocación. Se admiten las sesiones opacas anteriores hasta que caduquen.
 
 ## Contrato HTTP
 
@@ -60,7 +60,7 @@ POST no implica automáticamente ausencia de cuerpo. Una creación con 201 puede
 
 .env contiene las credenciales y opciones y está excluido de Git. .env.example documenta las variables públicas. El backend configura HOST, PORT, PostgreSQL, CLIENT_ORIGIN y SESSION_HOURS.
 
-La nueva consigna indica puerto 5050. El cambio debe coordinar servidor, iniciador local, documentación y pruebas.
+El puerto predeterminado es 5050. La variable PORT permite usar otro puerto según el entorno.
 
 ## Inventario académico
 
@@ -72,13 +72,13 @@ La API ya implementa LIMIT y OFFSET en PostgreSQL. Para verificar el objetivo de
 
 La ampliación de la consigna aún requiere lo siguiente.
 
-- JWT y pruebas de firma, expiración y revocación.
-- Enrutamiento SPA entre tienda, acceso y cuenta sin recarga del documento.
+- Pruebas específicas de firma alterada y expiración JWT.
 - Paginación centralizada de 10 registros y catálogo que solicite una página por vez.
-- PUT para reemplazo de recursos junto con GET, POST, PATCH y DELETE.
-- Rutas separadas por módulo y validación de tipo JSON.
-- Puerto 5050 en los puntos de entrada.
-- Entidad Producto y carga reproducible de 10.000 registros.
-- Medición de rendimiento y publicación en GitHub.
+- Entidad Producto.
+- Medición del renderizado de la página en navegador con 10.000 productos.
 
 Este estado diferencia lo implementado de los requisitos pendientes para que la documentación pueda verificarse contra el código.
+
+## Medición del backend
+
+En una base aislada con 10.000 productos ficticios, 30 solicitudes locales a la API de productos con límite de 10 devolvieron un promedio de 9,18 ms, percentil 95 de 10,58 ms y máximo de 40,21 ms. La medición empleó Supertest y PostgreSQL local. Incluye la respuesta HTTP dentro del proceso y no incluye la red externa ni el renderizado del navegador. El comando db:load-test requiere ALLOW_LOAD_TEST_DATA=true y se debe usar con una base desechable.

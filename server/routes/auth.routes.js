@@ -1,0 +1,12 @@
+import { Router } from 'express';
+import * as auth from '../controllers/auth.controller.js';
+import { requireAuth } from '../middleware/auth.js';
+import { rateLimit } from 'express-rate-limit';
+const api = Router();
+const loginLimit=rateLimit({windowMs:15*60*1000,limit:30,standardHeaders:'draft-8',legacyHeaders:false,message:{status:'error',error:{message:'Demasiados intentos. Intenta más tarde.'}}});
+api.post('/auth/registro',loginLimit,auth.register);
+api.post('/auth/login',loginLimit,auth.login);
+api.put('/auth/contrasena',loginLimit,requireAuth,auth.changePassword);
+api.get('/auth/me',requireAuth,auth.me);
+api.post('/auth/logout',requireAuth,auth.logout);
+export default api;

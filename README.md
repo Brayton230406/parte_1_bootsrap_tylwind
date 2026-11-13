@@ -14,7 +14,7 @@ npm run db:init
 npm start
 ```
 
-Abre **http://127.0.0.1:3000**. El servidor requiere Node.js 22 o superior y PostgreSQL 14 o superior. El archivo `.env` está excluido de Git. Nunca se deben colocar credenciales en JavaScript del navegador. Live Server y el antiguo servidor HTTP estático no ejecutan la API; `python3 INICIAR-LOCAL.py` ahora inicia el servidor MVC.
+Abre **http://127.0.0.1:5050**. El servidor requiere Node.js 22 o superior y PostgreSQL 14 o superior. El archivo `.env` está excluido de Git. Nunca se deben colocar credenciales en JavaScript del navegador. Live Server y el antiguo servidor HTTP estático no ejecutan la API; `python3 INICIAR-LOCAL.py` ahora inicia el servidor MVC.
 
 ## Administrador
 
