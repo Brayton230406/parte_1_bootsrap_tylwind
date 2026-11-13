@@ -5,7 +5,8 @@ Base: `/api/v1`. Intercambio JSON. Respuesta correcta `{status:"success",data,me
 | Método | Ruta | Acceso | Operación |
 |---|---|---|---|
 | GET | /salud | Público | Verificar conexión y presencia del catálogo |
-| GET | /productos?limit=100&offset=0&q=texto | Público | Catálogo activo; `meta.total` |
+| GET | /productos?limit=10&offset=0&q=texto | Público | Catálogo activo; `meta.total` |
+| GET | /productos/categorias | Público | Categorías y número de productos |
 | GET | /productos/:id | Público | Producto activo |
 | POST | /auth/registro | Público | Registro de cliente |
 | POST | /auth/login | Público | Crear sesión y devolver token |
@@ -96,3 +97,5 @@ Confirmar entrega:
 ```
 
 No se descargan ni se publican archivos desde la URL de evidencia: se guarda su referencia. Los endpoints de facturación, pago, recepción y despacho devuelven 201; entrega devuelve 200. Errores de negocio devuelven 409.
+
+El catálogo acepta category, occasion, budget y sort. Los valores de sort son featured, price-asc, price-desc y name. La búsqueda y los filtros se aplican antes de la paginación.

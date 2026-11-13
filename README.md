@@ -55,3 +55,5 @@ El registro público crea clientes con contraseña. El administrador se crea con
 Este proyecto necesita un servicio que ejecute Node.js y una base PostgreSQL accesible desde ese servicio. GitHub almacena el código y ejecuta las pruebas de CI. GitHub Pages sirve archivos estáticos y requiere un backend externo para ofrecer inicio de sesión y compras.
 
 Para una instalación nueva, configura las variables de `.env.example`, ejecuta `npm ci`, `npm run db:init`, `npm run db:import-catalog` y, si deseas datos de ejemplo, `npm run db:demo`. Usa `npm start` como comando de arranque. Configura `HOST=0.0.0.0` y el `PORT` asignado por el proveedor. La conexión PostgreSQL se configura mediante `DATABASE_URL` o las variables `PG*`.
+
+La API devuelve diez productos por página por defecto. El catálogo solicita la siguiente página cuando se elige «Ver más productos». La búsqueda, categoría, ocasión, presupuesto y orden se consultan al servidor. La cuenta guarda los carritos en PostgreSQL.

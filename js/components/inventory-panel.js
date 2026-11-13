@@ -1,4 +1,4 @@
-import { ref, computed, onMounted } from '/vendor/vue.js';
+import { ref, computed, onMounted, watch } from '/vendor/vue.js';
 import { loadProducts } from '../repo.js';
 import { request } from '../services/api.js';
 
@@ -20,13 +20,25 @@ export default {
     const warehouseNames = ref({});
     const search = ref('');
     const productId = ref('');
+    const offset = ref(0);
+    const total = ref(0);
+    let searchTimer;
     const locationId = ref('');
     const busy = ref(false);
     const message = ref('');
-    const filtered = computed(() => products.value.filter(product =>
-      product.id === productId.value || product.name.toLowerCase().includes(search.value.trim().toLowerCase())));
+    const filtered = computed(() => products.value);
     const selected = computed(() => products.value.find(product => product.id === productId.value));
-
+    async function fetchProducts(next = 0) {
+      const result = await loadProducts({offset:next,q:search.value.trim()});
+      products.value = result.data;
+      offset.value = next;
+      total.value = result.meta.total;
+      if (!products.value.some(product => product.id === productId.value)) productId.value = '';
+    }
+    watch(search, () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => run(() => fetchProducts()), 250);
+    });
     async function run(work) {
       if (busy.value) return;
       message.value = '';
@@ -42,7 +54,7 @@ export default {
     }
     function refresh() {
       return run(async () => {
-        [products.value] = await Promise.all([loadProducts(), refreshLocations()]);
+        await Promise.all([fetchProducts(), refreshLocations()]);
       });
     }
     function createLocation(event) {
@@ -72,7 +84,7 @@ export default {
 
     onMounted(refresh);
     return { locations, warehouseNames, search, productId, locationId, busy, message, filtered,
-      selected, refresh, createLocation, countStock };
+      selected, offset, total, run, fetchProducts, refresh, createLocation, countStock };
   },
   template: `
     <section class="account-panel" aria-labelledby="inventory-title">
@@ -89,6 +101,9 @@ export default {
               <option v-for="product in filtered" :key="product.id" :value="product.id">{{ product.name }} · {{ product.size }}</option>
             </select>
           </label>
+          <p class="account-muted">{{ total }} productos encontrados.</p>
+          <button type="button" class="secondary" :disabled="busy || offset === 0" @click="run(() => fetchProducts(Math.max(0, offset-10)))">Anterior</button>
+          <button type="button" class="secondary" :disabled="busy || offset+10 >= total" @click="run(() => fetchProducts(offset+10))">Siguiente</button>
           <p v-if="selected" class="account-muted">Stock disponible en la tienda: {{ selected.stock }}.</p>
           <label>Ubicación
             <select v-model="locationId" name="id_ubicacion" required :disabled="busy">

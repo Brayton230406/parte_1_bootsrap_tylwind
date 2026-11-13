@@ -73,12 +73,18 @@ La API ya implementa LIMIT y OFFSET en PostgreSQL. Para verificar el objetivo de
 La ampliación de la consigna aún requiere lo siguiente.
 
 - Pruebas específicas de firma alterada y expiración JWT.
-- Paginación centralizada de 10 registros y catálogo que solicite una página por vez.
 - Entidad Producto.
-- Medición del renderizado de la página en navegador con 10.000 productos.
 
 Este estado diferencia lo implementado de los requisitos pendientes para que la documentación pueda verificarse contra el código.
 
 ## Medición del backend
 
 En una base aislada con 10.000 productos ficticios, 30 solicitudes locales a la API de productos con límite de 10 devolvieron un promedio de 9,18 ms, percentil 95 de 10,58 ms y máximo de 40,21 ms. La medición empleó Supertest y PostgreSQL local. Incluye la respuesta HTTP dentro del proceso y no incluye la red externa ni el renderizado del navegador. El comando db:load-test requiere ALLOW_LOAD_TEST_DATA=true y se debe usar con una base desechable.
+
+## Medición de la interfaz
+
+El catálogo solicita diez productos por página y ejecuta filtros, búsqueda y orden en PostgreSQL. El carrito recupera por identificador los productos que no están en la página visible.
+
+En un navegador local y una base aislada con 10.284 productos, cinco recargas dieron 87,5; 114,7; 63,5; 63,9 y 61,7 ms desde el comienzo de la consulta del catálogo hasta el segundo fotograma posterior a insertar las diez tarjetas. La prueba utiliza datos ficticios y se ejecutó con el navegador y PostgreSQL en el mismo equipo. Esta medición no incluye el acceso externo, conexiones móviles ni la descarga completa de las imágenes.
+
+Los datos de muestra se generan solo en una base de pruebas mediante ALLOW_LOAD_TEST_DATA=true y npm run db:load-test.

@@ -1,3 +1,4 @@
+import { loadProducts, loadProduct } from './repo.js';
 import { getCart, putCart } from './services/orders.service.js';
 import { getToken, request } from './services/api.js';
 import { removeLegacyCart } from './storage.js';
@@ -8,7 +9,7 @@ import { MAX_QUANTITY, cartEntries, cartTotalValue, setQuantity, removeProduct, 
 
 
 
-export function initView(products, { user, cart, legacy }) {
+export function initView(products, { user, cart, legacy, page, categories }) {
   const isCustomer = Boolean(user?.roles.includes('cliente'));
   const isAdmin = Boolean(user?.roles.includes('administrador'));
   const productById = new Map(products.map(product => [product.id, product]));
@@ -18,7 +19,7 @@ export function initView(products, { user, cart, legacy }) {
   let committed = selection(cart);
   let saving = false;
   let submittingOrder = false;
-  const state = { category: 'Todos', search: '', sort: 'featured', budget: 'all', occasion: '', limit: 12, cart: committed };
+  const state = { category: 'Todos', search: '', sort: 'featured', budget: 'all', occasion: '', limit: 10, cart: committed, pageProducts: page.data, total: page.meta.total, offset: page.data.length };
   const productGrid = document.querySelector('#product-grid');
   const emptyProducts = document.querySelector('#empty-products');
   const searchInput = document.querySelector('#product-search');
@@ -37,6 +38,9 @@ export function initView(products, { user, cart, legacy }) {
 
   async function reloadCart() {
     committed = selection(await getCart());
+    const missing = Object.keys(committed).filter(id => !productById.has(id));
+    const loaded = await Promise.all(missing.map(loadProduct));
+    for (const product of loaded) { products.push(product); productById.set(product.id, product); }
     state.cart = committed;
     removedCart = null;
     renderCart();
@@ -78,28 +82,63 @@ export function initView(products, { user, cart, legacy }) {
   let lastAddedId = null;
   const occasionNames = { regalo: 'Para regalar', cena: 'Una buena cena', cocteles: 'Mixología en casa', compartir: 'Para compartir' };
   const categoryLabels = { Whisky: 'Whiskys', Cócteles: 'Cócteles' };
-  const categories = ['Todos', ...new Set(products.map((product) => product.category))];
-  document.querySelector('.category-tabs').innerHTML = categories.map((category) => `<button class="category-tab" type="button" data-category="${escapeHTML(category)}" aria-pressed="false">${escapeHTML(categoryLabels[category] || category)} <span>0</span></button>`).join('');
-  function visibleProducts() {
-    const visible = products.filter((product) => (state.category === 'Todos' || product.category === state.category) && normalize(`${product.name} ${product.category}`).includes(normalize(state.search)) && (state.budget === 'all' || product.price <= Number(state.budget)) && (!state.occasion || product.occasions?.includes(state.occasion)));
-    if (state.sort === 'price-asc') visible.sort((a, b) => a.price - b.price);
-    if (state.sort === 'price-desc') visible.sort((a, b) => b.price - a.price);
-    if (state.sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name, 'es'));
-    return visible;
+  const categoryTotals = new Map(categories.map(category => [category.name, category.count]));
+  const names = ['Todos', ...categories.map(category => category.name)];
+  document.querySelector('.category-tabs').innerHTML = names.map((category) => `<button class="category-tab" type="button" data-category="${escapeHTML(category)}" aria-pressed="false">${escapeHTML(categoryLabels[category] || category)} <span>0</span></button>`).join('');
+  let catalogRequest = 0;
+  let searchTimer;
+  async function refreshCatalog(append = false) {
+    const sequence = ++catalogRequest;
+    const button = document.querySelector('#load-more-products');
+    button.disabled = true;
+    try {
+      const result = await loadProducts({
+        offset: append ? state.offset : 0,
+        q: state.search.trim(), category: state.category === 'Todos' ? '' : state.category,
+        occasion: state.occasion, budget: state.budget === 'all' ? '' : state.budget,
+        sort: state.sort,
+      });
+      if (sequence !== catalogRequest) return;
+      for (const product of result.data) {
+        const existing = productById.get(product.id);
+        if (existing) Object.assign(existing, product);
+        else { products.push(product); productById.set(product.id, product); }
+      }
+      const rows = result.data.map(product => productById.get(product.id));
+      state.pageProducts = append ? [...state.pageProducts, ...rows] : rows;
+      state.offset = (append ? state.offset : 0) + rows.length;
+      state.total = result.meta.total;
+      renderProducts();
+      if (append) productGrid.querySelectorAll('.add-product')[state.pageProducts.length - rows.length]?.focus();
+    } catch (error) {
+      if (sequence === catalogRequest) document.querySelector('#results-count').textContent = error.message;
+    } finally {
+      if (sequence === catalogRequest) button.disabled = false;
+    }
   }
   function renderProducts() {
-    const visible = visibleProducts();
-    productGrid.innerHTML = visible.slice(0, state.limit).map((product) => `<article class="product-card"><div class="product-card-image ${categoryClass(product)}">${productPhoto(product)}${/^\d+\s*×/.test(product.size) ? `<span class="pack-badge">${escapeHTML(product.size.split('×')[0].trim())} PACK</span>` : ''}<button class="quick-view" type="button" aria-haspopup="dialog" aria-controls="product-dialog" aria-label="Vista rápida: ${escapeHTML(product.name)}" data-view-product="${product.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div><p class="product-category">${escapeHTML(product.category)}</p><h3>${escapeHTML(product.name)}</h3><div class="product-meta"><strong class="product-price">${money(product.price)}</strong><span class="product-size">${escapeHTML(product.size)}</span></div><button class="add-product" type="button" aria-label="Añadir al carrito: ${escapeHTML(product.name)}" data-add-product="${product.id}">Añadir al carrito <span aria-hidden="true">+</span></button></article>`).join('');
+    const visible = state.pageProducts;
+    productGrid.innerHTML = visible.map((product) => `<article class="product-card"><div class="product-card-image ${categoryClass(product)}">${productPhoto(product)}${/^\d+\s*×/.test(product.size) ? `<span class="pack-badge">${escapeHTML(product.size.split('×')[0].trim())} PACK</span>` : ''}<button class="quick-view" type="button" aria-haspopup="dialog" aria-controls="product-dialog" aria-label="Vista rápida: ${escapeHTML(product.name)}" data-view-product="${product.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div><p class="product-category">${escapeHTML(product.category)}</p><h3>${escapeHTML(product.name)}</h3><div class="product-meta"><strong class="product-price">${money(product.price)}</strong><span class="product-size">${escapeHTML(product.size)}</span></div><button class="add-product" type="button" aria-label="Añadir al carrito: ${escapeHTML(product.name)}" data-add-product="${product.id}">Añadir al carrito <span aria-hidden="true">+</span></button></article>`).join('');
+    if (performance.getEntriesByName('michoks-catalog-start').length && !performance.getEntriesByName('michoks-catalog-ready').length) {
+      performance.mark('michoks-catalog-ready');
+      const measurement = performance.measure('michoks-catalog-initial', 'michoks-catalog-start', 'michoks-catalog-ready');
+      productGrid.dataset.renderMs = measurement.duration.toFixed(2);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        performance.mark('michoks-catalog-painted');
+        const painted = performance.measure('michoks-catalog-paint', 'michoks-catalog-start', 'michoks-catalog-painted');
+        productGrid.dataset.paintMs = painted.duration.toFixed(2);
+      }));
+    }
     revealElements(productGrid);
     emptyProducts.hidden = visible.length > 0;
-    document.querySelector('#results-count').textContent = `${Math.min(state.limit, visible.length)} de ${visible.length} ${visible.length === 1 ? 'producto' : 'productos'} para descubrir`;
-    document.querySelector('#load-more-products').hidden = visible.length <= state.limit;
+    document.querySelector('#results-count').textContent = `${visible.length} de ${state.total} ${state.total === 1 ? 'producto' : 'productos'} para descubrir`;
+    document.querySelector('#load-more-products').hidden = state.offset >= state.total;
     updateCatalogSelection();
     const hasFilters = Boolean(state.search.trim() || state.category !== 'Todos' || state.occasion || state.budget !== 'all');
     document.querySelector('#active-filters').hidden = !hasFilters;
     document.querySelector('#active-filters-label').textContent = [state.category !== 'Todos' ? state.category : '', occasionNames[state.occasion] || '', state.budget !== 'all' ? `Hasta $${state.budget}` : '', state.search.trim() ? `Búsqueda: “${state.search.trim()}”` : ''].filter(Boolean).join(' · ');
     document.querySelectorAll('.category-tab').forEach((button) => {
-      button.querySelector('span').textContent = products.filter((product) => button.dataset.category === 'Todos' || product.category === button.dataset.category).length;
+      button.querySelector('span').textContent = button.dataset.category === 'Todos' ? page.meta.total : (categoryTotals.get(button.dataset.category) || 0);
       const active = button.dataset.category === state.category;
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
@@ -240,7 +279,7 @@ export function initView(products, { user, cart, legacy }) {
   function setCategory(category, scroll = false) {
     state.category = category; state.occasion = ''; state.limit = 12;
     if (scroll) { state.search = ''; state.budget = 'all'; document.querySelector('#product-budget').value = 'all'; searchInput.value = ''; }
-    renderProducts();
+    refreshCatalog();
     if (scroll) { document.querySelector('#catalogo').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); document.querySelector('.category-tab.is-active').focus({ preventScroll: true }); }
   }
   function closeMenu(restoreFocus = false) {
@@ -266,7 +305,7 @@ export function initView(products, { user, cart, legacy }) {
     const occasion = target.closest('[data-occasion]');
     if (occasion) {
       state.category = 'Todos'; state.search = ''; state.budget = 'all'; state.limit = 12; state.occasion = occasion.dataset.occasion;
-      searchInput.value = ''; document.querySelector('#product-budget').value = 'all'; renderProducts();
+      searchInput.value = ''; document.querySelector('#product-budget').value = 'all'; refreshCatalog();
       document.querySelector('#catalog-title').focus({ preventScroll: true });
       document.querySelector('#catalogo').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
@@ -285,10 +324,10 @@ export function initView(products, { user, cart, legacy }) {
   document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', syncScroll);
-  searchInput.addEventListener('input', (event) => { state.search = event.target.value; state.limit = 12; renderProducts(); });
-  document.querySelector('#product-sort').addEventListener('change', (event) => { state.sort = event.target.value; renderProducts(); });
-  document.querySelector('#product-budget').addEventListener('change', (event) => { state.budget = event.target.value; state.limit = 12; renderProducts(); });
-  document.querySelector('#load-more-products').addEventListener('click', () => { const previous = state.limit; state.limit += 12; renderProducts(); productGrid.querySelectorAll('.add-product')[previous]?.focus({ preventScroll: false }); });
+  searchInput.addEventListener('input', (event) => { state.search = event.target.value; clearTimeout(searchTimer); searchTimer = setTimeout(() => refreshCatalog(), 250); });
+  document.querySelector('#product-sort').addEventListener('change', (event) => { state.sort = event.target.value; refreshCatalog(); });
+  document.querySelector('#product-budget').addEventListener('change', (event) => { state.budget = event.target.value; refreshCatalog(); });
+  document.querySelector('#load-more-products').addEventListener('click', () => refreshCatalog(true));
   document.querySelector('#clear-active-filters').addEventListener('click', () => { document.dispatchEvent(new Event('catalog:reset')); searchInput.focus(); });
   document.querySelector('#reset-filters').addEventListener('click', () => { state.search = ''; state.budget = 'all'; document.querySelector('#product-budget').value = 'all'; searchInput.value = ''; setCategory('Todos'); searchInput.focus(); });
   function updateCatalogSelection() {
@@ -374,7 +413,7 @@ export function initView(products, { user, cart, legacy }) {
     state.search = ''; state.category = 'Todos'; state.sort = 'featured'; state.budget = 'all'; state.occasion = ''; state.limit = 12;
     document.querySelector('#product-budget').value = 'all';
     searchInput.value = ''; document.querySelector('#product-sort').value = 'featured';
-    renderProducts();
+    refreshCatalog();
   });
   renderProducts(); renderCart();
 

@@ -13,7 +13,7 @@ function snapshot(value, products) {
   const cart = modern ? value.cart : value;
   if (!cart || typeof cart !== 'object' || Array.isArray(cart)) return null;
   const entries = Object.entries(cart);
-  if (entries.some(([id, quantity]) => !products.some((p) => String(p.id) === id) || !Number.isInteger(quantity) || quantity < 1 || quantity > 99)) return null;
+  if (entries.some(([id, quantity]) => (products && !products.some((p) => String(p.id) === id)) || !Number.isInteger(quantity) || quantity < 1 || quantity > 99)) return null;
   if (modern && (!Number.isSafeInteger(value.updatedAt) || value.updatedAt < 0)) return null;
   return { version: 1, updatedAt: modern ? value.updatedAt : 0, cart: { ...cart } };
 }
