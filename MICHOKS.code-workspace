@@ -1,0 +1,7 @@
+{
+  "folders": [
+    { "name": "MICHOKS Frontend", "path": "frontend" },
+    { "name": "MICHOKS Backend", "path": "server" }
+  ],
+  "settings": { "files.exclude": { "**/node_modules": true } }
+}

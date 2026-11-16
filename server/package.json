@@ -1,0 +1,19 @@
+{
+  "name": "michoks-backend",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node --env-file-if-exists=../.env server.js",
+    "dev": "node --watch --env-file-if-exists=../.env server.js",
+    "test": "node --test tests/*.test.js",
+    "db:check": "node --env-file-if-exists=../.env scripts/check-db.js",
+    "db:init": "node --env-file-if-exists=../.env scripts/init-db.js",
+    "db:import-catalog": "node --env-file-if-exists=../.env scripts/import-catalog.js",
+    "db:demo": "node --env-file-if-exists=../.env scripts/seed-demo-inventory.js",
+    "admin:create": "node --env-file-if-exists=../.env scripts/create-admin.js"
+  },
+  "dependencies": { "cors": "^2.8.5", "express": "^5.1.0", "express-rate-limit": "^8.0.0", "helmet": "^8.1.0", "jose": "^6.2.17", "pg": "^8.16.0", "vue": "^3.5.0" },
+  "devDependencies": { "supertest": "^7.1.0" }
+}

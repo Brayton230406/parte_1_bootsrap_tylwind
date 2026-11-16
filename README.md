@@ -4,6 +4,30 @@ La versión actual usa el esquema PostgreSQL de **68 tablas** suministrado para 
 
 ## Iniciar
 
+Para abrir los **dos proyectos** en Visual Studio Code, abre el archivo
+`MICHOKS.code-workspace`. Aparecerán `MICHOKS Frontend` y `MICHOKS Backend`.
+Desde la carpeta raíz, instala y ejecuta cada proyecto en una terminal distinta:
+
+```sh
+cd server
+npm ci
+npm run dev
+```
+
+```sh
+cd frontend
+npm ci
+npm run dev
+```
+
+Abre **http://127.0.0.1:5173**. El frontend reenvía `/api` al backend en
+`http://127.0.0.1:5050`; para cambiar este destino, configura `BACKEND_URL` al
+iniciar el frontend. El backend lee el `.env` de la raíz y necesita PostgreSQL.
+El esquema SQL y el catálogo inicial permanecen en las carpetas compartidas
+`database/` y `data/` de la raíz. En desarrollo se deben mantener ambas terminales abiertas.
+
+También se puede iniciar el modo integrado desde la raíz (utilizado por Render):
+
 ```sh
 npm install
 cp .env.example .env  # Solo si todavía no tienes un .env configurado.

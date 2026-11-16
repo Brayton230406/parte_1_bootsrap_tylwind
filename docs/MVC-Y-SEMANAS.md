@@ -5,9 +5,9 @@
 Navegador → rutas Express → middleware de autenticación/roles → controlador → modelo → PostgreSQL. La respuesta JSON vuelve al servicio del cliente y a la vista. Las rutas no consultan SQL; los controladores validan y coordinan; los modelos acceden a PostgreSQL. Las vistas no tienen credenciales ni acceso directo a la base.
 
 - **Modelo:** `server/models/`, `server/config/db.js`. Persistencia real en el esquema `michoks`; consultas parametrizadas y transacciones con un mismo cliente del pool.
-- **Vista:** `index.html`, `cuenta.html`, `js/components/`, componentes de `js/pages/account.js`, estilos e imágenes. La tienda conserva su diseño; el panel usa Vue 3.
+- **Vista:** `frontend/index.html`, `frontend/cuenta.html`, `frontend/js/components/`, componentes de `frontend/js/pages/account.js`, estilos e imágenes. La tienda conserva su diseño; el panel usa Vue 3.
 - **Controlador:** `server/controllers/`. `server/routes/` declara endpoints. En el navegador, `js/app.js` inicia la tienda y `js/view.js` enlaza los eventos de la interfaz existente.
-- **Servicios del cliente:** `js/services/`: API, autenticación, pedidos y administración. `js/repo.js` obtiene el catálogo exclusivamente de la API.
+- **Servicios del cliente:** `frontend/js/services/`: API, autenticación, pedidos y administración. `frontend/js/repo.js` obtiene el catálogo exclusivamente de la API.
 - **Middleware:** `server/middleware/`, `server/app.js`: identificación de peticiones, CORS, límite de solicitudes, seguridad HTTP, autenticación y manejo uniforme de errores.
 
 ## Correspondencia con la materia
@@ -20,6 +20,19 @@ Navegador → rutas Express → middleware de autenticación/roles → controlad
 | 10 | Componentes, props, eventos, estado reactivo y servicios de API | Cuenta con Vue 3, componentes `OrderDetail` y `OperationsPanel` con props y eventos, formularios con `v-model`, estados de carga/error/vacío, servicios centralizados y sesión compartida en la pestaña. |
 
 Los PDF presentan ejemplos didácticos de CaféCat y distintas alternativas de tecnología. Aquí se aplican sus principios a MICHOKS usando PostgreSQL, según la solicitud del proyecto. Los ejemplos de JSON de las semanas 8 y 9 se sustituyen por modelos de PostgreSQL. Vue se incorpora progresivamente a la cuenta y administración; no se reescribe la tienda entera con un framework.
+
+## Dos proyectos en Visual Studio Code
+
+Abre `MICHOKS.code-workspace`: muestra `frontend/` como proyecto de presentación y
+`server/` como proyecto de aplicación y datos. Cada uno tiene su propio
+`package.json`, dependencias y comando `npm run dev`. El servidor de desarrollo
+del frontend publica las vistas en el puerto 5173 y reenvía `/api` al backend
+Express en el 5050; la API consulta PostgreSQL. El frontend y la API conservan
+el mismo origen visible para el navegador. La configuración opcional
+`BACKEND_URL` permite apuntar a otro origen de API. En Render el servidor Express
+sirve la misma carpeta `frontend/` y la API juntos, sin cambiar la URL publicada.
+Los archivos `database/` y `data/` son recursos compartidos del repositorio,
+utilizados por los scripts de inicialización del backend.
 
 ## Esquema utilizado
 
