@@ -57,3 +57,5 @@ Este proyecto necesita un servicio que ejecute Node.js y una base PostgreSQL acc
 Para una instalación nueva, configura las variables de `.env.example`, ejecuta `npm ci`, `npm run db:init`, `npm run db:import-catalog` y, si deseas datos de ejemplo, `npm run db:demo`. Usa `npm start` como comando de arranque. Configura `HOST=0.0.0.0` y el `PORT` asignado por el proveedor. La conexión PostgreSQL se configura mediante `DATABASE_URL` o las variables `PG*`.
 
 La API devuelve diez productos por página por defecto. El catálogo solicita la siguiente página cuando se elige «Ver más productos». La búsqueda, categoría, ocasión, presupuesto y orden se consultan al servidor. La cuenta guarda los carritos en PostgreSQL.
+
+La configuración para Render está en [render.yaml](render.yaml). Consulta [la guía de Render](docs/RENDER.md) para las variables, datos de demostración y duración del plan gratuito.

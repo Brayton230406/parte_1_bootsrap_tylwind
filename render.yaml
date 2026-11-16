@@ -1,0 +1,33 @@
+databases:
+  - name: michoks-db
+    databaseName: michoks
+    user: michoks
+    plan: free
+    region: oregon
+    postgresMajorVersion: "17"
+    ipAllowList: []
+
+services:
+  - type: web
+    name: michoks-web
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci --omit=dev
+    startCommand: node server/scripts/railway-init.js && npm start
+    healthCheckPath: /api/v1/salud
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: michoks-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: INITIAL_DEMO_INVENTORY
+        value: "true"
+      - key: INITIAL_ADMIN_PASSWORD
+        sync: false
