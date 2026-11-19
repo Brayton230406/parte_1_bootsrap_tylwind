@@ -66,6 +66,8 @@ En una base nueva, después de `npm run db:init`, usa `npm run db:import-catalog
 
 Lee [la guía MVC y la correspondencia con semanas 7–10](docs/MVC-Y-SEMANAS.md) y [la referencia de API](docs/API.md). Incluyen estructura, operaciones, configuración y límites de los flujos administrativos. Los archivos de bases y auditorías anteriores se conservan como antecedentes; el esquema actual es `database/michoks-68.sql`.
 
+La [guía de semana 11](docs/SEMANA-11.md) explica Sequelize, los esquemas y la API administrativa de las 68 tablas. Para probarla en VS Code, importa `server/thunder-collection.json` en Thunder Client o abre `server/pruebas.http` con una extensión compatible; sustituye los valores de ejemplo por credenciales de prueba sin guardarlas en el repositorio.
+
 `npm test` ejecuta las pruebas unitarias. Las pruebas de PostgreSQL requieren `TEST_DATABASE=true` y una base temporal, porque crean registros.
 
 ## Inventario de demostración

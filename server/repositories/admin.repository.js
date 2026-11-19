@@ -1,5 +1,6 @@
 import schema from '../config/schema.json' with {type:'json'};
-import { pool, transaction } from '../config/db.js';
+import { transaction } from '../config/db.js';
+import { models } from '../orm/sequelize.js';
 import { HttpError } from '../lib/http.js';
 // Nombres SQL siempre tomados de la lista cerrada del esquema adjunto.
 const quote = value => '"'+value+'"';
@@ -12,9 +13,18 @@ function table(name) { const t=schema[name]; if (!Object.hasOwn(schema,name)) th
 function columns(t) { return t.columns.filter(c=>!hidden.has(c.name)).map(c=>quote(c.name)).join(','); }
 export async function list(name,limit,offset) {
   const t=table(name);
-  const {rows}=await pool.query(`SELECT ${columns(t)} FROM ${quote(name)} ORDER BY ${t.primaryKey.map(quote).join(',')} LIMIT $1 OFFSET $2`,[limit,offset]);
-  const {rows:[{total}]}=await pool.query(`SELECT count(*)::int AS total FROM ${quote(name)}`);
-  return {rows,total};
+  const attributes=t.columns.filter(c=>!hidden.has(c.name)).map(c=>c.name);
+  const {rows,count} = await models[name].findAndCountAll({ attributes, order:t.primaryKey.map(key=>[key,'ASC']), limit, offset, raw:true });
+  return {rows,total:count};
+}
+export async function get(name,key) {
+  const t=table(name);
+  if (!key || typeof key !== 'object' || Array.isArray(key) || Object.keys(key).some(field=>!t.primaryKey.includes(field))) throw new HttpError(422,'Clave inválida.');
+  for (const field of t.primaryKey) if (typeof key[field] !== 'string' || !key[field].trim()) throw new HttpError(422,`Falta clave ${field}.`);
+  const attributes=t.columns.filter(c=>!hidden.has(c.name)).map(c=>c.name);
+  const row=await models[name].findOne({attributes,where:key,raw:true});
+  if (!row) throw new HttpError(404,'Registro no encontrado.');
+  return row;
 }
 export async function write(name,operation,key,input) {
   const t=table(name);

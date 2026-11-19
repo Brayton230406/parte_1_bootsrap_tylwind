@@ -25,6 +25,12 @@ test('flujo MVC real con PostgreSQL: permisos, CRUD, checkout atómico y cancela
  const size=await create('presentacion',{id_unidad_medida:unit.id_unidad_medida,nombre:'Botella 750 ml',cantidad:750});
  const brand=await create('marca',{nombre:'Marca '+stamp});
  const product=await create('producto',{id_marca:brand.id_marca,id_presentacion:size.id_presentacion,sku:'SKU-'+stamp,nombre:'Producto prueba',precio_base:'12.50'});
+ const schema=await auth(api.get('/api/v1/admin/esquema/producto'));
+ assert.equal(schema.status,200); assert.equal(schema.body.data.name,'producto');
+ const record=await auth(api.get('/api/v1/admin/producto/registro').query({id_producto:product.id_producto}));
+ assert.equal(record.status,200); assert.equal(String(record.body.data.id_producto),String(product.id_producto));
+ assert.equal((await auth(api.get('/api/v1/admin/producto/registro'))).status,422);
+ assert.equal((await auth(api.get('/api/v1/admin/__proto__/registro').query({id:'1'}))).status,404);
  const warehouse=await create('almacen',{nombre:'Almacén '+stamp,direccion:'Calle de prueba 123'});
  const location=await create('ubicacion',{id_almacen:warehouse.id_almacen,codigo:'A1'});
  const pa=await create('producto_almacen',{id_producto:product.id_producto,id_almacen:warehouse.id_almacen});

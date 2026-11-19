@@ -1,0 +1,38 @@
+### MICHOKS: peticiones para REST Client; usa una base de prueba
+@base = http://127.0.0.1:5050/api/v1
+@token = pega_aqui_tu_JWT_sin_publicarlo
+
+### Salud y catálogo público: diez productos
+GET {{base}}/salud
+
+### Catálogo
+GET {{base}}/productos?limit=10&offset=0
+
+### Acceso sin token (401)
+GET {{base}}/admin/esquema
+
+### Login: escribe los datos en tu editor local, no los guardes en Git
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{"identifier":"admin_michoks","password":"REEMPLAZAR_EN_LOCAL"}
+
+### Esquemas, con token administrativo
+GET {{base}}/admin/esquema
+Authorization: Bearer {{token}}
+
+### Detalle del esquema de una tabla
+GET {{base}}/admin/esquema/producto
+Authorization: Bearer {{token}}
+
+### Listado de una tabla
+GET {{base}}/admin/producto?limit=10&offset=0
+Authorization: Bearer {{token}}
+
+### Registro por clave primaria (adapta el identificador)
+GET {{base}}/admin/producto/registro?id_producto=1
+Authorization: Bearer {{token}}
+
+### Mis pedidos (token de cliente)
+GET {{base}}/pedidos
+Authorization: Bearer {{token}}

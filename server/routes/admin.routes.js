@@ -12,6 +12,8 @@ api.post('/admin/operaciones/recibir',operations.receive);
 api.post('/admin/operaciones/despachar',operations.dispatch);
 api.post('/admin/operaciones/entregar',operations.delivered);
 api.get('/admin/esquema',admin.schema);
+api.get('/admin/esquema/:table',admin.tableSchema);
+api.get('/admin/:table/registro',admin.get);
 api.get('/admin/:table',admin.list);
 api.post('/admin/:table',admin.create);
 api.put('/admin/:table',admin.replace);
