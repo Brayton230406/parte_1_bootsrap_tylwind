@@ -1,7 +1,57 @@
 {
   "folders": [
-    { "name": "MICHOKS Frontend", "path": "frontend" },
-    { "name": "MICHOKS Backend", "path": "server" }
+    {
+      "name": "MICHOKS Frontend",
+      "path": "frontend"
+    },
+    {
+      "name": "MICHOKS Backend",
+      "path": "server"
+    }
   ],
-  "settings": { "files.exclude": { "**/node_modules": true } }
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "MICHOKS: iniciar backend",
+        "type": "shell",
+        "command": "npm run dev",
+        "options": {
+          "cwd": "${workspaceFolder:MICHOKS Backend}"
+        },
+        "isBackground": true,
+        "problemMatcher": [],
+        "presentation": {
+          "panel": "dedicated"
+        }
+      },
+      {
+        "label": "MICHOKS: iniciar frontend",
+        "type": "shell",
+        "command": "npm run dev",
+        "options": {
+          "cwd": "${workspaceFolder:MICHOKS Frontend}"
+        },
+        "isBackground": true,
+        "problemMatcher": [],
+        "presentation": {
+          "panel": "dedicated"
+        }
+      },
+      {
+        "label": "MICHOKS: iniciar ambos",
+        "dependsOn": [
+          "MICHOKS: iniciar backend",
+          "MICHOKS: iniciar frontend"
+        ],
+        "dependsOrder": "parallel",
+        "problemMatcher": []
+      }
+    ]
+  }
 }

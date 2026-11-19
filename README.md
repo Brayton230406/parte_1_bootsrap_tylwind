@@ -6,6 +6,8 @@ La versión actual usa el esquema PostgreSQL de **68 tablas** suministrado para 
 
 Para abrir los **dos proyectos** en Visual Studio Code, abre el archivo
 `MICHOKS.code-workspace`. Aparecerán `MICHOKS Frontend` y `MICHOKS Backend`.
+Una vez instaladas las dependencias, puedes iniciar ambos desde **Terminal →
+Ejecutar tarea → MICHOKS: iniciar ambos**. También puedes usar dos terminales:
 Desde la carpeta raíz, instala y ejecuta cada proyecto en una terminal distinta:
 
 ```sh
